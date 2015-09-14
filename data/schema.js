@@ -18,6 +18,9 @@ import {
 var routeInterface = new GraphQLInterfaceType({
   name: 'MessageRouteInterface',
   fields: () => ({
+    id: {
+      type: GraphQLID
+    },
     name: {
       type: GraphQLString
     },
@@ -33,6 +36,9 @@ var routeInterface = new GraphQLInterfaceType({
 var routeType = new GraphQLObjectType({
   name: 'MessageRoute',
   fields: {
+    id: {
+      type: GraphQLID
+    },
     name: {
       type: GraphQLString
     },
