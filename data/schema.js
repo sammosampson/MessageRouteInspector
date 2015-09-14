@@ -12,7 +12,7 @@ import {
 } from 'graphql';
 
 import {
-  getRoute
+  getApp
 } from './database';
 
 var routeInterface = new GraphQLInterfaceType({
@@ -46,14 +46,26 @@ var routeType = new GraphQLObjectType({
   interfaces: [ routeInterface ]
 });
 
+var appType = new GraphQLObjectType({
+  name: 'App',
+  fields: {
+    routes: {
+      type: new GraphQLList(routeInterface),
+      resolve: (app) => {
+        return app.routes;
+      }
+    }
+  }
+});
+
 export var Schema = new GraphQLSchema({
   query: new GraphQLObjectType({
     name: 'Query',
     fields: {
-      route: {
-        type: routeType,
+      app: {
+        type: appType,
         resolve: function() {
-          return getRoute();
+          return getApp();
         }
       }
     }

@@ -1,26 +1,21 @@
 import 'babel/polyfill';
+import MessageRoutesList from './MessageRoutesList';
 
 class AppPage extends React.Component {
   render() {
     return (
-      <div>
-        <h1>Widget list</h1>
-      </div>
+      <MessageRoutesList/>
     );
   }
 }
 
 export default Relay.createContainer(AppPage, {
   fragments: {
-    route: () => Relay.QL`
-      fragment on MessageRoute {
-        name,
+    app: () => Relay.QL`
+      fragment on App {
         routes {
-          name,
-          routes {
-            name
-          },
-        },
+          ${MessageRoutesList.getFragment('routes')}
+        }
       },
     `,
   },

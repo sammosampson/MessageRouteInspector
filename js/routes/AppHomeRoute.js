@@ -1,8 +1,8 @@
 export default class extends Relay.Route {
   static queries = {
-    route: () => Relay.QL`
+    app: () => Relay.QL`
       query {
-        route
+        app
       }
     `,
   };

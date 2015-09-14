@@ -1,17 +1,22 @@
-const messageRoute = {
-  name:'GenerateIntermediateFiles',
+const app = {
   routes: [{
-    name:'NextGenerateIntermediateFiles',
+    name:'GenerateIntermediateFiles',
     routes: [{
-      name:'NextNextGenerateIntermediateFiles',
+      name:'NextGenerateIntermediateFiles',
+      routes: [{
+        name:'NextNextGenerateIntermediateFiles',
+        routes: []
+      }]
+    },{
+      name:'NextThing',
       routes: []
     }]
   },{
-    name:'NextThing',
+    name:'GeneratePosDocuments',
     routes: []
   }]
 };
 
 module.exports = {
-  getRoute: () => messageRoute
+  getApp: () => app
 };
