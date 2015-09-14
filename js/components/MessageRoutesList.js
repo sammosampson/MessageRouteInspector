@@ -2,13 +2,17 @@ import 'babel/polyfill';
 import List from './List';
 
 class MessageRoutesList extends React.Component {
-  onRouteItemSelected() {
-    console.log('onRouteItemSelected');
+  onRouteItemSelected(id) {
+    console.log('onRouteItemSelected' + id);
   }
 
   render() {
     return (
-      <List items={this.props.routes} getItemTitle={(route) => route.name} getItemKey={(route) => route.id} onItemSelected={this.onRouteItemSelected.bind(this)} />
+      <List
+        items={this.props.routes}
+        getItemTitle={(route) => route.name}
+        getItemKey={(route) => route.id}
+        onItemSelected={this.onRouteItemSelected.bind(this)} />
     );
   }
 }
