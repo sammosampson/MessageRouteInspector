@@ -15,50 +15,58 @@ import {
   getApp
 } from './database';
 
-var routeInterface = new GraphQLInterfaceType({
-  name: 'MessageRouteInterface',
-  fields: () => ({
+var message = new GraphQLObjectType({
+  name: 'Message',
+  fields: {
     id: {
       type: GraphQLID
     },
     name: {
       type: GraphQLString
     },
-    routes: {
-      type: new GraphQLList(routeInterface)
+    closeBranchCount: {
+      type: GraphQLInt
     }
-  }),
-  resolveType: (route) => {
-    return routeType;
   }
 });
 
-var routeType = new GraphQLObjectType({
+var route = new GraphQLObjectType({
   name: 'MessageRoute',
   fields: {
     id: {
       type: GraphQLID
     },
-    name: {
-      type: GraphQLString
-    },
-    routes: {
-      type: new GraphQLList(routeInterface),
+    root: {
+      type: message,
       resolve: (route) => {
-        return route.routes;
+        return route.messages[0];
+      }
+    },
+    messages: {
+      type: new GraphQLList(message),
+      resolve: (route) => {
+        return route.messages;
       }
     }
-  },
-  interfaces: [ routeInterface ]
+  }
 });
 
-var appType = new GraphQLObjectType({
+var app = new GraphQLObjectType({
   name: 'App',
   fields: {
     routes: {
-      type: new GraphQLList(routeInterface),
+      type: new GraphQLList(route),
       resolve: (app) => {
         return app.routes;
+      }
+    },
+    route: {
+      args: {
+        id: {type: GraphQLID}
+      },
+      type: route,
+      resolve: (app, {id}) => {
+        return app.routes[0];
       }
     }
   }
@@ -69,7 +77,7 @@ export var Schema = new GraphQLSchema({
     name: 'Query',
     fields: {
       app: {
-        type: appType,
+        type: app,
         resolve: function() {
           return getApp();
         }

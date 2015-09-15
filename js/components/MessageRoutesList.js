@@ -2,17 +2,13 @@ import 'babel/polyfill';
 import List from './List';
 
 class MessageRoutesList extends React.Component {
-  onRouteItemSelected(id) {
-    console.log('onRouteItemSelected' + id);
-  }
-
   render() {
     return (
       <List
         items={this.props.routes}
-        getItemTitle={(route) => route.name}
+        getItemTitle={(route) => route.root.name}
         getItemKey={(route) => route.id}
-        onItemSelected={this.onRouteItemSelected.bind(this)} />
+        onItemSelected={this.props.onRouteItemSelected} />
     );
   }
 }
@@ -20,9 +16,11 @@ class MessageRoutesList extends React.Component {
 export default Relay.createContainer(MessageRoutesList, {
   fragments: {
     routes: () => Relay.QL`
-      fragment on MessageRouteInterface @relay(plural: true) {
-        id
-        name
+      fragment on MessageRoute @relay(plural: true) {
+        id,
+        root {
+          name
+        }
       },
     `,
   },
