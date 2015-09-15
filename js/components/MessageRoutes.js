@@ -1,7 +1,7 @@
 import 'babel/polyfill';
 import List from './List';
 
-class MessageRoutesList extends React.Component {
+class MessageRoutes extends React.Component {
   render() {
     return (
       <List
@@ -13,7 +13,7 @@ class MessageRoutesList extends React.Component {
   }
 }
 
-export default Relay.createContainer(MessageRoutesList, {
+export default Relay.createContainer(MessageRoutes, {
   fragments: {
     routes: () => Relay.QL`
       fragment on MessageRoute @relay(plural: true) {

@@ -1,7 +1,7 @@
 import 'babel/polyfill';
 import Panel from './Panel'
-import MessageRoutesList from './MessageRoutesList';
-import SelectedMessageRoute from './SelectedMessageRoute';
+import MessageRoutes from './MessageRoutes';
+import MessageRouteInspector from './MessageRouteInspector';
 
 class AppPage extends React.Component {
   onRouteItemSelected(id) {
@@ -11,11 +11,11 @@ class AppPage extends React.Component {
   render() {
     return (
       <div>
-        <Panel title="Selected route">
-            <SelectedMessageRoute route={this.props.viewer.route} />
+        <Panel title="Selected route inspector">
+            <MessageRouteInspector route={this.props.viewer.route} />
         </Panel>
         <Panel title="Available routes">
-          <MessageRoutesList
+          <MessageRoutes
             routes={this.props.viewer.routes}
             onRouteItemSelected={this.onRouteItemSelected.bind(this)}/>
         </Panel>
@@ -32,12 +32,12 @@ export default Relay.createContainer(AppPage, {
     viewer: () => Relay.QL`
       fragment on App {
         routes {
-          ${MessageRoutesList.getFragment('routes')}
+          ${MessageRoutes.getFragment('routes')}
         },
         route(
           id: $selectedRoute
         ) {
-          ${SelectedMessageRoute.getFragment('route')}
+          ${MessageRouteInspector.getFragment('route')}
         }
       }
     `,
