@@ -5,11 +5,20 @@ class MessageRouteInspector extends React.Component {
     return (
       <ul> {
         this.props.route.messages.map((message) => {
-          return <li>{message.name}</li>
+          return renderMessage(message)
         })
       }
       </ul>
     )
+  }
+
+  renderMessage(message) {
+    var node = <li>{message.name}<ul>
+    for (i = message.closeBranchCount; i > 0; i--;) {
+      var closing = '</ul></li>'
+      node = node + closing
+    }
+    return node;
   }
 }
 
