@@ -5,10 +5,11 @@ import MessageRouteInspector from './MessageRouteInspector';
 
 class AppPage extends React.Component {
   onRouteItemSelected(id) {
-    console.log('onRouteItemSelected' + id);
+    this.props.relay.setVariables({selectedRoute: id})
   }
 
   render() {
+    console.log('render AppPage');
     return (
       <div>
         <Panel title="Selected route inspector">

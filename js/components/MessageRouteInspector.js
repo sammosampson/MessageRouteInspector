@@ -1,24 +1,33 @@
 import 'babel/polyfill';
+import MessageNode from './MessageNode'
 
 class MessageRouteInspector extends React.Component {
-  render() {
-    return (
-      <ul> {
-        this.props.route.messages.map((message) => {
-          return renderMessage(message)
-        })
+  rebuildHierarchy(messages) {
+    var root = null;
+    this.props.route.messages.map((message) => {
+      if(root === null) {
+        root = message;
+        root.children = [];
+      } else {
+        root.children.push(message);
+        message.parent = root;
+        root = message;
+        root.children = [];
+        for(var i = message.closeBranchCount; i > 0; i--) {
+          root = root.parent
+        }
       }
-      </ul>
-    )
+    });
+    return root;
   }
 
-  renderMessage(message) {
-    var node = <li>{message.name}<ul>
-    for (i = message.closeBranchCount; i > 0; i--;) {
-      var closing = '</ul></li>'
-      node = node + closing
-    }
-    return node;
+  render() {
+    console.log('render MessageRouteInspector');
+    return (
+      <ul>
+        <MessageNode message={this.rebuildHierarchy(this.props.route.messages)} />
+      </ul>
+    )
   }
 }
 

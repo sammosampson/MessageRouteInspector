@@ -3,6 +3,7 @@ import List from './List';
 
 class MessageRoutes extends React.Component {
   render() {
+    console.log('render MessageRoutes');
     return (
       <List
         items={this.props.routes}

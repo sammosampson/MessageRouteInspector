@@ -1,3 +1,7 @@
+import {
+  _
+} from 'lodash'
+
 const app = {
   routes: [{
     id: 1,
@@ -39,5 +43,11 @@ const app = {
 };
 
 module.exports = {
-  getApp: () => app
+  getApp: () => app,
+  getRoute: (id) => {
+    console.log(id);
+    var v = _.find(app.routes, {'id': parseInt(id)});
+    console.log(v);
+    return v;
+  }
 };

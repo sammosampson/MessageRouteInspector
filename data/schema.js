@@ -12,6 +12,7 @@ import {
 } from 'graphql';
 
 import {
+  getRoute,
   getApp
 } from './database';
 
@@ -66,7 +67,7 @@ var app = new GraphQLObjectType({
       },
       type: route,
       resolve: (app, {id}) => {
-        return app.routes[0];
+        return getRoute(id);
       }
     }
   }
