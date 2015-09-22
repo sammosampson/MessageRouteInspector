@@ -13,20 +13,29 @@ import {
 
 import {
   getRoute,
-  getApp
+  getRoutes
 } from './database';
 
 var message = new GraphQLObjectType({
   name: 'Message',
   fields: {
     id: {
-      type: GraphQLID
+      type: GraphQLID,
+      resolve: (message) => {
+        return message.Id;
+      }
     },
     name: {
-      type: GraphQLString
+      type: GraphQLString,
+      resolve: (message) => {
+        return message.Name;
+      }
     },
     closeBranchCount: {
-      type: GraphQLInt
+      type: GraphQLInt,
+      resolve: (message) => {
+        return message.CloseBranchCount;
+      }
     }
   }
 });
@@ -35,18 +44,21 @@ var route = new GraphQLObjectType({
   name: 'MessageRoute',
   fields: {
     id: {
-      type: GraphQLID
+      type: GraphQLID,
+      resolve: (route) => {
+        return route.Id;
+      }
     },
     root: {
       type: message,
       resolve: (route) => {
-        return route.messages[0];
+        return route.Messages[0];
       }
     },
     messages: {
       type: new GraphQLList(message),
       resolve: (route) => {
-        return route.messages;
+        return route.Messages;
       }
     }
   }
@@ -58,7 +70,7 @@ var app = new GraphQLObjectType({
     routes: {
       type: new GraphQLList(route),
       resolve: (app) => {
-        return app.routes;
+        return getRoutes();
       }
     },
     route: {
@@ -80,7 +92,7 @@ export var Schema = new GraphQLSchema({
       app: {
         type: app,
         resolve: function() {
-          return getApp();
+          return {};
         }
       }
     }

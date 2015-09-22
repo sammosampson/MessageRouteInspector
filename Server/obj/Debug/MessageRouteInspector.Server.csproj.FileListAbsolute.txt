@@ -1,0 +1,7 @@
+E:\Work\MessageRouteInspector\Server\bin\Debug\SystemDot.MessageRouteInspector.Server.dll
+E:\Work\MessageRouteInspector\Server\bin\Debug\SystemDot.MessageRouteInspector.Server.pdb
+E:\Work\MessageRouteInspector\Server\obj\Debug\SystemDot.MessageRouteInspector.Server.dll
+E:\Work\MessageRouteInspector\Server\obj\Debug\SystemDot.MessageRouteInspector.Server.pdb
+E:\Work\MessageRouteInspector\Server\Build\SystemDot.MessageRouteInspector.Server.dll
+E:\Work\MessageRouteInspector\Server\Build\SystemDot.MessageRouteInspector.Server.pdb
+E:\Work\MessageRouteInspector\Server\obj\Debug\MessageRouteInspector.Server.csprojResolveAssemblyReference.cache
