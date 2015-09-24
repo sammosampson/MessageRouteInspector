@@ -14,7 +14,7 @@ import {
 import {
   getRoute,
   getRoutes
-} from './database';
+} from './routeFinder';
 
 var message = new GraphQLObjectType({
   name: 'Message',
@@ -79,7 +79,7 @@ var app = new GraphQLObjectType({
       },
       type: route,
       resolve: (app, {id}) => {
-        return getRoute(id);
+        return getRoute(parseInt(id));
       }
     }
   }

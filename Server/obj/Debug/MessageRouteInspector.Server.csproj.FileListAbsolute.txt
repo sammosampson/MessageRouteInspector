@@ -5,3 +5,8 @@ E:\Work\MessageRouteInspector\Server\obj\Debug\SystemDot.MessageRouteInspector.S
 E:\Work\MessageRouteInspector\Server\Build\SystemDot.MessageRouteInspector.Server.dll
 E:\Work\MessageRouteInspector\Server\Build\SystemDot.MessageRouteInspector.Server.pdb
 E:\Work\MessageRouteInspector\Server\obj\Debug\MessageRouteInspector.Server.csprojResolveAssemblyReference.cache
+C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.MessageRouteInspector.Server.dll
+C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.MessageRouteInspector.Server.pdb
+C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\obj\Debug\MessageRouteInspector.Server.csprojResolveAssemblyReference.cache
+C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\obj\Debug\SystemDot.MessageRouteInspector.Server.dll
+C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\obj\Debug\SystemDot.MessageRouteInspector.Server.pdb

@@ -1,11 +1,15 @@
 ﻿namespace SystemDot.MessageRouteInspector.Server
 {
     using System.Collections.Generic;
+    using System.Linq;
     using System.Threading.Tasks;
+    using SystemDot.MessageRouteInspector.Server.Queries;
 
-    public class RequestDispatcher
+    public class RouteFinder
     {
-        public async Task<object> DispatchRequest(dynamic input)
+        static GetRoutesResponse getRoutesResponse;
+
+        public static Task Initialise()
         {
             var root = new Message
             {
@@ -14,7 +18,6 @@
                 CloseBranchCount = 0
             };
 
-            
             var nextmessage = new Message
             {
                 Id = 2,
@@ -28,7 +31,7 @@
                 Name = "NextNextGenerateIntermediateFiles",
                 CloseBranchCount = 2
             };
-            
+
             var nextThing = new Message
             {
                 Id = 4,
@@ -43,7 +46,7 @@
                 CloseBranchCount = 1
             };
 
-            var getRoutesResponse = new GetRoutesResponse
+            getRoutesResponse = new GetRoutesResponse
             {
                 Routes = new List<Route> { 
                     new Route
@@ -69,7 +72,18 @@
                     } 
                 }.ToArray()
             };
-            return await Task.FromResult(getRoutesResponse.Routes);
+
+            return Task.FromResult(false);
+        }
+
+        public static Task<Route> GetRoute(int id)
+        {
+            return Task.FromResult(getRoutesResponse.Routes.Single(r => r.Id == id));
+        }
+
+        public static Task<Route[]> GetRoutesAsync()
+        {
+            return Task.FromResult(getRoutesResponse.Routes);
         }
     }
 }

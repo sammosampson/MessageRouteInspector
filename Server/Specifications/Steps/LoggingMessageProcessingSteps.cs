@@ -1,39 +1,40 @@
 ﻿namespace SystemDot.MessageRouteInspector.Server.Specifications.Steps
 {
+    using System;
     using System.Linq;
     using System.Threading.Tasks;
+    using SystemDot.MessageRouteInspector.Server.Queries;
     using FluentAssertions;
     using TechTalk.SpecFlow;
 
     [Binding]
     public class LoggingMessageProcessingSteps
     {
-        private object response;
+        private Route[] routes;
+        private MessageLoggingClient client;
+
+        [Given(@"I have setup the server")]
+        public void GivenIHaveSetupTheServer()
+        {
+            client = Bootstrapper.InitialiseAsync().Result;
+        }
 
         [Given(@"I have logged message proccessing for the message '(.*)'")]
         public void GivenIHaveLoggedMessageProccessingForTheMessage(string messageName)
         {
-            var dispatcher = new CommandDispatcher();
-            response = dispatcher.DispatchCommand(new
-            {
-                LogMessageProcessing = new
-                {
-                    MessageName = messageName
-                }
-            }).Result;            
+            client.LogMessageProcessingAsync(messageName).Wait();
         }
 
         [When(@"I get all routes")]
         public void WhenIGetAllRoutes()
         {
-            var dispatcher = new RequestDispatcher();
-            response = dispatcher.DispatchRequest(new { GetAllRoutes = new {} }).Result;
+            routes = RouteFinder.GetRoutesAsync().Result;
         }
 
         [Then(@"the only route should have the name '(.*)'")]
         public void ThenTheOnlyRouteShouldHaveTheName(string messageName)
         {
-            response.As<GetRoutesResponse>().Routes.Single().Root.Name.Should().Be(messageName);
+            routes.Single().Root.Name.Should().Be(messageName);
         }
     }
 }

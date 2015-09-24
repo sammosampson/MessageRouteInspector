@@ -78,10 +78,12 @@ namespace SystemDot.MessageRouteInspector.Server.Specifications.Features
 #line 6
 this.ScenarioSetup(scenarioInfo);
 #line 7
-    testRunner.Given("I have logged message proccessing for the message \'root\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+    testRunner.Given("I have setup the server", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 8
-    testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.Given("I have logged message proccessing for the message \'root\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 9
+    testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 10
     testRunner.Then("the only route should have the name \'root\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

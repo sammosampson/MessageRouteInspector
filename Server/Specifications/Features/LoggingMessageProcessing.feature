@@ -4,6 +4,7 @@
   So that I can see it in the inspector
 
 Scenario: First log
+    Given I have setup the server
     Given I have logged message proccessing for the message 'root'
     When I get all routes
     Then the only route should have the name 'root'
