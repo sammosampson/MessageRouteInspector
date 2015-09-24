@@ -4,19 +4,19 @@ namespace SystemDot.MessageRouteInspector.Server
     using SystemDot.Domain.Commands;
     using SystemDot.EventSourcing;
 
-    public class LogMessageProcessingCommandHandler : IAsyncCommandHandler<LogMessageProcessing>
+    public class LogMessageProcessedCommandHandler : IAsyncCommandHandler<LogMessageProcessed>
     {
         readonly IDomainRepository repository;
 
-        public LogMessageProcessingCommandHandler(IDomainRepository repository)
+        public LogMessageProcessedCommandHandler(IDomainRepository repository)
         {
             this.repository = repository;
         }
 
-        public async Task Handle(LogMessageProcessing message)
+        public async Task Handle(LogMessageProcessed message)
         {
             var route = repository.Get<MessageRoute>(new MessageRouteId());
-            route.StartMessage(message.MessageName, message.CreatedOn);
+            route.CompleteMessage();
             repository.Save(route);
 
             await Task.FromResult(false);

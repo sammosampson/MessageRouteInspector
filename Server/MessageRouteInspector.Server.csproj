@@ -98,6 +98,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="LogMessageProcessed.cs" />
+    <Compile Include="LogMessageProcessedCommandHandler.cs" />
+    <Compile Include="MessageProcessedLogged.cs" />
     <Compile Include="MessageProcessingLogged.cs" />
     <Compile Include="MessageRoute.cs" />
     <Compile Include="MessageRouteId.cs" />
@@ -110,7 +113,7 @@
     <Compile Include="MessageLoggingClient.cs" />
     <Compile Include="Queries\Route.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Queries\SetHirePurchaseTermsProjection.cs" />
+    <Compile Include="Queries\MessageProcessedLoggedProjection.cs" />
     <Compile Include="RouteFinder.cs" />
   </ItemGroup>
   <ItemGroup>

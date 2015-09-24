@@ -1,5 +1,6 @@
 ﻿namespace SystemDot.MessageRouteInspector.Server.Specifications.Steps
 {
+    using System;
     using System.Linq;
     using SystemDot.MessageRouteInspector.Server.Queries;
     using FluentAssertions;
@@ -17,10 +18,16 @@
             client = Bootstrapper.InitialiseAsync().Result;
         }
 
-        [Given(@"I have logged message proccessing for the message '(.*)'")]
-        public void GivenIHaveLoggedMessageProccessingForTheMessage(string messageName)
+        [Given(@"I have logged message processing for the message '(.*)' from machine '(.*)' on thread (.*) dated '(.*)'")]
+        public void GivenIHaveLoggedMessageProcessingForTheMessageFromMachineOnThreadDated(string name, string machine, int thread, DateTime dated)
         {
-            client.LogMessageProcessingAsync(messageName).Wait();
+            client.LogMessageProcessingAsync(name, machine, thread, dated).Wait();
+        }
+
+        [Given(@"I have logged message processed from machine '(.*)' on thread (.*)")]
+        public void GivenIHaveLoggedMessageProcessedFromMachineOnThread(string machine, int thread)
+        {
+            client.LogMessageProcessedAsync(machine, thread).Wait();
         }
 
         [When(@"I get all routes")]
@@ -29,10 +36,17 @@
             routes = client.GetRoutesAsync().Result;
         }
 
-        [Then(@"the only route should have the name '(.*)'")]
-        public void ThenTheOnlyRouteShouldHaveTheName(string messageName)
+        [Then(@"there should not be any routes")]
+        public void ThenThereShouldNotBeAnyRoutes()
         {
-            routes.Single().Root.Name.Should().Be(messageName);
+            routes.Should().BeEmpty();
+        }
+
+        [Then(@"the only route should have the name '(.*)' dated '(.*)'")]
+        public void ThenTheOnlyRouteShouldHaveTheNameDated(string name, DateTime dated)
+        {
+            routes.Single().Root.Name.Should().Be(name);
+            routes.Single().CreatedOn.Should().Be(dated);
         }
     }
 }

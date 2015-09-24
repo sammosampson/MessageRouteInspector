@@ -5,23 +5,24 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
     using SystemDot.EventSourcing.Projections;
 
     [HydrateProjectionAtStartup]
-    public class SetHirePurchaseTermsProjection : IProjection<MessageProcessingLogged>
+    public class MessageProcessedLoggedProjection : IProjection<MessageProcessedLogged>
     {
         readonly InMemoryStore inMemoryStore;
 
-        public SetHirePurchaseTermsProjection(InMemoryStore inMemoryStore)
+        public MessageProcessedLoggedProjection(InMemoryStore inMemoryStore)
         {
             this.inMemoryStore = inMemoryStore;
         }
 
-        public Task Handle(MessageProcessingLogged message)
+        public Task Handle(MessageProcessedLogged message)
         {
             inMemoryStore.Add(new Route
             {
                 Root = new Message
                 {
                     Name = message.MessageName
-                }
+                },
+                CreatedOn = message.CreatedOn
             });
 
             return Task.FromResult(false);

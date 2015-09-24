@@ -1,17 +1,25 @@
 namespace SystemDot.MessageRouteInspector.Server
 {
+    using System;
     using SystemDot.EventSourcing.Aggregation;
 
     public class MessageRoute : AggregateRoot
     {
-        public static MessageRoute AppendMessage(string message)
+        MessageProcessingLogged currentMessage;
+
+        public void StartMessage(string message, DateTime createdOn)
         {
-            return new MessageRoute(message);
+            AddEvent(new MessageProcessingLogged { MessageName = message, CreatedOn = createdOn });
         }
 
-        MessageRoute(string message) : base(new MessageRouteId())
+        void ApplyEvent(MessageProcessingLogged @event)
         {
-            AddEvent(new MessageProcessingLogged { MessageName = message });
+            currentMessage = @event;
+        }
+
+        public void CompleteMessage()
+        {
+            AddEvent(new MessageProcessedLogged { MessageName = currentMessage.MessageName, CreatedOn = currentMessage.CreatedOn });
         }
     }
 }
