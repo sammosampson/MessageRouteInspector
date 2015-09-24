@@ -5,9 +5,11 @@ namespace SystemDot.MessageRouteInspector.Server
     using SystemDot.Domain;
     using SystemDot.Domain.Bootstrapping;
     using SystemDot.Domain.Commands;
+    using SystemDot.Domain.Queries;
     using SystemDot.Environment;
     using SystemDot.EventSourcing.Bootstrapping;
     using SystemDot.EventSourcing.InMemory.Bootstrapping;
+    using SystemDot.EventSourcing.Projections;
     using SystemDot.Ioc;
 
     public static class Bootstrapper
@@ -22,6 +24,8 @@ namespace SystemDot.MessageRouteInspector.Server
                 .UseDomain()
                     .WithSimpleMessaging()
                     .RegisterBuildAction(c => c.RegisterCommandHandlersFromAssemblyOf<LogMessageProcessingCommandHandler>())
+                    .RegisterBuildAction(c => c.RegisterQueryHandlersFromAssemblyOf<LogMessageProcessingCommandHandler>())
+                    .RegisterBuildAction(c => c.RegisterProjectionsFromAssemblyOf<LogMessageProcessingCommandHandler>())
                 .UseEventSourcing().PersistToMemory()
                 .InitialiseAsync();
 

@@ -1,8 +1,6 @@
 ﻿namespace SystemDot.MessageRouteInspector.Server.Specifications.Steps
 {
-    using System;
     using System.Linq;
-    using System.Threading.Tasks;
     using SystemDot.MessageRouteInspector.Server.Queries;
     using FluentAssertions;
     using TechTalk.SpecFlow;
@@ -28,7 +26,7 @@
         [When(@"I get all routes")]
         public void WhenIGetAllRoutes()
         {
-            routes = RouteFinder.GetRoutesAsync().Result;
+            routes = client.GetRoutesAsync().Result;
         }
 
         [Then(@"the only route should have the name '(.*)'")]

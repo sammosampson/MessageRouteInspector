@@ -1,6 +1,6 @@
 namespace SystemDot.MessageRouteInspector.Server.Queries
 {
-    public class GetRoutesResponse
+    public class GetRoutesQueryResponse
     {
         public Route[] Routes { get; set; }
     }

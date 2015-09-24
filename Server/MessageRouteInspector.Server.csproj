@@ -98,13 +98,19 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Queries\GetRoutesResponse.cs" />
+    <Compile Include="MessageProcessingLogged.cs" />
+    <Compile Include="MessageRoute.cs" />
+    <Compile Include="MessageRouteId.cs" />
+    <Compile Include="Queries\GetRoutesQuery.cs" />
+    <Compile Include="Queries\GetRoutesQueryHandler.cs" />
+    <Compile Include="Queries\GetRoutesQueryResponse.cs" />
     <Compile Include="LogMessageProcessing.cs" />
     <Compile Include="LogMessageProcessingCommandHandler.cs" />
     <Compile Include="Queries\Message.cs" />
     <Compile Include="MessageLoggingClient.cs" />
     <Compile Include="Queries\Route.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Queries\SetHirePurchaseTermsProjection.cs" />
     <Compile Include="RouteFinder.cs" />
   </ItemGroup>
   <ItemGroup>

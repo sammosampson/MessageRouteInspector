@@ -7,7 +7,7 @@
 
     public class RouteFinder
     {
-        static GetRoutesResponse getRoutesResponse;
+        static GetRoutesQueryResponse getRoutesQueryResponse;
 
         public static Task Initialise()
         {
@@ -46,7 +46,7 @@
                 CloseBranchCount = 1
             };
 
-            getRoutesResponse = new GetRoutesResponse
+            getRoutesQueryResponse = new GetRoutesQueryResponse
             {
                 Routes = new List<Route> { 
                     new Route
@@ -78,12 +78,12 @@
 
         public static Task<Route> GetRoute(int id)
         {
-            return Task.FromResult(getRoutesResponse.Routes.Single(r => r.Id == id));
+            return Task.FromResult(getRoutesQueryResponse.Routes.Single(r => r.Id == id));
         }
 
         public static Task<Route[]> GetRoutesAsync()
         {
-            return Task.FromResult(getRoutesResponse.Routes);
+            return Task.FromResult(getRoutesQueryResponse.Routes);
         }
     }
 }
