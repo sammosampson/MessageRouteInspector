@@ -3,6 +3,7 @@
     using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using SystemDot.MessageRouteInspector.Server.Messages;
     using SystemDot.MessageRouteInspector.Server.Queries;
 
     public class RouteFinder

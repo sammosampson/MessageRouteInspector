@@ -4,12 +4,13 @@ namespace SystemDot.MessageRouteInspector.Server
     using System.Threading.Tasks;
     using SystemDot.Domain.Commands;
     using SystemDot.Domain.Queries;
+    using SystemDot.MessageRouteInspector.Server.Messages;
     using SystemDot.MessageRouteInspector.Server.Queries;
 
     public class MessageLoggingClient
     {
         private readonly CommandBus commandBus;
-        IAsyncQueryHandler<GetRoutesQuery, GetRoutesQueryResponse> getRoutesQueryHandler;
+        readonly IAsyncQueryHandler<GetRoutesQuery, GetRoutesQueryResponse> getRoutesQueryHandler;
         
         public MessageLoggingClient(CommandBus commandBus, IAsyncQueryHandler<GetRoutesQuery, GetRoutesQueryResponse> getRoutesQueryHandler)
         {

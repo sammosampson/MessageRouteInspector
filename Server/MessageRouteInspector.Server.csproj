@@ -98,22 +98,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="LogMessageProcessed.cs" />
-    <Compile Include="LogMessageProcessedCommandHandler.cs" />
-    <Compile Include="MessageProcessedLogged.cs" />
-    <Compile Include="MessageProcessingLogged.cs" />
-    <Compile Include="MessageRoute.cs" />
+    <Compile Include="Messages\MessageBranchCompleted.cs" />
+    <Compile Include="Messages\MessageBranchStarted.cs" />
+    <Compile Include="Domain\MessageRouteBranch.cs" />
+    <Compile Include="Domain\MessageRouteHierarchy.cs" />
+    <Compile Include="Messages\MessageRouteStarted.cs" />
+    <Compile Include="Messages\LogMessageProcessed.cs" />
+    <Compile Include="Domain\LogMessageProcessedCommandHandler.cs" />
+    <Compile Include="Messages\MessageBranchEnded.cs" />
+    <Compile Include="Messages\MessageProcessedLogged.cs" />
+    <Compile Include="Messages\MessageProcessingLogged.cs" />
+    <Compile Include="Domain\MessageRoute.cs" />
     <Compile Include="MessageRouteId.cs" />
-    <Compile Include="Queries\GetRoutesQuery.cs" />
+    <Compile Include="Messages\GetRoutesQuery.cs" />
     <Compile Include="Queries\GetRoutesQueryHandler.cs" />
-    <Compile Include="Queries\GetRoutesQueryResponse.cs" />
-    <Compile Include="LogMessageProcessing.cs" />
-    <Compile Include="LogMessageProcessingCommandHandler.cs" />
-    <Compile Include="Queries\Message.cs" />
+    <Compile Include="Messages\GetRoutesQueryResponse.cs" />
+    <Compile Include="Messages\LogMessageProcessing.cs" />
+    <Compile Include="Domain\LogMessageProcessingCommandHandler.cs" />
+    <Compile Include="Messages\Message.cs" />
     <Compile Include="MessageLoggingClient.cs" />
-    <Compile Include="Queries\Route.cs" />
+    <Compile Include="Messages\Route.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Queries\MessageProcessedLoggedProjection.cs" />
+    <Compile Include="Queries\AllRoutesProjection.cs" />
     <Compile Include="RouteFinder.cs" />
   </ItemGroup>
   <ItemGroup>

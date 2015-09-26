@@ -4,6 +4,7 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
     using System.Threading.Tasks;
     using SystemDot.Domain;
     using SystemDot.Domain.Queries;
+    using SystemDot.MessageRouteInspector.Server.Messages;
 
     public class GetRoutesQueryHandler : IAsyncQueryHandler<GetRoutesQuery, GetRoutesQueryResponse>
     {

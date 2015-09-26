@@ -1,8 +1,9 @@
-namespace SystemDot.MessageRouteInspector.Server
+namespace SystemDot.MessageRouteInspector.Server.Domain
 {
     using System.Threading.Tasks;
     using SystemDot.Domain.Commands;
     using SystemDot.EventSourcing;
+    using SystemDot.MessageRouteInspector.Server.Messages;
 
     public class LogMessageProcessedCommandHandler : IAsyncCommandHandler<LogMessageProcessed>
     {
@@ -16,7 +17,7 @@ namespace SystemDot.MessageRouteInspector.Server
         public async Task Handle(LogMessageProcessed message)
         {
             var route = repository.Get<MessageRoute>(new MessageRouteId());
-            route.CompleteMessage();
+            route.LogMessageProcessed();
             repository.Save(route);
 
             await Task.FromResult(false);

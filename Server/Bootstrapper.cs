@@ -11,6 +11,7 @@ namespace SystemDot.MessageRouteInspector.Server
     using SystemDot.EventSourcing.InMemory.Bootstrapping;
     using SystemDot.EventSourcing.Projections;
     using SystemDot.Ioc;
+    using SystemDot.MessageRouteInspector.Server.Domain;
 
     public static class Bootstrapper
     {
