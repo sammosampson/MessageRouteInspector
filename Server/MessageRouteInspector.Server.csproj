@@ -70,6 +70,12 @@
     <Reference Include="SystemDot.Environment.Windows">
       <HintPath>packages\SystemDotEnvironment.1.0.1\lib\net\SystemDot.Environment.Windows.dll</HintPath>
     </Reference>
+    <Reference Include="SystemDot.EventSourcing">
+      <HintPath>packages\SystemDotEventSourcing.7.6.0\lib\portable-win+net45+MonoAndroid+MonoTouch+win8\SystemDot.EventSourcing.dll</HintPath>
+    </Reference>
+    <Reference Include="SystemDot.EventSourcing.InMemory">
+      <HintPath>packages\SystemDotEventSourcing.7.6.0\lib\portable-win+net45+MonoAndroid+MonoTouch+win8\SystemDot.EventSourcing.InMemory.dll</HintPath>
+    </Reference>
     <Reference Include="SystemDot.Ioc">
       <HintPath>packages\SystemDotIoc.1.3.1\lib\portable-win+net45+MonoAndroid+MonoTouch+win8\SystemDot.Ioc.dll</HintPath>
     </Reference>
@@ -92,19 +98,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Commands\LogMessageProcessed.cs" />
-    <Compile Include="Commands\LogMessageProcessedCommandHandler.cs" />
+    <Compile Include="LogMessageProcessed.cs" />
+    <Compile Include="LogMessageProcessedCommandHandler.cs" />
+    <Compile Include="MessageProcessedLogged.cs" />
+    <Compile Include="MessageProcessingLogged.cs" />
+    <Compile Include="MessageRoute.cs" />
     <Compile Include="MessageRouteId.cs" />
     <Compile Include="Queries\GetRoutesQuery.cs" />
     <Compile Include="Queries\GetRoutesQueryHandler.cs" />
     <Compile Include="Queries\GetRoutesQueryResponse.cs" />
-    <Compile Include="Commands\LogMessageProcessing.cs" />
-    <Compile Include="Commands\LogMessageProcessingCommandHandler.cs" />
-    <Compile Include="Message.cs" />
+    <Compile Include="LogMessageProcessing.cs" />
+    <Compile Include="LogMessageProcessingCommandHandler.cs" />
+    <Compile Include="Queries\Message.cs" />
     <Compile Include="MessageLoggingClient.cs" />
-    <Compile Include="Route.cs" />
+    <Compile Include="Queries\Route.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RouteCollection.cs" />
+    <Compile Include="Queries\MessageProcessedLoggedProjection.cs" />
     <Compile Include="RouteFinder.cs" />
   </ItemGroup>
   <ItemGroup>

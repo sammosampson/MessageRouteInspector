@@ -2,15 +2,16 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
 {
     using System.Linq;
     using System.Threading.Tasks;
+    using SystemDot.Domain;
     using SystemDot.Domain.Queries;
 
     public class GetRoutesQueryHandler : IAsyncQueryHandler<GetRoutesQuery, GetRoutesQueryResponse>
     {
-        readonly RouteCollection routes;
+        readonly InMemoryStore inMemoryStore;
 
-        public GetRoutesQueryHandler(RouteCollection routes)
+        public GetRoutesQueryHandler(InMemoryStore inMemoryStore)
         {
-            this.routes = routes;
+            this.inMemoryStore = inMemoryStore;
         }
 
         public Task<GetRoutesQueryResponse> Handle(GetRoutesQuery message)
@@ -23,7 +24,7 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
 
         Route[] GetRoutes()
         {
-            return routes.ToArray();
+            return inMemoryStore.Query<Route>().ToArray();
         }
     }
 }

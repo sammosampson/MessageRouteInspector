@@ -1,4 +1,4 @@
-namespace SystemDot.MessageRouteInspector.Server.Commands
+namespace SystemDot.MessageRouteInspector.Server
 {
     public class LogMessageProcessed
     {
