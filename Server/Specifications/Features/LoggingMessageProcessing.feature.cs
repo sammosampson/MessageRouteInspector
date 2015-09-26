@@ -152,7 +152,7 @@ this.FeatureBackground();
                     "e\' on thread 1 dated \'09/21/1975 00:00:01\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 30
     testRunner.And("I have logged message processing for the message \'second\' from machine \'TestMachi" +
-                    "ne\' on thread 1 dated \'09/21/1975 00:00:01\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                    "ne\' on thread 1 dated \'09/21/1975 00:00:02\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 31
     testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 32
@@ -173,6 +173,50 @@ this.FeatureBackground();
  testRunner.And("that message should have the name \'second\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 40
  testRunner.And("that message should have a close branch count of 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("First message log processing then log processed then second log processing then l" +
+            "og processed")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "LoggingMessageProcessing")]
+        public virtual void FirstMessageLogProcessingThenLogProcessedThenSecondLogProcessingThenLogProcessed()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("First message log processing then log processed then second log processing then l" +
+                    "og processed", ((string[])(null)));
+#line 42
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 43
+ testRunner.Given("I have logged message processing for the message \'firstRouteFirstMessage\' from ma" +
+                    "chine \'TestMachine\' on thread 1 dated \'09/21/1975 00:00:01\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 44
+    testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 45
+    testRunner.And("I have logged message processing for the message \'secondRouteFirstMessage\' from m" +
+                    "achine \'TestMachine\' on thread 1 dated \'09/21/1975 00:00:02\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 46
+    testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 47
+    testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 48
+ testRunner.Then("there should be a route at index 0 of all the routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 49
+ testRunner.And("only one message in the route", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 50
+ testRunner.And("that message should have the name \'firstRouteFirstMessage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 51
+ testRunner.And("that message should have a close branch count of 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 52
+ testRunner.And("there should be a route at index 1 of all the routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 53
+ testRunner.And("only one message in the route", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 54
+ testRunner.And("that message should have the name \'secondRouteFirstMessage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 55
+ testRunner.And("that message should have a close branch count of 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
         }

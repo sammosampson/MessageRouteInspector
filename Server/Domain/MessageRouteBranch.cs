@@ -5,11 +5,13 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
 
     public class MessageRouteBranch : AggregateEntity<MessageRoute>
     {
+        readonly MessageRouteId routeId;
         readonly string messageName;
         int branchClosedCount;
 
-        public MessageRouteBranch(MessageRoute root, string messageName) : base(root)
+        public MessageRouteBranch(MessageRoute root, MessageRouteId routeId, string messageName) : base(root)
         {
+            this.routeId = routeId;
             this.messageName = messageName;
         }
 
@@ -18,7 +20,8 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
             AddEvent(new MessageBranchCompleted
             {
                 MessageName = messageName,
-                CloseBranchCount = branchClosedCount
+                CloseBranchCount = branchClosedCount,
+                RouteId = routeId.Id
             });
         }
 

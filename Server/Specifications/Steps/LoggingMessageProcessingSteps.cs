@@ -53,6 +53,13 @@
             route = routes.Single();
         }
 
+        [Then(@"there should be a route at index (.*) of all the routes")]
+        public void ThenThereShouldBeARouteAtIndexOfAllTheRoutes(int index)
+        {
+            routes.ElementAt(index).Should().NotBeNull();
+            route = routes.ElementAt(index);
+        }
+
         [Then(@"that route should be dated '(.*)'")]
         public void ThenThatRouteShouldBeDated(DateTime dated)
         {
