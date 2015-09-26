@@ -1,4 +1,4 @@
-namespace SystemDot.MessageRouteInspector.Server
+namespace SystemDot.MessageRouteInspector.Server.Commands
 {
     using System;
 
@@ -6,5 +6,7 @@ namespace SystemDot.MessageRouteInspector.Server
     {
         public string MessageName { get; set; }
         public DateTime CreatedOn { get; set; }
+        public string Machine { get; set; }
+        public int Thread { get; set; }
     }
 }

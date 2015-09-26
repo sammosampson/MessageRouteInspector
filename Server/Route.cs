@@ -1,4 +1,4 @@
-namespace SystemDot.MessageRouteInspector.Server.Queries
+namespace SystemDot.MessageRouteInspector.Server
 {
     using System;
 
