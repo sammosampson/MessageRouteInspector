@@ -3,7 +3,6 @@
     using System;
     using System.Linq;
     using SystemDot.MessageRouteInspector.Server.Messages;
-    using SystemDot.MessageRouteInspector.Server.Queries;
     using FluentAssertions;
     using TechTalk.SpecFlow;
 
@@ -39,7 +38,6 @@
             routes = client.GetRoutesAsync().Result;
         }
 
-
         [Then(@"there should not be any messages for the route")]
         public void ThenThereShouldNotBeAnyMessagesForTheRoute()
         {
@@ -52,6 +50,13 @@
             routes.Count().Should().Be(1);
             route = routes.Single();
         }
+
+        [Then(@"there should not be any routes")]
+        public void ThenThereShouldNotBeAnyRoutes()
+        {
+            routes.Should().BeEmpty();
+        }
+
 
         [Then(@"there should be a route at index (.*) of all the routes")]
         public void ThenThereShouldBeARouteAtIndexOfAllTheRoutes(int index)

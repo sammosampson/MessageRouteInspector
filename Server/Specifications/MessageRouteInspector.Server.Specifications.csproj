@@ -51,19 +51,19 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Features\LoggingMessageProcessing.feature.cs">
+    <Compile Include="Features\LoggingMessages.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>LoggingMessageProcessing.feature</DependentUpon>
+      <DependentUpon>LoggingMessages.feature</DependentUpon>
     </Compile>
     <Compile Include="Steps\LoggingMessageProcessingSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-    <None Include="Features\LoggingMessageProcessing.feature">
+    <None Include="Features\LoggingMessages.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
-      <LastGenOutput>LoggingMessageProcessing.feature.cs</LastGenOutput>
+      <LastGenOutput>LoggingMessages.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
