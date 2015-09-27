@@ -102,6 +102,8 @@
     <Compile Include="Domain\MessageRouteLookup.cs" />
     <Compile Include="Domain\MessageRouteLookupProjection.cs" />
     <Compile Include="Domain\ProcessId.cs" />
+    <Compile Include="Messages\GetRouteQuery.cs" />
+    <Compile Include="Messages\GetRouteQueryResponse.cs" />
     <Compile Include="Messages\LogMessageProcessingFailure.cs" />
     <Compile Include="Messages\MessageBranchCompleted.cs" />
     <Compile Include="Messages\MessageBranchStarted.cs" />
@@ -115,7 +117,7 @@
     <Compile Include="Messages\MessageProcessedLogged.cs" />
     <Compile Include="Messages\MessageProcessingLogged.cs" />
     <Compile Include="Domain\MessageRoute.cs" />
-    <Compile Include="MessageRouteId.cs" />
+    <Compile Include="Domain\MessageRouteId.cs" />
     <Compile Include="Messages\GetRoutesQuery.cs" />
     <Compile Include="MessageType.cs" />
     <Compile Include="Queries\AllRoutes.cs" />

@@ -56,6 +56,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LoggingFailures.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\GettingRoute.feature.cs">
+      <DependentUpon>GettingRoute.feature</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Features\LoggingMessages.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -69,6 +74,10 @@
     <None Include="Features\LoggingFailures.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>LoggingFailures.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\GettingRoute.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>GettingRoute.feature.cs</LastGenOutput>
     </None>
     <None Include="Features\LoggingMessages.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>

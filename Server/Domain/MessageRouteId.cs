@@ -1,4 +1,4 @@
-namespace SystemDot.MessageRouteInspector.Server
+namespace SystemDot.MessageRouteInspector.Server.Domain
 {
     using System;
     using SystemDot.Domain;

@@ -10,11 +10,16 @@ namespace SystemDot.MessageRouteInspector.Server
     {
         private readonly CommandBus commandBus;
         readonly IAsyncQueryHandler<GetRoutesQuery, GetRoutesQueryResponse> getRoutesQueryHandler;
+        readonly IAsyncQueryHandler<GetRouteQuery, GetRouteQueryResponse> getRouteQueryHandler;
         
-        public MessageLogger(CommandBus commandBus, IAsyncQueryHandler<GetRoutesQuery, GetRoutesQueryResponse> getRoutesQueryHandler)
+        public MessageLogger(
+            CommandBus commandBus, 
+            IAsyncQueryHandler<GetRoutesQuery, GetRoutesQueryResponse> getRoutesQueryHandler, 
+            IAsyncQueryHandler<GetRouteQuery, GetRouteQueryResponse> getRouteQueryHandler)
         {
             this.commandBus = commandBus;
             this.getRoutesQueryHandler = getRoutesQueryHandler;
+            this.getRouteQueryHandler = getRouteQueryHandler;
         }
 
         public async Task LogCommandProcessingAsync(string messageName, string machine, int thread, DateTime dated)
@@ -63,9 +68,14 @@ namespace SystemDot.MessageRouteInspector.Server
 
         public async Task<Route[]> GetRoutesAsync()
         {
-            var response =  await getRoutesQueryHandler.Handle(new GetRoutesQuery());
+            GetRoutesQueryResponse response =  await getRoutesQueryHandler.Handle(new GetRoutesQuery());
             return response.Routes;
         }
 
+        public async Task<Route> GetRouteAsync(string id)
+        {
+            var response = await getRouteQueryHandler.Handle(new GetRouteQuery { RouteId = id });
+            return response.Route;
+        }
     }
 }

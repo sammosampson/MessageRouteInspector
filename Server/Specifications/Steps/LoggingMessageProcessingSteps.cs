@@ -12,6 +12,7 @@
         MessageLogger client;
         Route[] routes;
         Route route;
+        Route routeRetreivedById;
         Message message;
 
         [Given(@"I have setup the server")]
@@ -51,6 +52,12 @@
             routes = client.GetRoutesAsync().Result;
         }
 
+        [When(@"I get the route by its id")]
+        public void WhenIGetTheRouteByItsId()
+        {
+            routeRetreivedById = client.GetRouteAsync(route.Id).Result;
+        }
+
         [Then(@"there should not be any messages for the route")]
         public void ThenThereShouldNotBeAnyMessagesForTheRoute()
         {
@@ -87,6 +94,12 @@
         public void ThenThatRouteShouldBeDated(DateTime dated)
         {
             route.CreatedOn.Should().Be(dated);
+        }
+
+        [Then(@"it should match the other route")]
+        public void ThenItShouldMatchTheOtherRoute()
+        {
+            routeRetreivedById.Should().BeSameAs(route);
         }
 
         [Then(@"only one message in the route")]
