@@ -79,7 +79,7 @@ var app = new GraphQLObjectType({
       },
       type: route,
       resolve: (app, {id}) => {
-        return getRoute(parseInt(id));
+        return getRoute(id);
       }
     }
   }

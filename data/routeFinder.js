@@ -11,20 +11,19 @@ var initialiseFinder = edge.func(function () {/*
     {
         public async Task<object> Invoke(dynamic input)
         {
-            var finder = new RouteFinder();
-            await finder.Initialise();
+            var logger = await Bootstrapper.InitialiseAsync();
 
             return new {
                 getRoutes = (Func<object,Task<object>>)(
                     async (_) =>
                     {
-                        return await finder.GetRoutes();
+                        return await logger.GetRoutesAsync();
                     }
                 ),
                 getRoute = (Func<object,Task<object>>)(
                     async (id) =>
                     {
-                        return await finder.GetRoute((int)id);
+                        return await logger.GetRouteAsync((string)id);
                     }
                 )
             };
@@ -35,6 +34,9 @@ var initialiseFinder = edge.func(function () {/*
 
 var finder = null;
 initialiseFinder(null, function (error, result) {
+  if (error) {
+    console.log(error);
+  }
   finder = result;
 });
 
