@@ -28,8 +28,10 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
         {
             return new Message
             {
+                Id = message.MessageId,
                 Name = message.MessageName,
-                CloseBranchCount = message.CloseBranchCount
+                CloseBranchCount = message.CloseBranchCount,
+                Type = message.MessageType
             };
         }
     }

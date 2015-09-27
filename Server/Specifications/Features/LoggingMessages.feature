@@ -6,22 +6,41 @@
 Background:
 	Given I have setup the server
 	
-Scenario: One route from same machine and same thread one message
-    Given I have logged message processing for the message 'root' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:01'
+Scenario: One route from same machine and same thread one command
+    Given I have logged command processing for the message 'root' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:01'
     And I have logged message processed from machine 'TestMachine' on thread 1
     When I get all routes
     Then there should only be one route
+	And that route should have a valid id
 	And only one message in the route 
 	And the root message in the route should be the same as that message
 	And that route should be dated '09/21/1975 00:00:01'
     And only one message in the route 
 	And the root message in the route should be the same as that message
+	And that message should have a valid id
 	And that message should have the name 'root'
+	And that message should have the type 'Command'
+	And that message should have a close branch count of 1
+
+	Scenario: One route from same machine and same thread one event
+    Given I have logged event processing for the message 'root' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:01'
+    And I have logged message processed from machine 'TestMachine' on thread 1
+    When I get all routes
+    Then there should only be one route
+	And only one message in the route 
+	And that route should have a valid id
+	And the root message in the route should be the same as that message
+	And that route should be dated '09/21/1975 00:00:01'
+    And only one message in the route 
+	And the root message in the route should be the same as that message
+	And that message should have a valid id
+	And that message should have the name 'root'
+	And that message should have the type 'Event'
 	And that message should have a close branch count of 1
 
 Scenario: One route from same machine and same thread message in message
-	Given I have logged message processing for the message 'first' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:01'
-    And I have logged message processing for the message 'second' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:02'
+	Given I have logged command processing for the message 'first' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:01'
+    And I have logged command processing for the message 'second' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:02'
     And I have logged message processed from machine 'TestMachine' on thread 1
     And I have logged message processed from machine 'TestMachine' on thread 1
     When I get all routes
@@ -34,9 +53,9 @@ Scenario: One route from same machine and same thread message in message
 	And that message should have a close branch count of 2
 
 Scenario: Two routes from same machine and same thread
-	Given I have logged message processing for the message 'firstRouteFirstMessage' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:01'
+	Given I have logged command processing for the message 'firstRouteFirstMessage' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:01'
     And I have logged message processed from machine 'TestMachine' on thread 1
-    And I have logged message processing for the message 'secondRouteFirstMessage' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:02'
+    And I have logged command processing for the message 'secondRouteFirstMessage' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:02'
     And I have logged message processed from machine 'TestMachine' on thread 1
     When I get all routes
 	Then there should be a route at index 0 of all the routes
@@ -49,8 +68,8 @@ Scenario: Two routes from same machine and same thread
 	And that message should have a close branch count of 1
 
 Scenario: Two routes from same machine but different threads
-	Given I have logged message processing for the message 'firstRouteFirstMessage' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:01'
-    And I have logged message processing for the message 'secondRouteFirstMessage' from machine 'TestMachine' on thread 2 dated '09/21/1975 00:00:02'
+	Given I have logged command processing for the message 'firstRouteFirstMessage' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:01'
+    And I have logged command processing for the message 'secondRouteFirstMessage' from machine 'TestMachine' on thread 2 dated '09/21/1975 00:00:02'
     And I have logged message processed from machine 'TestMachine' on thread 1
     And I have logged message processed from machine 'TestMachine' on thread 2
     When I get all routes
@@ -64,8 +83,8 @@ Scenario: Two routes from same machine but different threads
 	And that message should have a close branch count of 1
 
 Scenario: Two routes from different machines but same thread
-	Given I have logged message processing for the message 'firstRouteFirstMessage' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:01'
-    And I have logged message processing for the message 'secondRouteFirstMessage' from machine 'TestMachine' on thread 2 dated '09/21/1975 00:00:02'
+	Given I have logged command processing for the message 'firstRouteFirstMessage' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:01'
+    And I have logged command processing for the message 'secondRouteFirstMessage' from machine 'TestMachine' on thread 2 dated '09/21/1975 00:00:02'
     And I have logged message processed from machine 'TestMachine' on thread 1
     And I have logged message processed from machine 'TestMachine' on thread 2
     When I get all routes
@@ -79,7 +98,7 @@ Scenario: Two routes from different machines but same thread
 	And that message should have a close branch count of 1
 
 Scenario: No log processed yet so no route
-    Given I have logged message processing for the message 'root' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:01'
+    Given I have logged command processing for the message 'root' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:01'
     When I get all routes
     Then there should only be one route
 	And there should not be any messages for the route

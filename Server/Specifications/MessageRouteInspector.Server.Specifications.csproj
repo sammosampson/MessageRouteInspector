@@ -51,6 +51,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Features\LoggingFailures.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoggingFailures.feature</DependentUpon>
+    </Compile>
     <Compile Include="Features\LoggingMessages.feature.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -61,6 +66,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Features\LoggingFailures.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>LoggingFailures.feature.cs</LastGenOutput>
+    </None>
     <None Include="Features\LoggingMessages.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>LoggingMessages.feature.cs</LastGenOutput>

@@ -16,14 +16,29 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
             this.rootId = rootId;
         }
 
-        public void StartBranch(string messageName)
+        public void StartBranch(string messageName, MessageType messageType)
+        {
+            CompletePreviousBranch();
+
+            AddEvent(new MessageBranchStarted
+            {
+                MessageName = messageName,
+                MessageType = messageType
+            });
+        }
+
+        public void Fail(string failureName)
+        {
+            StartBranch(failureName, MessageType.Failure);
+            CompleteAllBranches();
+        }
+
+        void CompletePreviousBranch()
         {
             if (hierarchy.Count > 0)
             {
                 CompleteBranch();
             }
-
-            AddEvent(new MessageBranchStarted { MessageName = messageName });
         }
 
         void ApplyEvent(MessageBranchStarted @event)
@@ -35,9 +50,9 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
                 hierarchy.Pop();
             }
 
-            hierarchy.Push(new MessageRouteBranch(Root, rootId, @event.MessageName));
+            hierarchy.Push(new MessageRouteBranch(Root, rootId, @event.MessageName, @event.MessageType));
         }
-
+        
         public void EndBranch()
         {
             AddEvent(new MessageBranchEnded());
@@ -54,14 +69,19 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
             hierarchy.Peek().End();
         }
 
+        public bool IsComplete()
+        {
+            return openBranchCount == 0;
+        }
+        
         void CompleteBranch()
         {
             hierarchy.Peek().Complete();
         }
 
-        public bool IsComplete()
+        void CompleteAllBranches()
         {
-            return openBranchCount == 0;
+            hierarchy.Peek().Complete(openBranchCount);
         }
     }
 }

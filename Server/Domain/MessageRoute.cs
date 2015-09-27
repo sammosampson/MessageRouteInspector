@@ -30,17 +30,22 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
             });
         }
 
-        public void LogMessageProcessing(string message)
-        {
-            hierarchy.StartBranch(message);
-        }
-
         void ApplyEvent(MessageRouteStarted @event)
         {
             hierarchy = new MessageRouteHierarchy(this, new MessageRouteId(@event.Id));
             processId = new ProcessId(@event.MachineName, @event.Thread);
         }
 
+        public void LogMessageProcessing(string message, MessageType messageType)
+        {
+            hierarchy.StartBranch(message, messageType);
+        }
+
+        public void LogMessageProcessingFailure(string failureName)
+        {
+            hierarchy.Fail(failureName);
+        }
+       
         public void LogMessageProcessed()
         {
             hierarchy.EndBranch();
@@ -56,7 +61,5 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
                 Thread = processId.Thread
             });
         }
-
-        
     }
 }

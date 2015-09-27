@@ -15,7 +15,7 @@ namespace SystemDot.MessageRouteInspector.Server
 
     public static class Bootstrapper
     {
-        public static async Task<MessageLoggingClient> InitialiseAsync()
+        public static async Task<MessageLogger> InitialiseAsync()
         {
             var iocContainer = new IocContainer();
 
@@ -30,7 +30,7 @@ namespace SystemDot.MessageRouteInspector.Server
                 .UseEventSourcing().PersistToMemory()
                 .InitialiseAsync();
 
-            return iocContainer.Resolve<MessageLoggingClient>();
+            return iocContainer.Resolve<MessageLogger>();
         }
     }
 }

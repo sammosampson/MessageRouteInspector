@@ -5,7 +5,9 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
     using SystemDot.MessageRouteInspector.Server.Messages;
 
     [HydrateProjectionAtStartup]
-    public class MessageRouteLookupProjection : IProjection<MessageRouteStarted>, IProjection<MessageRouteEnded>
+    public class MessageRouteLookupProjection : 
+        IProjection<MessageRouteStarted>, 
+        IProjection<MessageRouteEnded>
     {
         readonly MessageRouteLookup lookUp;
 

@@ -9,7 +9,7 @@
     [Binding]
     public class LoggingMessageProcessingSteps
     {
-        MessageLoggingClient client;
+        MessageLogger client;
         Route[] routes;
         Route route;
         Message message;
@@ -20,11 +20,24 @@
             client = Bootstrapper.InitialiseAsync().Result;
         }
 
-        [Given(@"I have logged message processing for the message '(.*)' from machine '(.*)' on thread (.*) dated '(.*)'")]
-        public void GivenIHaveLoggedMessageProcessingForTheMessageFromMachineOnThreadDated(string name, string machine, int thread, DateTime dated)
+        [Given(@"I have logged command processing for the message '(.*)' from machine '(.*)' on thread (.*) dated '(.*)'")]
+        public void GivenIHaveLoggedCommandProcessingForTheMessageFromMachineOnThreadDated(string name, string machine, int thread, DateTime dated)
         {
-            client.LogMessageProcessingAsync(name, machine, thread, dated).Wait();
+            client.LogCommandProcessingAsync(name, machine, thread, dated).Wait();
         }
+
+        [Given(@"I have logged event processing for the message '(.*)' from machine '(.*)' on thread (.*) dated '(.*)'")]
+        public void GivenIHaveLoggedEventProcessingForTheMessageFromMachineOnThreadDated(string name, string machine, int thread, DateTime dated)
+        {
+            client.LogEventProcessingAsync(name, machine, thread, dated).Wait();
+        }
+
+        [Given(@"I have logged a failure with the name '(.*)' from machine '(.*)' on thread (.*) dated '(.*)'")]
+        public void GivenIHaveLoggedAFailureWithTheNameFromMachineOnThreadDated(string name, string machine, int thread, DateTime dated)
+        {
+            client.LogMessageProcessingFailureAsync(name, machine, thread, dated).Wait();
+        }
+
 
         [Given(@"I have logged message processed from machine '(.*)' on thread (.*)")]
         public void GivenIHaveLoggedMessageProcessedFromMachineOnThread(string machine, int thread)
@@ -51,12 +64,17 @@
             route = routes.Single();
         }
 
+        [Then(@"that route should have a valid id")]
+        public void ThenThatRouteShouldHaveAValidId()
+        {
+            route.Id.Should().NotBeEmpty();
+        }
+
         [Then(@"there should not be any routes")]
         public void ThenThereShouldNotBeAnyRoutes()
         {
             routes.Should().BeEmpty();
         }
-
 
         [Then(@"there should be a route at index (.*) of all the routes")]
         public void ThenThereShouldBeARouteAtIndexOfAllTheRoutes(int index)
@@ -97,10 +115,22 @@
             route.Root.Should().BeSameAs(message);
         }
 
+        [Then(@"that message should have a valid id")]
+        public void ThenThatMessageShouldHaveAValidId()
+        {
+            message.Id.Should().NotBeEmpty();
+        }
+
         [Then(@"that message should have the name '(.*)'")]
         public void ThenThatMessageShouldHaveTheName(string name)
         {
             message.Name.Should().Be(name);
+        }
+
+        [Then(@"that message should have the type '(.*)'")]
+        public void ThenThatMessageShouldHaveTheType(MessageType type)
+        {
+            message.Type.Should().Be(type);
         }
     }
 }

@@ -3,6 +3,7 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Diagnostics.CodeAnalysis;
     using SystemDot.MessageRouteInspector.Server.Messages;
 
     public class AllRoutes : IEnumerable<Route>
@@ -18,6 +19,7 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
         {
             routes.Add(id, new Route
             {
+                Id = id,
                 CreatedOn = createdOn, 
                 Messages = new Message[0]
             });
@@ -28,6 +30,7 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
             return routes.Values.GetEnumerator();
         }
 
+        [ExcludeFromCodeCoverage]
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();

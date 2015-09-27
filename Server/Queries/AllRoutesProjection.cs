@@ -1,6 +1,5 @@
 namespace SystemDot.MessageRouteInspector.Server.Queries
 {
-    using System.Linq;
     using System.Threading.Tasks;
     using SystemDot.EventSourcing.Projections;
     using SystemDot.MessageRouteInspector.Server.Messages;
