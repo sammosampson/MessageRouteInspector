@@ -22,36 +22,36 @@ namespace SystemDot.MessageRouteInspector.Server
             this.getRouteQueryHandler = getRouteQueryHandler;
         }
 
-        public async Task LogCommandProcessingAsync(string messageName, string machine, int thread, DateTime dated)
+        public async Task LogCommandProcessingAsync(string messageName, string machine, int thread, DateTime createdOn)
         {
             await commandBus.SendCommandAsync(new LogMessageProcessing
             {
                 MessageName = messageName,
                 MessageType = MessageType.Command,
-                CreatedOn = dated,
+                CreatedOn = createdOn,
                 Machine = machine,
                 Thread = thread
             });
         }
 
-        public async Task LogEventProcessingAsync(string messageName, string machine, int thread, DateTime dated)
+        public async Task LogEventProcessingAsync(string messageName, string machine, int thread, DateTime createdOn)
         {
             await commandBus.SendCommandAsync(new LogMessageProcessing
             {
                 MessageName = messageName,
                 MessageType = MessageType.Event,
-                CreatedOn = dated,
+                CreatedOn = createdOn,
                 Machine = machine,
                 Thread = thread
             });
         }
 
-        public async Task LogMessageProcessingFailureAsync(string failureName, string machine, int thread, DateTime dated)
+        public async Task LogMessageProcessingFailureAsync(string failureName, string machine, int thread, DateTime createdOn)
         {
             await commandBus.SendCommandAsync(new LogMessageProcessingFailure
             {
                 FailureName = failureName,
-                CreatedOn = dated,
+                CreatedOn = createdOn,
                 Machine = machine,
                 Thread = thread
             });
@@ -68,7 +68,7 @@ namespace SystemDot.MessageRouteInspector.Server
 
         public async Task<Route[]> GetRoutesAsync()
         {
-            GetRoutesQueryResponse response =  await getRoutesQueryHandler.Handle(new GetRoutesQuery());
+            GetRoutesQueryResponse response = await getRoutesQueryHandler.Handle(new GetRoutesQuery());
             return response.Routes;
         }
 

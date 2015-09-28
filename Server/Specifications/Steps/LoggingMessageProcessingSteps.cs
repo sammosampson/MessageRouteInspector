@@ -22,9 +22,9 @@
         }
 
         [Given(@"I have logged command processing for the message '(.*)' from machine '(.*)' on thread (.*) dated '(.*)'")]
-        public void GivenIHaveLoggedCommandProcessingForTheMessageFromMachineOnThreadDated(string name, string machine, int thread, DateTime dated)
+        public void GivenIHaveLoggedCommandProcessingForTheMessageFromMachineOnThreadDated(string name, string machine, int thread, DateTime createdOn)
         {
-            client.LogCommandProcessingAsync(name, machine, thread, dated).Wait();
+            client.LogCommandProcessingAsync(name, machine, thread, createdOn).Wait();
         }
 
         [Given(@"I have logged event processing for the message '(.*)' from machine '(.*)' on thread (.*) dated '(.*)'")]

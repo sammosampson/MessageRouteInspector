@@ -12,8 +12,14 @@ import {
 } from 'graphql';
 
 import {
+  mutationWithClientMutationId
+} from 'graphql-relay';
+
+import {
   getRoute,
-  getRoutes
+  getRoutes,
+  logCommandProcessing,
+  logMessageProcessed,
 } from './routeFinder';
 
 var message = new GraphQLObjectType({
@@ -64,6 +70,36 @@ var route = new GraphQLObjectType({
   }
 });
 
+var mutation = new GraphQLObjectType({
+  name: 'RootMutationType',
+  fields: {
+     logCommandProcessing: {
+       type: GraphQLInt,
+       args: {
+          name: { type: new GraphQLNonNull(GraphQLString) },
+          machine: { type: new GraphQLNonNull(GraphQLString) },
+          thread: { type: new GraphQLNonNull(GraphQLInt) },
+          createdOn: { type: new GraphQLNonNull(GraphQLString) }
+       },
+       description: 'Logs the processing of a command',
+       resolve: function(root, {name, machine, thread, createdOn}) {
+         return logCommandProcessing(name, machine, thread, createdOn);
+       }
+     },
+     logMessageProcessed: {
+       type: GraphQLInt,
+       args: {
+          machine: { type: new GraphQLNonNull(GraphQLString) },
+          thread: { type: new GraphQLNonNull(GraphQLInt) }
+       },
+       description: 'Logs the fact that any messaged has been processed',
+       resolve: function(root, {machine, thread}) {
+         return logMessageProcessed(machine, thread);
+       }
+     }
+   }
+});
+
 var app = new GraphQLObjectType({
   name: 'App',
   fields: {
@@ -86,6 +122,7 @@ var app = new GraphQLObjectType({
 });
 
 export var Schema = new GraphQLSchema({
+  mutation: mutation,
   query: new GraphQLObjectType({
     name: 'Query',
     fields: {
