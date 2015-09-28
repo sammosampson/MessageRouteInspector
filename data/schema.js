@@ -19,6 +19,8 @@ import {
   getRoute,
   getRoutes,
   logCommandProcessing,
+  logEventProcessing,
+  logMessageProcessingFailure,
   logMessageProcessed,
 } from './routeFinder';
 
@@ -84,6 +86,32 @@ var mutation = new GraphQLObjectType({
        description: 'Logs the processing of a command',
        resolve: function(root, {name, machine, thread, createdOn}) {
          return logCommandProcessing(name, machine, thread, createdOn);
+       }
+     },
+     logEventProcessing: {
+       type: GraphQLInt,
+       args: {
+          name: { type: new GraphQLNonNull(GraphQLString) },
+          machine: { type: new GraphQLNonNull(GraphQLString) },
+          thread: { type: new GraphQLNonNull(GraphQLInt) },
+          createdOn: { type: new GraphQLNonNull(GraphQLString) }
+       },
+       description: 'Logs the processing of a event',
+       resolve: function(root, {name, machine, thread, createdOn}) {
+         return logEventProcessing(name, machine, thread, createdOn);
+       }
+     },
+     logMessageProcessingFailure: {
+       type: GraphQLInt,
+       args: {
+          name: { type: new GraphQLNonNull(GraphQLString) },
+          machine: { type: new GraphQLNonNull(GraphQLString) },
+          thread: { type: new GraphQLNonNull(GraphQLInt) },
+          createdOn: { type: new GraphQLNonNull(GraphQLString) }
+       },
+       description: 'Logs the processing of a message processing',
+       resolve: function(root, {name, machine, thread, createdOn}) {
+         return logMessageProcessingFailure(name, machine, thread, createdOn);
        }
      },
      logMessageProcessed: {

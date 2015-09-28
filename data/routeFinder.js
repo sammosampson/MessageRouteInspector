@@ -35,6 +35,22 @@ var initialiseFinder = edge.func(function () {/*
                     return 1;
                   }
               ),
+              logEventProcessing = (Func<dynamic, Task<object>>)(
+                  async (details) =>
+                  {
+                    long createdOnTicks = Convert.ToInt64((string)details.CreatedOnTicks);
+                    await logger.LogEventProcessingAsync(details.MessageName, details.Machine, details.Thread, new DateTime(createdOnTicks));
+                    return 1;
+                  }
+              ),
+              logMessageProcessingFailure = (Func<dynamic, Task<object>>)(
+                  async (details) =>
+                  {
+                    long createdOnTicks = Convert.ToInt64((string)details.CreatedOnTicks);
+                    await logger.LogMessageProcessingFailureAsync(details.FailureName, details.Machine, details.Thread, new DateTime(createdOnTicks));
+                    return 1;
+                  }
+              ),
               logMessageProcessed = (Func<dynamic, Task<object>>)(
                   async (details) =>
                   {
@@ -88,6 +104,34 @@ var logCommandProcessing = function(name, machine, thread, createdOnTicks) {
   });
 };
 
+var logEventProcessing = function(name, machine, thread, createdOnTicks) {
+  return new Promise(function(resolve, reject) {
+    finder.logEventProcessing({
+      MessageName: name,
+      Machine: machine,
+      Thread: thread,
+      CreatedOnTicks: createdOnTicks
+    }, function (error, result) {
+      if (error) reject(Error(error));
+      resolve(result);
+    });
+  });
+};
+
+var logMessageProcessingFailure = function(name, machine, thread, createdOnTicks) {
+  return new Promise(function(resolve, reject) {
+    finder.logMessageProcessingFailure({
+      FailureName: name,
+      Machine: machine,
+      Thread: thread,
+      CreatedOnTicks: createdOnTicks
+    }, function (error, result) {
+      if (error) reject(Error(error));
+      resolve(result);
+    });
+  });
+};
+
 var logMessageProcessed = function(machine, thread) {
   return new Promise(function(resolve, reject) {
     finder.logMessageProcessed({
@@ -105,5 +149,7 @@ module.exports = {
   getRoutes: getRoutes,
   getRoute: getRoute,
   logCommandProcessing: logCommandProcessing,
+  logEventProcessing: logEventProcessing,
+  logMessageProcessingFailure: logMessageProcessingFailure,
   logMessageProcessed: logMessageProcessed
 };
