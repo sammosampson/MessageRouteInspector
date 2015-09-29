@@ -12,9 +12,6 @@ class AppPage extends React.Component {
     console.log('render AppPage');
     return (
       <div>
-        <Panel title="Selected route inspector">
-            <MessageRouteInspector route={this.props.viewer.route} />
-        </Panel>
         <Panel title="Available routes">
           <MessageRoutes
             routes={this.props.viewer.routes}
@@ -26,19 +23,11 @@ class AppPage extends React.Component {
 }
 
 export default Relay.createContainer(AppPage, {
-  initialVariables: {
-    selectedRoute: 1
-  },
   fragments: {
     viewer: () => Relay.QL`
       fragment on App {
         routes {
           ${MessageRoutes.getFragment('routes')}
-        },
-        route(
-          id: $selectedRoute
-        ) {
-          ${MessageRouteInspector.getFragment('route')}
         }
       }
     `,

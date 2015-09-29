@@ -58,6 +58,12 @@
             routeRetreivedById = client.GetRouteAsync(route.Id).Result;
         }
 
+        [When(@"I get the route '(.*)'")]
+        public void WhenIGetTheRoute(string id)
+        {
+            routeRetreivedById = client.GetRouteAsync(id).Result;
+        }
+
         [Then(@"there should not be any messages for the route")]
         public void ThenThereShouldNotBeAnyMessagesForTheRoute()
         {
@@ -102,6 +108,12 @@
             routeRetreivedById.Should().BeSameAs(route);
         }
 
+        [Then(@"no route should be returned")]
+        public void ThenNoRouteShouldBeReturned()
+        {
+            routeRetreivedById.Should().BeNull();
+        }
+        
         [Then(@"only one message in the route")]
         public void ThenOnlyOneMessageInTheRoute()
         {

@@ -2,7 +2,7 @@
   "data": {
     "__schema": {
       "queryType": {
-        "name": "Query"
+        "name": "Root"
       },
       "mutationType": {
         "name": "RootMutationType"
@@ -10,11 +10,11 @@
       "types": [
         {
           "kind": "OBJECT",
-          "name": "Query",
+          "name": "Root",
           "description": null,
           "fields": [
             {
-              "name": "app",
+              "name": "viewer",
               "description": null,
               "args": [],
               "type": {

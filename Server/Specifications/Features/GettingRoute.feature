@@ -15,3 +15,7 @@ Scenario: Second of two routes retreived by id
 	Then there should be a route at index 1 of all the routes
 	When I get the route by its id
 	Then it should match the other route
+
+Scenario: Getting non existent route
+	When I get the route '57DB2EBE-28D8-4036-B6F6-F8D967B4334F'
+	Then no route should be returned

@@ -27,22 +27,4 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
             return allRoutes.ToArray();
         }
     }
-    
-    public class GetRouteQueryHandler : IAsyncQueryHandler<GetRouteQuery, GetRouteQueryResponse>
-    {
-        readonly AllRoutes allRoutes;
-
-        public GetRouteQueryHandler(AllRoutes allRoutes)
-        {
-            this.allRoutes = allRoutes;
-        }
-
-        public Task<GetRouteQueryResponse> Handle(GetRouteQuery message)
-        {
-            return Task.FromResult(new GetRouteQueryResponse
-            {
-                Route = allRoutes[message.RouteId]
-            });
-        }
-    }
 }
