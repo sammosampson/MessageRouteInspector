@@ -1,11 +1,10 @@
-import Routes from './Routes';
-import {Router} from 'react-router';
-import ReactRouterRelay from 'react-router-relay';
+import AppPage from './components/AppPage';
+import AppHomeRoute from './routes/AppHomeRoute';
 
 ReactDOM.render(
-  <Router
-    createElement={ReactRouterRelay.createElement}
-    routes={Routes}
+  <Relay.RootContainer
+    Component={AppPage}
+    route={new AppHomeRoute()}
   />,
   document.getElementById('root')
 );

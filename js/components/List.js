@@ -9,7 +9,8 @@ export default class List extends React.Component {
           return <ListItem
             title={this.props.getItemTitle(item)}
             key={this.props.getItemKey(item)}
-            id={this.props.getItemKey(item)}/>;
+            id={this.props.getItemKey(item)}
+            onItemSelected={this.props.onItemSelected}/>;
         })}
       </div>);
   }

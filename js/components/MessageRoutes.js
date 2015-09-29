@@ -1,5 +1,3 @@
-import React from 'react';
-import Relay from 'react-relay';
 import 'babel/polyfill';
 import List from './List';
 
@@ -10,7 +8,8 @@ class MessageRoutes extends React.Component {
       <List
         items={this.props.routes}
         getItemTitle={(route) => route.root.name}
-        getItemKey={(route) => route.id} />
+        getItemKey={(route) => route.id}
+        onItemSelected={this.props.onRouteItemSelected} />
     );
   }
 }
