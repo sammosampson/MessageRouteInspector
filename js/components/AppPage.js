@@ -1,21 +1,20 @@
+import React from 'react';
+import Relay from 'react-relay';
 import 'babel/polyfill';
 import Panel from './Panel'
 import MessageRoutes from './MessageRoutes';
 import MessageRouteInspector from './MessageRouteInspector';
 
 class AppPage extends React.Component {
-  onRouteItemSelected(id) {
-    this.props.relay.setVariables({selectedRoute: id})
-  }
-
   render() {
     console.log('render AppPage');
     return (
       <div>
         <Panel title="Available routes">
-          <MessageRoutes
-            routes={this.props.viewer.routes}
-            onRouteItemSelected={this.onRouteItemSelected.bind(this)}/>
+          <MessageRoutes routes={this.props.viewer.routes}/>
+        </Panel>
+        <Panel title="Selected route inspector">
+          {this.props.children}
         </Panel>
       </div>
     );

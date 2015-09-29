@@ -1,3 +1,5 @@
+import React from 'react';
+import Relay from 'react-relay';
 import 'babel/polyfill';
 import MessageNode from './MessageNode'
 
@@ -32,15 +34,27 @@ class MessageRouteInspector extends React.Component {
 }
 
 export default Relay.createContainer(MessageRouteInspector, {
+  initialVariables: {
+    selectedRoute: null
+  },
+
+  prepareVariables({route}) {
+    return {
+      selectedRoute: route,
+    };
+  },
+
   fragments: {
-    route: () => Relay.QL`
-      fragment on MessageRoute {
-        messages {
-          id,
-          name,
-          closeBranchCount
+    viewer: () => Relay.QL`
+      fragment on App {
+        route(id: $selectedRoute) {
+            messages {
+              id,
+              name,
+              closeBranchCount
+            }
+          }
         }
-      }
     `
   }
 });

@@ -1,10 +1,11 @@
 import React from 'react';
+import Link from 'react-router/lib/Link';
 
 export default class ListItem extends React.Component {
   render() {
-    var boundClick = this.props.onItemSelected.bind(this, this.props.id);
+    var to = '/route/' + this.props.id;
     return(
-      <a className="list-group-item" onClick={boundClick}>{this.props.title}</a>
+      <Link to={to} className="list-group-item">{this.props.title}</Link>
       );
   }
 }
