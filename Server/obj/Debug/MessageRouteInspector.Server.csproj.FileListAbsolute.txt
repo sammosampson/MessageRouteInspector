@@ -41,4 +41,3 @@ E:\Work\MessageRouteInspector\Server\Build\SystemDot.Reflection.pdb
 E:\Work\MessageRouteInspector\Server\Build\SystemDot.Reflection.Windows.pdb
 E:\Work\MessageRouteInspector\Server\Build\SystemDot.ThreadMarshalling.pdb
 E:\Work\MessageRouteInspector\Server\Build\SystemDot.ThreadMarshalling.Windows.pdb
-E:\Work\MessageRouteInspector\Server\obj\Debug\MessageRouteInspector.Server.csprojResolveAssemblyReference.cache

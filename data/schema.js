@@ -72,40 +72,7 @@ var route = new GraphQLObjectType({
   }
 });
 
-var app = new GraphQLObjectType({
-  name: 'App',
-  fields: {
-    routes: {
-      type: new GraphQLList(route),
-      resolve: (app) => {
-        return getRoutes();
-      }
-    },
-    route: {
-      args: {
-        id: {type: GraphQLID}
-      },
-      type: route,
-      resolve: (app, {id}) => {
-        return getRoute(id);
-      }
-    }
-  }
-});
-
-var queryRoot = new GraphQLObjectType({
-  name: 'Root',
-  fields: {
-    viewer: {
-      type: app,
-      resolve: function() {
-        return {};
-      }
-    }
-  }
-});
-
-var mutationRoot = new GraphQLObjectType({
+var mutation = new GraphQLObjectType({
   name: 'RootMutationType',
   fields: {
      logCommandProcessing: {
@@ -161,7 +128,38 @@ var mutationRoot = new GraphQLObjectType({
    }
 });
 
+var app = new GraphQLObjectType({
+  name: 'App',
+  fields: {
+    routes: {
+      type: new GraphQLList(route),
+      resolve: (app) => {
+        return getRoutes();
+      }
+    },
+    route: {
+      args: {
+        id: {type: GraphQLID}
+      },
+      type: route,
+      resolve: (app, {id}) => {
+        return getRoute(id);
+      }
+    }
+  }
+});
+
 export var Schema = new GraphQLSchema({
-  mutation: mutationRoot,
-  query: queryRoot
+  mutation: mutation,
+  query: new GraphQLObjectType({
+    name: 'Query',
+    fields: {
+      viewer: {
+        type: app,
+        resolve: function() {
+          return {};
+        }
+      }
+    }
+  })
 });

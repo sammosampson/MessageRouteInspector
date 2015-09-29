@@ -15,11 +15,6 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
             routes = new Dictionary<string, Route>();
         }
 
-        public bool ContainsRoute(string routeId)
-        {
-            return routes.ContainsKey(routeId);
-        }
-
         public void AddRoute(string id, DateTime createdOn)
         {
             routes.Add(id, new Route
