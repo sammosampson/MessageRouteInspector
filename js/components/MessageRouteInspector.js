@@ -8,15 +8,16 @@ class MessageRouteInspector extends React.Component {
     this.props.route.messages.map((message) => {
       if(root === null) {
         root = message;
+        root.parent = root;
         root.children = [];
       } else {
         root.children.push(message);
         message.parent = root;
         root = message;
         root.children = [];
-        for(var i = message.closeBranchCount; i > 1; i--) {
-          root = root.parent
-        }
+      }
+      for(var i = message.closeBranchCount; i > 0; i--) {
+        root = root.parent
       }
     });
     return root;
@@ -24,14 +25,11 @@ class MessageRouteInspector extends React.Component {
 
   render() {
     console.log('render MessageRouteInspector');
-    if(this.props.route === null) {
-      return (
-        <ul></ul>
-      )
-    }
+    var hierarchy = this.rebuildHierarchy(this.props.route.messages);
+    console.log(hierarchy);
     return (
       <ul>
-        <MessageNode message={this.rebuildHierarchy(this.props.route.messages)} />
+        <MessageNode message={hierarchy} />
       </ul>
     )
   }

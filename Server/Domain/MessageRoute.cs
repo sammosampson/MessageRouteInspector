@@ -44,12 +44,17 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
         public void LogMessageProcessingFailure(string failureName)
         {
             hierarchy.Fail(failureName);
+            EndRouteIfHierachyComplete();
         }
        
         public void LogMessageProcessed()
         {
             hierarchy.EndBranch();
+            EndRouteIfHierachyComplete();
+        }
 
+        private void EndRouteIfHierachyComplete()
+        {
             if (!hierarchy.IsComplete())
             {
                 return;

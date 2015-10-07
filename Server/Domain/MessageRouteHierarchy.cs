@@ -82,6 +82,7 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
         void CompleteAllBranches()
         {
             hierarchy.Peek().Complete(openBranchCount);
+            openBranchCount = 0;
         }
     }
 }

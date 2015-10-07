@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>SystemDot.MessageRouteInspector.Client</id>
+    <version>1.0.0</version>
+    <title>SystemDot.MessageRouteInspector.Client</title>
+    <authors>Chris Sampson,James Goodenough</authors>
+    <owners>SystemDot</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Client for sending message logging to message route inspector service</description>
+    <summary>Client for sending message logging to message route inspector service</summary>
+    <copyright>SystemDot 2015</copyright>
+    <language>en-GB</language>
+    <tags>Messaging, Route, Inspection</tags>
+    <dependencies>
+      <dependency id="SystemDotBootstrapping" version="1.0.5" />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="Build\SystemDot.MessageRouteInspector.Client.dll" target="lib\net\SystemDot.MessageRouteInspector.Client.dll" />
+    <file src="Build\SystemDot.MessageRouteInspector.Client.pdb" target="lib\net\SystemDot.MessageRouteInspector.Client.pdb" />
+  </files>
+</package>

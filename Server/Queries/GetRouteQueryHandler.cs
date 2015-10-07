@@ -1,5 +1,6 @@
 namespace SystemDot.MessageRouteInspector.Server.Queries
 {
+    using System;
     using System.Threading.Tasks;
     using SystemDot.Domain.Queries;
     using SystemDot.MessageRouteInspector.Server.Messages;
@@ -15,10 +16,37 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
 
         public Task<GetRouteQueryResponse> Handle(GetRouteQuery message)
         {
-            return Task.FromResult(new GetRouteQueryResponse
+            Route route;
+
+            try
             {
-                Route = allRoutes.ContainsRoute(message.RouteId) ? allRoutes[message.RouteId] : null
-            });
+                route = allRoutes[message.RouteId];
+            }
+            catch (Exception)
+            {
+                route = new Route
+                {
+                    Root = new Message
+                    {
+                        Name  = "No Route"
+                    },
+                    Messages = new[]
+                    {
+                        new Message
+                        {
+                            Name = "No Route",
+                            CloseBranchCount = 1
+                        }
+                    }
+                };
+            }
+            
+            var getRouteQueryResponse = new GetRouteQueryResponse
+            {
+                Route = route
+            };
+
+            return Task.FromResult(getRouteQueryResponse);
         }
     }
 }
