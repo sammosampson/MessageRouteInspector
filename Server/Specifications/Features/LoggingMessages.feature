@@ -60,11 +60,11 @@ Scenario: Two routes from same machine and same thread
     When I get all routes
 	Then there should be a route at index 0 of all the routes
 	And only one message in the route
-	And that message should have the name 'firstRouteFirstMessage' 
+	And that message should have the name 'secondRouteFirstMessage' 
 	And that message should have a close branch count of 1
 	And there should be a route at index 1 of all the routes
 	And only one message in the route
-	And that message should have the name 'secondRouteFirstMessage' 
+	And that message should have the name 'firstRouteFirstMessage' 
 	And that message should have a close branch count of 1
 
 Scenario: Two routes from same machine but different threads
@@ -75,11 +75,11 @@ Scenario: Two routes from same machine but different threads
     When I get all routes
 	Then there should be a route at index 0 of all the routes
 	And only one message in the route
-	And that message should have the name 'firstRouteFirstMessage' 
+	And that message should have the name 'secondRouteFirstMessage' 
 	And that message should have a close branch count of 1
 	And there should be a route at index 1 of all the routes
 	And only one message in the route
-	And that message should have the name 'secondRouteFirstMessage' 
+	And that message should have the name 'firstRouteFirstMessage' 
 	And that message should have a close branch count of 1
 
 Scenario: Two routes from different machines but same thread
@@ -90,11 +90,11 @@ Scenario: Two routes from different machines but same thread
     When I get all routes
 	Then there should be a route at index 0 of all the routes
 	And only one message in the route
-	And that message should have the name 'firstRouteFirstMessage' 
+	And that message should have the name 'secondRouteFirstMessage' 
 	And that message should have a close branch count of 1
 	And there should be a route at index 1 of all the routes
 	And only one message in the route
-	And that message should have the name 'secondRouteFirstMessage' 
+	And that message should have the name 'firstRouteFirstMessage' 
 	And that message should have a close branch count of 1
 
 Scenario: No log processed yet so no route

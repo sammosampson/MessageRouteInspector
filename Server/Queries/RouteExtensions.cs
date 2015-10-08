@@ -6,32 +6,31 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
 
     public static class RouteExtensions
     {
-        public static void AddMessage(this Route route, MessageBranchCompleted message)
+        public static Route AddMessage(this Route route, string messageId, string messageName, int closeBranchCount, MessageType messageType)
         {
-            route.Messages = new List<Message>(route.Messages)
+            Route newRoute = new Route
             {
-                AddMessage(message)
-            }.ToArray();
+                Id = route.Id,
+                CreatedOn = route.CreatedOn,
+                Messages = new List<Message>(route.Messages) { AddMessage(messageId, messageName, closeBranchCount, messageType) }.ToArray()
+            };
 
-            SetRootToFirstMessage(route);
-        }
-
-        static void SetRootToFirstMessage(this Route route)
-        {
-            if (route.Messages.Count() == 1)
+            if (newRoute.Messages.Count() == 1)
             {
-                route.Root = route.Messages.First();
+                newRoute.Root = newRoute.Messages.First();
             }
+
+            return newRoute;
         }
 
-        static Message AddMessage(MessageBranchCompleted message)
+        static Message AddMessage(string messageId, string messageName, int closeBranchCount, MessageType messageType)
         {
             return new Message
             {
-                Id = message.MessageId,
-                Name = message.MessageName,
-                CloseBranchCount = message.CloseBranchCount,
-                Type = message.MessageType
+                Id = messageId,
+                Name = messageName,
+                CloseBranchCount = closeBranchCount,
+                Type = messageType
             };
         }
     }

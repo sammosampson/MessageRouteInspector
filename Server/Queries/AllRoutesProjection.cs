@@ -24,7 +24,7 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
 
         public Task Handle(MessageBranchCompleted message)
         {
-            allRoutes[message.RouteId].AddMessage(message);
+            allRoutes.AddMessage(message.RouteId, message);
             return Task.FromResult(false);
         }
     }

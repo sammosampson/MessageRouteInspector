@@ -24,7 +24,7 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
 
         Route[] GetRoutes()
         {
-            return allRoutes.ToArray();
+            return allRoutes.OrderByDescending(r => r.CreatedOn).ToArray();
         }
     }
-}
+} 

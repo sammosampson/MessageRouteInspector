@@ -72,3 +72,5 @@ C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Reflection.Windows.pdb
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.ThreadMarshalling.pdb
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.ThreadMarshalling.Windows.pdb
+C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\System.Collections.Immutable.dll
+C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\System.Collections.Immutable.xml

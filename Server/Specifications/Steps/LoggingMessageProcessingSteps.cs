@@ -39,7 +39,6 @@
             client.LogMessageProcessingFailureAsync(name, machine, thread, dated).Wait();
         }
 
-
         [Given(@"I have logged message processed from machine '(.*)' on thread (.*)")]
         public void GivenIHaveLoggedMessageProcessedFromMachineOnThread(string machine, int thread)
         {

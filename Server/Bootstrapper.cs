@@ -1,5 +1,7 @@
 namespace SystemDot.MessageRouteInspector.Server
 {
+    using System;
+    using System.Threading;
     using System.Threading.Tasks;
     using SystemDot.Bootstrapping;
     using SystemDot.Domain;
@@ -18,6 +20,9 @@ namespace SystemDot.MessageRouteInspector.Server
         public static async Task<MessageLogger> InitialiseAsync()
         {
             var iocContainer = new IocContainer();
+
+            // useful for attaching to the node process and debugging..
+            //await Task.Delay(TimeSpan.FromSeconds(60));
 
             await Bootstrap.Application()
                 .ResolveReferencesWith(iocContainer)
