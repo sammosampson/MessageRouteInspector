@@ -102,24 +102,31 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="Domain\Limits\CheckRouteLimitCommandHandler.cs" />
+    <Compile Include="Domain\Limits\MessageRouteStartedProcessManager.cs" />
+    <Compile Include="Domain\Limits\Route.cs" />
+    <Compile Include="Domain\Limits\RouteLimit.cs" />
+    <Compile Include="Domain\Limits\RouteLimitArbiter.cs" />
     <Compile Include="Domain\LogMessageProcessingFailureCommandHandler.cs" />
+    <Compile Include="Domain\MessageId.cs" />
     <Compile Include="Domain\MessageRouteLookup.cs" />
     <Compile Include="Domain\MessageRouteLookupProjection.cs" />
     <Compile Include="Domain\ProcessId.cs" />
+    <Compile Include="Domain\PublishingEntity.cs" />
+    <Compile Include="Domain\PublishingRoot.cs" />
+    <Compile Include="LimitRoutesToConfiguration.cs" />
+    <Compile Include="Messages\CheckRouteLimit.cs" />
     <Compile Include="Messages\GetRouteQuery.cs" />
     <Compile Include="Messages\GetRouteQueryResponse.cs" />
     <Compile Include="Messages\LogMessageProcessingFailure.cs" />
     <Compile Include="Messages\MessageBranchCompleted.cs" />
-    <Compile Include="Messages\MessageBranchStarted.cs" />
     <Compile Include="Domain\MessageRouteBranch.cs" />
     <Compile Include="Domain\MessageRouteHierarchy.cs" />
     <Compile Include="Messages\MessageRouteEnded.cs" />
+    <Compile Include="Messages\MessageRouteLimitReached.cs" />
     <Compile Include="Messages\MessageRouteStarted.cs" />
     <Compile Include="Messages\LogMessageProcessed.cs" />
     <Compile Include="Domain\LogMessageProcessedCommandHandler.cs" />
-    <Compile Include="Messages\MessageBranchEnded.cs" />
-    <Compile Include="Messages\MessageProcessedLogged.cs" />
-    <Compile Include="Messages\MessageProcessingLogged.cs" />
     <Compile Include="Domain\MessageRoute.cs" />
     <Compile Include="Domain\MessageRouteId.cs" />
     <Compile Include="Messages\GetRoutesQuery.cs" />

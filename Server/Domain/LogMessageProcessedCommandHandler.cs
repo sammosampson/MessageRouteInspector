@@ -1,44 +1,29 @@
 namespace SystemDot.MessageRouteInspector.Server.Domain
 {
     using System.Threading.Tasks;
-    using SystemDot.Domain;
     using SystemDot.Domain.Commands;
-    using SystemDot.EventSourcing;
+    using SystemDot.Domain.Events;
     using SystemDot.MessageRouteInspector.Server.Messages;
 
     public class LogMessageProcessedCommandHandler : IAsyncCommandHandler<LogMessageProcessed>
     {
-        readonly IDomainRepository repository;
+        readonly IEventBus bus;
         readonly MessageRouteLookup lookup;
 
-        public LogMessageProcessedCommandHandler(IDomainRepository repository, MessageRouteLookup lookup)
+        public LogMessageProcessedCommandHandler(IEventBus bus, MessageRouteLookup lookup)
         {
-            this.repository = repository;
+            this.bus = bus;
             this.lookup = lookup;
         }
 
         public async Task Handle(LogMessageProcessed message)
         {
-            if (!RouteExists(message))
+            if (lookup.MessageRouteExists(message.Machine, message.Thread))
             {
-                return;
+                lookup.LookupMessageRoute(message.Machine, message.Thread).LogMessageProcessed();
             }
 
-            MessageRoute route = GetRoute(message);
-            route.LogMessageProcessed();
-            repository.Save(route);
-
             await Task.FromResult(false);
-        }
-
-        bool RouteExists(LogMessageProcessed message)
-        {
-            return lookup.MessageRouteExists(message.Machine, message.Thread);
-        }
-
-        MessageRoute GetRoute(LogMessageProcessed message)
-        {
-            return repository.Get<MessageRoute>(lookup.LookupMessageRouteId(message.Machine, message.Thread));
         }
     }
 }

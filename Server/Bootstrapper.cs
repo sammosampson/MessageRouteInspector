@@ -1,41 +1,10 @@
 namespace SystemDot.MessageRouteInspector.Server
 {
-    using System;
-    using System.Threading;
-    using System.Threading.Tasks;
-    using SystemDot.Bootstrapping;
-    using SystemDot.Domain;
-    using SystemDot.Domain.Bootstrapping;
-    using SystemDot.Domain.Commands;
-    using SystemDot.Domain.Queries;
-    using SystemDot.Environment;
-    using SystemDot.EventSourcing.Bootstrapping;
-    using SystemDot.EventSourcing.InMemory.Bootstrapping;
-    using SystemDot.EventSourcing.Projections;
-    using SystemDot.Ioc;
-    using SystemDot.MessageRouteInspector.Server.Domain;
-
     public static class Bootstrapper
     {
-        public static async Task<MessageLogger> InitialiseAsync()
+        public static LimitRoutesToConfiguration LimitRoutesTo(int limit)
         {
-            var iocContainer = new IocContainer();
-
-            // useful for attaching to the node process and debugging..
-            //await Task.Delay(TimeSpan.FromSeconds(60));
-
-            await Bootstrap.Application()
-                .ResolveReferencesWith(iocContainer)
-                .UseEnvironment()
-                .UseDomain()
-                    .WithSimpleMessaging()
-                    .RegisterBuildAction(c => c.RegisterCommandHandlersFromAssemblyOf<LogMessageProcessingCommandHandler>())
-                    .RegisterBuildAction(c => c.RegisterQueryHandlersFromAssemblyOf<LogMessageProcessingCommandHandler>())
-                    .RegisterBuildAction(c => c.RegisterProjectionsFromAssemblyOf<LogMessageProcessingCommandHandler>())
-                .UseEventSourcing().PersistToMemory()
-                .InitialiseAsync();
-
-            return iocContainer.Resolve<MessageLogger>();
+            return new LimitRoutesToConfiguration(limit);
         }
     }
 }

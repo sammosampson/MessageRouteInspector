@@ -2,9 +2,9 @@ namespace SystemDot.MessageRouteInspector.Server.Messages
 {
     using System;
 
-    public class MessageProcessedLogged
+    public class CheckRouteLimit
     {
-        public string MessageName { get; set; }
+        public Guid RouteId { get; set; }
         public DateTime CreatedOn { get; set; }
     }
 }

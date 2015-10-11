@@ -21,10 +21,15 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
             var route = new Route
             {
                 Id = id,
-                CreatedOn = createdOn, 
+                CreatedOn = createdOn,
                 Messages = new Message[0]
             };
             routes = routes.Add(id, route);
+        }
+
+        public void RemoveRoute(string id)
+        {
+            routes = routes.Remove(id);
         }
 
         public IEnumerator<Route> GetEnumerator()
@@ -40,7 +45,9 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
 
         public void AddMessage(string routeId, MessageBranchCompleted message)
         {
-            routes = routes.SetItem(routeId, routes[routeId].AddMessage(message.MessageId, message.MessageName, message.CloseBranchCount, message.MessageType));
+            routes = routes
+                .SetItem(routeId, routes[routeId]
+                    .AddMessage(message.MessageId.ToString(), message.MessageName, message.CloseBranchCount, message.MessageType));
         }
 
         public Route this[string routeId]

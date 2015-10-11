@@ -1,14 +1,18 @@
 namespace SystemDot.MessageRouteInspector.Server.Domain
 {
+    using System;
     using System.Collections.Generic;
+    using SystemDot.Domain.Events;
 
     public class MessageRouteLookup
     {
-        readonly Dictionary<ProcessId, MessageRouteId> currentRoutes;
+        readonly Dictionary<ProcessId, MessageRoute> currentRoutes;
+        readonly IEventBus bus; 
 
-        public MessageRouteLookup()
+        public MessageRouteLookup(IEventBus bus)
         {
-            currentRoutes = new Dictionary<ProcessId, MessageRouteId>();
+            this.bus = bus;
+            currentRoutes = new Dictionary<ProcessId, MessageRoute>();
         }
 
         public bool MessageRouteExists(string machine, int thread)
@@ -16,14 +20,18 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
             return currentRoutes.ContainsKey(new ProcessId(machine, thread));
         }
 
-        public MessageRouteId LookupMessageRouteId(string machine, int thread)
+        public MessageRoute LookupMessageRoute(string machine, int thread)
         {            
             return currentRoutes[new ProcessId(machine, thread)];
         }
 
-        public void OpenRoute(string machine, int thread, MessageRouteId id)
+        public MessageRoute OpenRoute(string machine, int thread, DateTime createdOn)
         {
-            currentRoutes.Add(new ProcessId(machine, thread), id);
+            var processId = new ProcessId(machine, thread);
+            MessageRoute messageRoute = MessageRoute.Open(bus, processId, createdOn);
+            currentRoutes.Add(processId, messageRoute);
+
+            return messageRoute;
         }
 
         public void CloseRoute(string machine, int thread)

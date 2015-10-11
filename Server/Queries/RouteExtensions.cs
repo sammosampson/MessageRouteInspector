@@ -8,7 +8,7 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
     {
         public static Route AddMessage(this Route route, string messageId, string messageName, int closeBranchCount, MessageType messageType)
         {
-            Route newRoute = new Route
+            var newRoute = new Route
             {
                 Id = route.Id,
                 CreatedOn = route.CreatedOn,

@@ -4,7 +4,7 @@
   So that I can see it in the inspector
 
 Background:
-	Given I have setup the server
+	Given I have setup the server with a limit of the last 2 routes saved
 
 Scenario: Second of two routes retreived by id
 	Given I have logged command processing for the message 'firstRouteFirstMessage' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:01'

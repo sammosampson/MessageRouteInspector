@@ -73,7 +73,7 @@ namespace SystemDot.MessageRouteInspector.Server.Specifications.Features
         {
 #line 6
 #line 7
- testRunner.Given("I have setup the server", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("I have setup the server with a limit of the last 2 routes saved", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
         }
         

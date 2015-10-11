@@ -1,30 +1,32 @@
 namespace SystemDot.MessageRouteInspector.Server.Domain
 {
     using System.Collections.Generic;
-    using SystemDot.EventSourcing.Aggregation;
-    using SystemDot.MessageRouteInspector.Server.Messages;
 
-    public class MessageRouteHierarchy : AggregateEntity<MessageRoute>
+    public class MessageRouteHierarchy : PublishingEntity
     {
-        readonly MessageRouteId rootId;
+        readonly MessageRoute route;
+        readonly MessageRouteId routeId;
         readonly Stack<MessageRouteBranch> hierarchy = new Stack<MessageRouteBranch>();
         int openBranchCount;
 
-        public MessageRouteHierarchy(MessageRoute root, MessageRouteId rootId)
-            : base(root)
+        public MessageRouteHierarchy(MessageRoute route, MessageRouteId routeId) : base(route)
         {
-            this.rootId = rootId;
+            this.route = route;
+            this.routeId = routeId;
         }
 
         public void StartBranch(string messageName, MessageType messageType)
         {
             CompletePreviousBranch();
 
-            AddEvent(new MessageBranchStarted
+            openBranchCount++;
+
+            if (hierarchy.Count > 0)
             {
-                MessageName = messageName,
-                MessageType = messageType
-            });
+                hierarchy.Pop();
+            }
+
+            hierarchy.Push(new MessageRouteBranch(route, routeId, messageName, messageType));
         }
 
         public void Fail(string failureName)
@@ -41,32 +43,15 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
             }
         }
 
-        void ApplyEvent(MessageBranchStarted @event)
-        {
-            openBranchCount++;
-
-            if (hierarchy.Count > 0)
-            {
-                hierarchy.Pop();
-            }
-
-            hierarchy.Push(new MessageRouteBranch(Root, rootId, @event.MessageName, @event.MessageType));
-        }
-        
         public void EndBranch()
         {
-            AddEvent(new MessageBranchEnded());
+            openBranchCount--;
+            hierarchy.Peek().End();
 
             if (IsComplete())
             {
                 CompleteBranch();
             }
-        }
-
-        void ApplyEvent(MessageBranchEnded @event)
-        {
-            openBranchCount--;
-            hierarchy.Peek().End();
         }
 
         public bool IsComplete()

@@ -1,39 +1,33 @@
 namespace SystemDot.MessageRouteInspector.Server.Domain
 {
     using System;
-    using SystemDot.EventSourcing.Aggregation;
+    using SystemDot.Domain.Events;
     using SystemDot.MessageRouteInspector.Server.Messages;
 
-    public class MessageRoute : AggregateRoot
+    public class MessageRoute : PublishingRoot
     {
-        MessageRouteHierarchy hierarchy;
-        ProcessId processId;
+        readonly MessageRouteHierarchy hierarchy;
+        readonly ProcessId processId;
 
-        public static MessageRoute Start(string machineName, int thread, DateTime createdOn)
+        public static MessageRoute Open(IEventBus bus, ProcessId processId, DateTime createdOn)
         {
-            return new MessageRoute(machineName, thread, createdOn, new MessageRouteId());
+            return new MessageRoute(bus, processId, createdOn);
         }
 
-        public MessageRoute()
+        MessageRoute(IEventBus bus, ProcessId processId, DateTime createdOn)
+            : base(bus)
         {
-            
-        }
+            var id = new MessageRouteId();
+            hierarchy = new MessageRouteHierarchy(this, id);
+            this.processId = processId;
 
-        MessageRoute(string machineName, int thread, DateTime createdOn, MessageRouteId id) : base(id)
-        {
-            AddEvent(new MessageRouteStarted
+            PublishEvent(new MessageRouteStarted
             {
-                Id = id.Id,
-                MachineName = machineName,
-                Thread = thread,
+                Id = id,
+                MachineName = processId.MachineName,
+                Thread = processId.Thread,
                 CreatedOn = createdOn
             });
-        }
-
-        void ApplyEvent(MessageRouteStarted @event)
-        {
-            hierarchy = new MessageRouteHierarchy(this, new MessageRouteId(@event.Id));
-            processId = new ProcessId(@event.MachineName, @event.Thread);
         }
 
         public void LogMessageProcessing(string message, MessageType messageType)
@@ -46,7 +40,7 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
             hierarchy.Fail(failureName);
             EndRouteIfHierachyComplete();
         }
-       
+
         public void LogMessageProcessed()
         {
             hierarchy.EndBranch();
@@ -60,11 +54,12 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
                 return;
             }
 
-            AddEvent(new MessageRouteEnded
+            PublishEvent(new MessageRouteEnded
             {
                 MachineName = processId.MachineName,
                 Thread = processId.Thread
             });
         }
+
     }
 }

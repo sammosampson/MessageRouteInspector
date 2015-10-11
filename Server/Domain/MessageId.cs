@@ -2,16 +2,16 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
 {
     using System;
 
-    public class MessageRouteId
+    public class MessageId
     {
         readonly Guid value;
 
-        public MessageRouteId()
+        public MessageId()
         {
             value = Guid.NewGuid();
         }
 
-        public static implicit operator Guid(MessageRouteId from)
+        public static implicit operator Guid(MessageId from)
         {
             return from.value;
         }

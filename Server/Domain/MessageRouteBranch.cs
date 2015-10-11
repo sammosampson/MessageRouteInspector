@@ -1,18 +1,19 @@
 namespace SystemDot.MessageRouteInspector.Server.Domain
 {
-    using System;
-    using SystemDot.EventSourcing.Aggregation;
     using SystemDot.MessageRouteInspector.Server.Messages;
 
-    public class MessageRouteBranch : AggregateEntity<MessageRoute>
+    public class MessageRouteBranch : PublishingEntity
     {
+        readonly MessageId id;
         readonly MessageRouteId routeId;
         readonly MessageType messageType;
         readonly string messageName;
         int branchClosedCount;
 
-        public MessageRouteBranch(MessageRoute root, MessageRouteId routeId, string messageName, MessageType messageType) : base(root)
+        public MessageRouteBranch(MessageRoute route, MessageRouteId routeId, string messageName, MessageType messageType)
+            : base(route)
         {
+            id = new MessageId();
             this.routeId = routeId;
             this.messageName = messageName;
             this.messageType = messageType;
@@ -25,13 +26,13 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
 
         public void Complete(int branches)
         {
-            AddEvent(new MessageBranchCompleted
+            PublishEvent(new MessageBranchCompleted
             {
-                MessageId = Guid.NewGuid().ToString(),
+                MessageId = id,
                 MessageName = messageName,
                 CloseBranchCount = branches,
                 MessageType = messageType,
-                RouteId = routeId.Id
+                RouteId = routeId
             });
         }
 

@@ -74,3 +74,6 @@ C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.ThreadMarshalling.Windows.pdb
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\System.Collections.Immutable.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\System.Collections.Immutable.xml
+E:\Work\MessageRouteInspector\Server\Build\System.Collections.Immutable.dll
+E:\Work\MessageRouteInspector\Server\Build\System.Collections.Immutable.xml
+E:\Work\MessageRouteInspector\Server\obj\Debug\MessageRouteInspector.Server.csprojResolveAssemblyReference.cache

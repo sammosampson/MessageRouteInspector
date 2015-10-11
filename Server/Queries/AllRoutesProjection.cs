@@ -4,9 +4,9 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
     using SystemDot.EventSourcing.Projections;
     using SystemDot.MessageRouteInspector.Server.Messages;
 
-    [HydrateProjectionAtStartup]
     public class AllRoutesProjection :
         IProjection<MessageRouteStarted>,
+        IProjection<MessageRouteLimitReached>,
         IProjection<MessageBranchCompleted>
     {
         readonly AllRoutes allRoutes;
@@ -18,13 +18,19 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
 
         public Task Handle(MessageRouteStarted message)
         {
-            allRoutes.AddRoute(message.Id, message.CreatedOn);
+            allRoutes.AddRoute(message.Id.ToString(), message.CreatedOn);
+            return Task.FromResult(false);
+        }
+
+        public Task Handle(MessageRouteLimitReached message)
+        {
+            allRoutes.RemoveRoute(message.ToRemove.ToString());
             return Task.FromResult(false);
         }
 
         public Task Handle(MessageBranchCompleted message)
         {
-            allRoutes.AddMessage(message.RouteId, message);
+            allRoutes.AddMessage(message.RouteId.ToString(), message);
             return Task.FromResult(false);
         }
     }

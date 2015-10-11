@@ -4,7 +4,7 @@
   So that I can see it in the inspector
 
 Background:
-	Given I have setup the server
+	Given I have setup the server with a limit of the last 2 routes saved
 	
 Scenario: One route from same machine and same thread message in message then failure
 	Given I have logged command processing for the message 'first' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:01'

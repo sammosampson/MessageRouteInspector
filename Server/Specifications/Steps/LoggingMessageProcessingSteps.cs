@@ -15,10 +15,10 @@
         Route routeRetreivedById;
         Message message;
 
-        [Given(@"I have setup the server")]
-        public void GivenIHaveSetupTheServer()
+        [Given(@"I have setup the server with a limit of the last (.*) routes saved")]
+        public void GivenIHaveSetupTheServer(int limit)
         {
-            client = Bootstrapper.InitialiseAsync().Result;
+            client = Bootstrapper.LimitRoutesTo(limit).InitialiseAsync().Result;
         }
 
         [Given(@"I have logged command processing for the message '(.*)' from machine '(.*)' on thread (.*) dated '(.*)'")]
@@ -80,6 +80,12 @@
         public void ThenThereShouldNotBeAnyRoutes()
         {
             routes.Should().BeEmpty();
+        }
+
+        [Then(@"there should only be (.*) routes")]
+        public void ThenThereShouldOnlyBeRoutes(int expectedAmount)
+        {
+            routes.Count().Should().Be(expectedAmount);
         }
 
         [Then(@"there should be a route at index (.*) of all the routes")]
