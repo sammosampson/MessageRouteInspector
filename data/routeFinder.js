@@ -11,7 +11,7 @@ var initialiseFinder = edge.func(function () {/*
   {
       public async Task<object> Invoke(dynamic input)
       {
-          var logger = await Bootstrapper.InitialiseAsync();
+          var logger = await Bootstrapper.LimitRoutesTo(10).InitialiseAsync();
 
           return new
           {

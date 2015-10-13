@@ -14,6 +14,8 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
         public AllRoutes()
         {
             routes = ImmutableDictionary<string, Route>.Empty;
+            var message = new Message{ CloseBranchCount = 0, Id = "0", Name = "No route", Type = MessageType.Command };
+            routes.Add("0", new Route { Id = "0", Messages = new[] { message }, Root = message });
         }
 
         public void AddRoute(string id, DateTime createdOn)

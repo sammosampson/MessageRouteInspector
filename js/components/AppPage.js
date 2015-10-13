@@ -11,15 +11,23 @@ class AppPage extends React.Component {
   render() {
     console.log('render AppPage');
     return (
-      <div>
-        <Panel title="route inspector">
-          <MessageRouteInspector route={this.props.viewer.route}/>
-        </Panel>
-        <Panel title="Available routes">
-          <MessageRoutes
-            routes={this.props.viewer.routes}
-            onRouteItemSelected={this.onRouteItemSelected.bind(this)}/>
-        </Panel>
+      <div id="content">
+        <div className="row">
+          <div className="col-lg-6 col-md-6">
+            <Panel title="Available routes">
+              <MessageRoutes
+                routes={this.props.viewer.routes}
+                onRouteItemSelected={this.onRouteItemSelected.bind(this)}/>
+            </Panel>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-lg-6 col-md-6">
+            <Panel title="Route inspector">
+              <MessageRouteInspector route={this.props.viewer.route}/>
+            </Panel>
+          </div>
+        </div>
       </div>
     );
   }

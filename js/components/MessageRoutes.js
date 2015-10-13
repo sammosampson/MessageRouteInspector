@@ -5,11 +5,32 @@ class MessageRoutes extends React.Component {
   render() {
     console.log('render MessageRoutes');
     return (
-      <List
-        items={this.props.routes}
-        getItemTitle={(route) => route.root.name}
-        getItemKey={(route) => route.id}
-        onItemSelected={this.props.onRouteItemSelected} />
+      <table className="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th className="per60">Name</th>
+            <th className="per20">Date</th>
+            <th className="per20">Machine</th>
+          </tr>
+        </thead>
+        <tbody>
+          {this.renderRows()}
+        </tbody>
+      </table>
+
+    );
+  }
+  renderRows() {
+    return this.props.routes.map((item, index) => this.renderRow(item));
+  }
+  renderRow(item) {
+    var boundClick = this.props.onRouteItemSelected.bind(this, item.id);
+    return (
+      <tr onClick={boundClick}>
+        <td>{item.root.name}</td>
+        <td></td>
+        <td></td>
+      </tr>
     );
   }
 }

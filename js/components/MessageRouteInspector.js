@@ -26,11 +26,12 @@ class MessageRouteInspector extends React.Component {
   render() {
     console.log('render MessageRouteInspector');
     var hierarchy = this.rebuildHierarchy(this.props.route.messages);
-    console.log(hierarchy);
     return (
-      <ul>
-        <MessageNode message={hierarchy} />
-      </ul>
+      <div className="dd per100">
+        <ol className="dd-list">
+          <MessageNode message={hierarchy} />
+        </ol>
+      </div>
     )
   }
 }

@@ -4,13 +4,14 @@ export default class MessageNode extends React.Component {
   render() {
     console.log('render MessageNode');
     return (
-      <li><button type="button" className="btn btn-success">{this.props.message.name}</button>
-        <ul>{
+      <li className="dd-item">
+        <div className="dd-handle green-bg">{this.props.message.name}</div>
+        <ol className="dd-list">{
           this.props.message.children.map((childMessage) => {
             return <MessageNode message={childMessage} />
           })
         }
-        </ul>
+        </ol>
       </li>
     )
   }
