@@ -132,6 +132,7 @@
     <Compile Include="Messages\GetRoutesQuery.cs" />
     <Compile Include="MessageType.cs" />
     <Compile Include="Queries\AllRoutes.cs" />
+    <Compile Include="Queries\DateTimeExtensions.cs" />
     <Compile Include="Queries\GetRouteQueryHandler.cs" />
     <Compile Include="Queries\GetRoutesQueryHandler.cs" />
     <Compile Include="Messages\GetRoutesQueryResponse.cs" />

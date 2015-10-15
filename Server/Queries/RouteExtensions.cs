@@ -12,6 +12,7 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
             {
                 Id = route.Id,
                 CreatedOn = route.CreatedOn,
+                MachineName = route.MachineName,
                 Messages = new List<Message>(route.Messages) { AddMessage(messageId, messageName, closeBranchCount, messageType) }.ToArray()
             };
 

@@ -5,7 +5,7 @@ export default class MessageNode extends React.Component {
     console.log('render MessageNode');
     return (
       <li className="dd-item">
-        <div className="dd-handle green-bg">{this.props.message.name}</div>
+        {this.renderInner()}
         <ol className="dd-list">{
           this.props.message.children.map((childMessage) => {
             return <MessageNode message={childMessage} />
@@ -14,5 +14,23 @@ export default class MessageNode extends React.Component {
         </ol>
       </li>
     )
+  }
+
+  renderInner() {
+    if(this.props.message.type == 0) {
+      return (
+        <div className="dd-handle green-bg">{this.props.message.name}</div>
+      )
+    }
+    if(this.props.message.type == 1) {
+      return (
+        <div className="dd-handle blue-bg">{this.props.message.name}</div>
+      )
+    }
+    if(this.props.message.type == 2) {
+      return (
+        <div className="dd-handle red-bg">{this.props.message.name}</div>
+      )
+    }
   }
 }

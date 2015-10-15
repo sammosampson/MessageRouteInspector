@@ -96,11 +96,17 @@
         }
 
         [Then(@"that route should be dated '(.*)'")]
-        public void ThenThatRouteShouldBeDated(DateTime dated)
+        public void ThenThatRouteShouldBeDated(string dated)
         {
             route.CreatedOn.Should().Be(dated);
         }
 
+        [Then(@"that route should be from machine '(.*)'")]
+        public void ThenThatRouteShouldBeFromMachine(string machineName)
+        {
+            route.MachineName.Should().Be(machineName);
+        }
+        
         [Then(@"it should match the other route")]
         public void ThenItShouldMatchTheOtherRoute()
         {
@@ -149,6 +155,19 @@
         public void ThenThatMessageShouldHaveTheType(MessageType type)
         {
             message.Type.Should().Be(type);
+        }
+
+        [StepArgumentTransformation]
+        MessageType FromStringToMessageType(string from)
+        {
+            switch (@from)
+            {
+                case "Command":
+                    return MessageType.Command;
+                case "Event":
+                    return MessageType.Event;
+            }
+            return MessageType.Failure;
         }
     }
 }

@@ -1,5 +1,4 @@
 import 'babel/polyfill';
-import List from './List';
 
 class MessageRoutes extends React.Component {
   render() {
@@ -28,8 +27,8 @@ class MessageRoutes extends React.Component {
     return (
       <tr onClick={boundClick}>
         <td>{item.root.name}</td>
-        <td></td>
-        <td></td>
+        <td>{item.createdOn}</td>
+        <td>{item.machine}</td>
       </tr>
     );
   }
@@ -40,6 +39,8 @@ export default Relay.createContainer(MessageRoutes, {
     routes: () => Relay.QL`
       fragment on MessageRoute @relay(plural: true) {
         id,
+        createdOn,
+        machine,
         root {
           name
         }

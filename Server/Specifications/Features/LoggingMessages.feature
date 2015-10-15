@@ -14,7 +14,8 @@ Scenario: One route from same machine and same thread one command
 	And that route should have a valid id
 	And only one message in the route 
 	And the root message in the route should be the same as that message
-	And that route should be dated '09/21/1975 00:00:01'
+	And that route should be dated '1975-09-21 00:00:01'
+    And that route should be from machine 'TestMachine' 
     And only one message in the route 
 	And the root message in the route should be the same as that message
 	And that message should have a valid id
@@ -30,8 +31,9 @@ Scenario: One route from same machine and same thread one command
 	And only one message in the route 
 	And that route should have a valid id
 	And the root message in the route should be the same as that message
-	And that route should be dated '09/21/1975 00:00:01'
-    And only one message in the route 
+	And that route should be dated '1975-09-21 00:00:01'
+	And that route should be from machine 'TestMachine' 
+	And only one message in the route 
 	And the root message in the route should be the same as that message
 	And that message should have a valid id
 	And that message should have the name 'root'

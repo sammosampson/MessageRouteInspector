@@ -14,17 +14,31 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
         public AllRoutes()
         {
             routes = ImmutableDictionary<string, Route>.Empty;
-            var message = new Message{ CloseBranchCount = 0, Id = "0", Name = "No route", Type = MessageType.Command };
-            routes.Add("0", new Route { Id = "0", Messages = new[] { message }, Root = message });
+            var message = new Message
+            {
+                CloseBranchCount = 0, 
+                Id = "0", 
+                Name = "No route", 
+                Type = MessageType.Command
+            };
+            routes.Add("0", new Route
+            {
+                Id = "0", 
+                CreatedOn = DateTime.Now.ToJavaString(),
+                Messages = new[] { message }, 
+                Root = message,
+                MachineName = string.Empty
+            });
         }
 
-        public void AddRoute(string id, DateTime createdOn)
+        public void AddRoute(string id, DateTime createdOn, string machineName)
         {
             var route = new Route
             {
                 Id = id,
-                CreatedOn = createdOn,
-                Messages = new Message[0]
+                CreatedOn = createdOn.ToJavaString(),
+                Messages = new Message[0],
+                MachineName = machineName
             };
             routes = routes.Add(id, route);
         }

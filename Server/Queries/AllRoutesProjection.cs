@@ -18,7 +18,7 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
 
         public Task Handle(MessageRouteStarted message)
         {
-            allRoutes.AddRoute(message.Id.ToString(), message.CreatedOn);
+            allRoutes.AddRoute(message.Id.ToString(), message.CreatedOn, message.MachineName);
             return Task.FromResult(false);
         }
 

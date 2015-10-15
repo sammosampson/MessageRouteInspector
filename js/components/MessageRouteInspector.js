@@ -43,6 +43,7 @@ export default Relay.createContainer(MessageRouteInspector, {
         messages {
           id,
           name,
+          type,
           closeBranchCount
         }
       }

@@ -39,6 +39,12 @@ var message = new GraphQLObjectType({
         return message.Name;
       }
     },
+    type: {
+      type: GraphQLInt,
+      resolve: (message) => {
+        return message.Type;
+      }
+    },
     closeBranchCount: {
       type: GraphQLInt,
       resolve: (message) => {
@@ -55,6 +61,18 @@ var route = new GraphQLObjectType({
       type: GraphQLID,
       resolve: (route) => {
         return route.Id;
+      }
+    },
+    createdOn: {
+      type: GraphQLString,
+      resolve: (route) => {
+        return route.CreatedOn;
+      }
+    },
+    machine: {
+      type: GraphQLString,
+      resolve: (route) => {
+        return route.MachineName;
       }
     },
     root: {
