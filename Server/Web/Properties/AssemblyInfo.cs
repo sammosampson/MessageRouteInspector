@@ -1,15 +1,14 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("Rapidware.Financier.Admin.WebApi")]
+[assembly: AssemblyTitle("SystemDot.MessageRouteInspector.Server.Web")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Insurecom Ltd")]
-[assembly: AssemblyProduct("Rapidware.Financier.Admin.WebApi")]
+[assembly: AssemblyCompany("SystemDot")]
+[assembly: AssemblyProduct("SystemDot.MessageRouteInspector.Server.Web")]
 [assembly: AssemblyCopyright("Copyright © Insurecom Ltd 2014")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

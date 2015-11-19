@@ -221,12 +221,6 @@
     <None Include="Properties\PublishProfiles\FinancierAdminApi - Production - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FinancierAdminApi-Development - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\FinancierAdminApi-Development - Web Deploy.pubxml" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MessageRouteInspector.Server.csproj">
