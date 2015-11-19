@@ -5,7 +5,6 @@ namespace SystemDot.MessageRouteInspector.Server.Messages
     public class LogMessageProcessing
     {
         public string MessageName { get; set; }
-        public MessageType MessageType { get; set; }
         public DateTime CreatedOn { get; set; }
         public string Machine { get; set; }
         public int Thread { get; set; }

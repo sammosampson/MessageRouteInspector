@@ -18,7 +18,7 @@
         [Given(@"I have setup the server with a limit of the last (.*) routes saved")]
         public void GivenIHaveSetupTheServer(int limit)
         {
-            client = Bootstrapper.LimitRoutesTo(limit).InitialiseAsync().Result;
+            client = Bootstrapper.LimitRoutesTo(limit);
         }
 
         [Given(@"I have logged command processing for the message '(.*)' from machine '(.*)' on thread (.*) dated '(.*)'")]

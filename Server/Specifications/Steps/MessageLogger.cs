@@ -1,4 +1,4 @@
-namespace SystemDot.MessageRouteInspector.Server
+namespace SystemDot.MessageRouteInspector.Server.Specifications.Steps
 {
     using System;
     using System.Threading.Tasks;
@@ -24,10 +24,9 @@ namespace SystemDot.MessageRouteInspector.Server
 
         public async Task LogCommandProcessingAsync(string messageName, string machine, int thread, DateTime createdOn)
         {
-            await commandBus.SendCommandAsync(new LogMessageProcessing
+            await commandBus.SendCommandAsync(new LogCommandProcessing
             {
                 MessageName = messageName,
-                MessageType = MessageType.Command,
                 CreatedOn = createdOn,
                 Machine = machine,
                 Thread = thread
@@ -36,10 +35,9 @@ namespace SystemDot.MessageRouteInspector.Server
 
         public async Task LogEventProcessingAsync(string messageName, string machine, int thread, DateTime createdOn)
         {
-            await commandBus.SendCommandAsync(new LogMessageProcessing
+            await commandBus.SendCommandAsync(new LogEventProcessing
             {
                 MessageName = messageName,
-                MessageType = MessageType.Event,
                 CreatedOn = createdOn,
                 Machine = machine,
                 Thread = thread
