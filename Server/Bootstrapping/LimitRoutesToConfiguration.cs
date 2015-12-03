@@ -5,8 +5,6 @@ namespace SystemDot.MessageRouteInspector.Server.Bootstrapping
 
     public class LimitRoutesToConfiguration : BootstrapBuilderConfiguration
     {
-        readonly int routeLimit;
-
         public LimitRoutesToConfiguration(BootstrapBuilderConfiguration @from)
             : base(@from)
         {
