@@ -82,7 +82,7 @@ this.ScenarioSetup(scenarioInfo);
  testRunner.When("I send the following query \'query RouteQuery { App { routes{ machine } } }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 6
- testRunner.Then("I should be returned", "{\r\n  \"data\": {\r\n    \"App\": {\r\n\t\t\"Routes\": [{\r\n\t\t}]\r\n    }\r\n  }\r\n}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I should be returned", "{\"data\":{\"app\":{\"routes\":null}}}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

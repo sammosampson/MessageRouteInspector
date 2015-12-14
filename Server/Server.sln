@@ -14,8 +14,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{A72DD5
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageRouteInspector.Server.Web", "Web\MessageRouteInspector.Server.Web.csproj", "{00BAD8D3-628D-4390-8088-E6AC5237C548}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageRouteInspector.Server.GraphQl", "GraphQl\MessageRouteInspector.Server.GraphQl.csproj", "{EFAB9C5C-2A5E-405B-8DD9-71D7A8A0BA16}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageRouteInspector.Server.GraphQl.Specifications", "GraphQl\Specifications\MessageRouteInspector.Server.GraphQl.Specifications.csproj", "{CB6A8653-7EB0-462A-BE0E-28F7368801CF}"
@@ -34,10 +32,6 @@ Global
 		{BF1FFD47-5C8B-4BA2-868B-B9CE092D9BA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF1FFD47-5C8B-4BA2-868B-B9CE092D9BA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF1FFD47-5C8B-4BA2-868B-B9CE092D9BA4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{00BAD8D3-628D-4390-8088-E6AC5237C548}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{00BAD8D3-628D-4390-8088-E6AC5237C548}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{00BAD8D3-628D-4390-8088-E6AC5237C548}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{00BAD8D3-628D-4390-8088-E6AC5237C548}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EFAB9C5C-2A5E-405B-8DD9-71D7A8A0BA16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EFAB9C5C-2A5E-405B-8DD9-71D7A8A0BA16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFAB9C5C-2A5E-405B-8DD9-71D7A8A0BA16}.Release|Any CPU.ActiveCfg = Release|Any CPU

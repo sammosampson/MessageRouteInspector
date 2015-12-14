@@ -5,12 +5,5 @@ Scenario: Getting routes with no routes created
 	When I send the following query 'query RouteQuery { App { routes{ machine } } }'
 	Then I should be returned 
 """
-{
-  "data": {
-    "App": {
-		"Routes": [{
-		}]
-    }
-  }
-}
+{"data":{"app":{"routes":null}}}
 """

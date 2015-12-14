@@ -19,7 +19,7 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl.Specifications.Steps
         [When(@"I send the following query '(.*)'")]
         public void WhenISendTheFollowingQuery(string query)
         {
-            output = executer.ExecuteQuery(query);
+            output = executer.ExecuteQueryAsync(query).Result;
         }
         
         [Then(@"I should be returned")]
