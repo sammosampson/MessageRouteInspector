@@ -22,7 +22,7 @@ namespace SystemDot.MessageRouteInspector.Server.Specifications.Steps
             this.getRouteQueryHandler = getRouteQueryHandler;
         }
 
-        public async Task LogCommandProcessingAsync(string messageName, string machine, int thread, DateTime createdOn)
+        public async Task<int> LogCommandProcessingAsync(string messageName, string machine, int thread, DateTime createdOn)
         {
             await commandBus.SendCommandAsync(new LogCommandProcessing
             {
@@ -31,6 +31,8 @@ namespace SystemDot.MessageRouteInspector.Server.Specifications.Steps
                 Machine = machine,
                 Thread = thread
             });
+
+            return 1;
         }
 
         public async Task LogEventProcessingAsync(string messageName, string machine, int thread, DateTime createdOn)

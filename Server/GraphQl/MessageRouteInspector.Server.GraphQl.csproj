@@ -129,6 +129,10 @@
       <Project>{4e8f44c2-a170-4134-ae3e-11779a1f30ad}</Project>
       <Name>MessageRouteInspector.Server</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Specifications\MessageRouteInspector.Server.Specifications.csproj">
+      <Project>{BF1FFD47-5C8B-4BA2-868B-B9CE092D9BA4}</Project>
+      <Name>MessageRouteInspector.Server.Specifications</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />

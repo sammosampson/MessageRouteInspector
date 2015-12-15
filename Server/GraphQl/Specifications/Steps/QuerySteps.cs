@@ -15,7 +15,8 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl.Specifications.Steps
         {
             executer = Bootstrapper.Bootstrap(1);
         }
-        
+
+        [Given(@"I have sent the following query '(.*)'")]
         [When(@"I send the following query '(.*)'")]
         public void WhenISendTheFollowingQuery(string query)
         {

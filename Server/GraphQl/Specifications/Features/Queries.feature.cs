@@ -68,21 +68,82 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl.Specifications.Features
             testRunner.CollectScenarioErrors();
         }
         
+        public virtual void FeatureBackground()
+        {
+#line 2
+#line 3
+ testRunner.Given("I have initialised the graphql server", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+        }
+        
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
         [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Getting routes with no routes created")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Queries")]
         public virtual void GettingRoutesWithNoRoutesCreated()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Getting routes with no routes created", ((string[])(null)));
-#line 3
-this.ScenarioSetup(scenarioInfo);
-#line 4
- testRunner.Given("I have initialised the graphql server", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 5
- testRunner.When("I send the following query \'query RouteQuery { App { routes{ machine } } }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
+this.ScenarioSetup(scenarioInfo);
+#line 2
+this.FeatureBackground();
 #line 6
- testRunner.Then("I should be returned", "{\"data\":{\"app\":{\"routes\":null}}}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.When("I send the following query \'query RouteQuery { App { routes{ } } }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 7
+ testRunner.Then("I should be returned", "{\"data\":{\"app\":{\"routes\":[]}}}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Getting routes with one route with a command processing but not processed")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Queries")]
+        public virtual void GettingRoutesWithOneRouteWithACommandProcessingButNotProcessed()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Getting routes with one route with a command processing but not processed", ((string[])(null)));
+#line 12
+this.ScenarioSetup(scenarioInfo);
+#line 2
+this.FeatureBackground();
+#line 13
+ testRunner.Given("I have sent the following query \'mutation logCommandProcessing { logCommandProces" +
+                    "sing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"00000000000001\")" +
+                    " }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 14
+ testRunner.When("I send the following query \'query RouteQuery { App { routes{ createdOn, machine }" +
+                    " } }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 15
+ testRunner.Then("I should be returned", "{\"data\":{\"app\":{\"routes\":[{\"createdOn\":\"0001-01-01 00:00:00\",\"machine\":\"CSAMPSON1" +
+                    "700\"}]}}}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Getting routes with one route with a command processing and processed")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Queries")]
+        public virtual void GettingRoutesWithOneRouteWithACommandProcessingAndProcessed()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Getting routes with one route with a command processing and processed", ((string[])(null)));
+#line 20
+this.ScenarioSetup(scenarioInfo);
+#line 2
+this.FeatureBackground();
+#line 21
+ testRunner.Given("I have sent the following query \'mutation logCommandProcessing { logCommandProces" +
+                    "sing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"00000000000001\")" +
+                    " }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 22
+ testRunner.And("I have sent the following query \'mutation logMessageProcessed { logMessageProcess" +
+                    "ed(machine: \"CSAMPSON1700\", thread: 1) }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 23
+ testRunner.When("I send the following query \'query RouteQuery { App { routes{ createdOn, machine, " +
+                    "root{name} } } }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 24
+ testRunner.Then("I should be returned", "{\"data\":{\"app\":{\"routes\":[{\"createdOn\":\"0001-01-01 00:00:00\",\"machine\":\"CSAMPSON1" +
+                    "700\",\"root\":{\"name\":\"X\"}}]}}}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
