@@ -84,3 +84,10 @@ C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\obj\Debug\MessageRouteInspector.Server.csprojResolveAssemblyReference.cache
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\obj\Debug\SystemDot.MessageRouteInspector.Server.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\obj\Debug\SystemDot.MessageRouteInspector.Server.pdb
+E:\Work\MessageRouteInspector\Server\Build\SystemDot.MessageRouteInspector.Server.dll.config
+E:\Work\MessageRouteInspector\Server\Build\Plugin.DeviceInfo.Abstractions.dll
+E:\Work\MessageRouteInspector\Server\Build\Plugin.DeviceInfo.dll
+E:\Work\MessageRouteInspector\Server\Build\Plugin.DeviceInfo.pdb
+E:\Work\MessageRouteInspector\Server\Build\Plugin.DeviceInfo.xml
+E:\Work\MessageRouteInspector\Server\Build\Plugin.DeviceInfo.Abstractions.pdb
+E:\Work\MessageRouteInspector\Server\Build\Plugin.DeviceInfo.Abstractions.xml

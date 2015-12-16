@@ -61,9 +61,11 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl
     {
         public RouteType()
         {
+            Field<StringGraphType>("id", resolve: (obj) => obj.Source.As<Route>().Id);
             Field<StringGraphType>("createdOn", resolve: (obj) => obj.Source.As<Route>().CreatedOn);
             Field<StringGraphType>("machine", resolve: (obj) => obj.Source.As<Route>().MachineName);
             Field<MessageType>("root", resolve: (obj) => obj.Source.As<Route>().Messages[0]);
+            Field<ListGraphType<MessageType>>("messages", resolve: (obj) => obj.Source.As<Route>().Messages);
         }
     }
     
@@ -71,7 +73,10 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl
     {
         public MessageType()
         {
+            Field<StringGraphType>("id", resolve: (obj) => obj.Source.As<Message>().Id);
             Field<StringGraphType>("name", resolve: (obj) => obj.Source.As<Message>().Name);
+            Field<IntGraphType>("type", resolve: (obj) => obj.Source.As<Message>().Type);
+            Field<IntGraphType>("closeBranchCount", resolve: (obj) => obj.Source.As<Message>().CloseBranchCount);
         }
     }
 
@@ -90,6 +95,38 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl
                 }),
                 description: "Logs the processing of a command",
                 resolve: ctx => logger.LogCommandProcessingAsync(
+                    ctx.Arguments.Values.First().ToString(),
+                    ctx.Arguments.Values.ElementAt(1).ToString(),
+                    Int32.Parse(ctx.Arguments.Values.ElementAt(2).ToString()),
+                    new DateTime(Int32.Parse(ctx.Arguments.Values.ElementAt(3).ToString()))));
+            
+            Field<IntGraphType>(
+                "logEventProcessing",
+                arguments: new QueryArguments(new QueryArgument[]
+                {
+                    new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "name" },
+                    new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "machine" },
+                    new QueryArgument<NonNullGraphType<IntGraphType>> { Name = "thread" },
+                    new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "createdOn" }
+                }),
+                description: "Logs the processing of an event",
+                resolve: ctx => logger.LogEventProcessingAsync(
+                    ctx.Arguments.Values.First().ToString(),
+                    ctx.Arguments.Values.ElementAt(1).ToString(),
+                    Int32.Parse(ctx.Arguments.Values.ElementAt(2).ToString()),
+                    new DateTime(Int32.Parse(ctx.Arguments.Values.ElementAt(3).ToString()))));
+            
+            Field<IntGraphType>(
+                "logMessageProcessingFailure",
+                arguments: new QueryArguments(new QueryArgument[]
+                {
+                    new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "name" },
+                    new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "machine" },
+                    new QueryArgument<NonNullGraphType<IntGraphType>> { Name = "thread" },
+                    new QueryArgument<NonNullGraphType<StringGraphType>> { Name = "createdOn" }
+                }),
+                description: "Logs a message failure",
+                resolve: ctx => logger.LogMessageProcessingFailureAsync(
                     ctx.Arguments.Values.First().ToString(),
                     ctx.Arguments.Values.ElementAt(1).ToString(),
                     Int32.Parse(ctx.Arguments.Values.ElementAt(2).ToString()),
