@@ -41,8 +41,6 @@ E:\Work\MessageRouteInspector\Server\Build\System.Collections.Immutable.xml
 E:\Work\MessageRouteInspector\Server\obj\Debug\MessageRouteInspector.Server.csprojResolveAssemblyReference.cache
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.MessageRouteInspector.Server.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.MessageRouteInspector.Server.pdb
-C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\DeviceInfo.Plugin.Abstractions.dll
-C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\DeviceInfo.Plugin.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Newtonsoft.Json.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\System.Collections.Immutable.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Bootstrapping.dll
@@ -60,10 +58,6 @@ C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Reflection.Windows.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.ThreadMarshalling.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.ThreadMarshalling.Windows.dll
-C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\DeviceInfo.Plugin.pdb
-C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\DeviceInfo.Plugin.xml
-C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\DeviceInfo.Plugin.Abstractions.pdb
-C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\DeviceInfo.Plugin.Abstractions.xml
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Newtonsoft.Json.xml
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\System.Collections.Immutable.xml
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Bootstrapping.pdb
@@ -91,3 +85,12 @@ E:\Work\MessageRouteInspector\Server\Build\Plugin.DeviceInfo.pdb
 E:\Work\MessageRouteInspector\Server\Build\Plugin.DeviceInfo.xml
 E:\Work\MessageRouteInspector\Server\Build\Plugin.DeviceInfo.Abstractions.pdb
 E:\Work\MessageRouteInspector\Server\Build\Plugin.DeviceInfo.Abstractions.xml
+C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.MessageRouteInspector.Server.dll.config
+C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Plugin.DeviceInfo.Abstractions.dll
+C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Plugin.DeviceInfo.dll
+C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Plugin.DeviceInfo.pdb
+C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Plugin.DeviceInfo.xml
+C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Plugin.DeviceInfo.Abstractions.pdb
+C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Plugin.DeviceInfo.Abstractions.xml
+C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Microsoft.Owin.Host.HttpListener.dll
+C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Microsoft.Owin.Host.HttpListener.xml
