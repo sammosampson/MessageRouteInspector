@@ -1,5 +1,7 @@
 namespace SystemDot.MessageRouteInspector.Server.GraphQl.Web
 {
+    using System;
+    using System.Net;
     using System.Threading.Tasks;
     using Microsoft.Owin;
 
@@ -18,12 +20,23 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl.Web
         {
             if(context.Request.ContentType != "application/graphql")
             {
-                context.Response.StatusCode = 415;
+                context.Response.StatusCode = (int)HttpStatusCode.UnsupportedMediaType;;
                 return;
             }
 
-            string query = await context.Request.Body.ReadAsString();
-            string result = await executer.ExecuteQueryAsync(query);
+            string result;
+
+            try
+            {
+                string query = await context.Request.Body.ReadAsString();
+                result = await executer.ExecuteQueryAsync(query);
+            }
+            catch (Exception)
+            {
+                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return;
+            }
+            
             await context.Response.WriteAsync(result);
             await Next.Invoke(context);
         }
