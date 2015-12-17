@@ -10,10 +10,10 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl.Web
     {
         private readonly GraphQlExecuter executer;
 
-        public GraphQLServerMiddleware(OwinMiddleware next)
+        public GraphQLServerMiddleware(OwinMiddleware next, GraphQlExecuter executer)
             : base(next)
         {
-            executer = Bootstrapper.Bootstrap(10);
+            this.executer = executer;
         }
 
         public override async Task Invoke(IOwinContext context)
