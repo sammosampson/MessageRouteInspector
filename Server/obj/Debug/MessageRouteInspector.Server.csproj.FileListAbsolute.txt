@@ -94,3 +94,5 @@ C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Plugin.Dev
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Plugin.DeviceInfo.Abstractions.xml
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Microsoft.Owin.Host.HttpListener.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Microsoft.Owin.Host.HttpListener.xml
+E:\Work\MessageRouteInspector\Server\Build\Microsoft.Owin.Host.HttpListener.dll
+E:\Work\MessageRouteInspector\Server\Build\Microsoft.Owin.Host.HttpListener.xml
