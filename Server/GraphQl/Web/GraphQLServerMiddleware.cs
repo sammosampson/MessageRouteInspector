@@ -4,8 +4,7 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl.Web
     using System.Net;
     using System.Threading.Tasks;
     using Microsoft.Owin;
-
-
+    
     public class GraphQLServerMiddleware : OwinMiddleware
     {
         private readonly GraphQlExecuter executer;
@@ -18,7 +17,7 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl.Web
 
         public override async Task Invoke(IOwinContext context)
         {
-            if(context.Request.ContentType != "application/graphql")
+            if (context.Request.ContentType != "application/json" && context.Request.ContentType != "application/graphql")
             {
                 context.Response.StatusCode = (int)HttpStatusCode.UnsupportedMediaType;;
                 return;

@@ -87,10 +87,30 @@ this.ScenarioSetup(scenarioInfo);
 #line 2
 this.FeatureBackground();
 #line 6
- testRunner.When("I send the following query \'query RouteQuery { App { routes{ } } }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I send the following query \'query RouteQuery { viewer { routes{ } } }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 7
- testRunner.Then("I should be returned", "{\"data\":{\"app\":{\"routes\":[]}}}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I should be returned", "{\"data\":{\"viewer\":{\"routes\":[]}}}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Getting defaulte single \"0\" route")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Queries")]
+        public virtual void GettingDefaulteSingle0Route()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Getting defaulte single \"0\" route", ((string[])(null)));
+#line 12
+this.ScenarioSetup(scenarioInfo);
+#line 2
+this.FeatureBackground();
+#line 13
+ testRunner.When("I send the following query \'{\"query\":\"query RouteQuery { viewer { route(id:0) { r" +
+                    "oot { name } } } }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 14
+ testRunner.Then("I should be returned", "{\"data\":{\"viewer\":{\"route\":{\"root\":{\"name\":\"No Route\"}}}}}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -101,21 +121,21 @@ this.FeatureBackground();
         public virtual void GettingRoutesWithOneRouteWithACommandProcessingButNotProcessed()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Getting routes with one route with a command processing but not processed", ((string[])(null)));
-#line 12
+#line 19
 this.ScenarioSetup(scenarioInfo);
 #line 2
 this.FeatureBackground();
-#line 13
- testRunner.Given("I have sent the following query \'mutation logCommandProcessing { logCommandProces" +
-                    "sing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"00000000000001\")" +
-                    " }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 14
- testRunner.When("I send the following query \'query RouteQuery { App { routes{ createdOn, machine }" +
-                    " } }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 20
+ testRunner.Given("I have sent the following query \'{\"query\":\"mutation logCommandProcessing { logCom" +
+                    "mandProcessing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"000000" +
+                    "00000001\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 21
+ testRunner.When("I send the following query \'{\"query\":\"query RouteQuery { viewer { routes{ created" +
+                    "On, machine } } }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 15
- testRunner.Then("I should be returned", "{\"data\":{\"app\":{\"routes\":[{\"createdOn\":\"0001-01-01 00:00:00\",\"machine\":\"CSAMPSON1" +
-                    "700\"}]}}}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 22
+ testRunner.Then("I should be returned", "{\"data\":{\"viewer\":{\"routes\":[{\"createdOn\":\"0001-01-01 00:00:00\",\"machine\":\"CSAMPS" +
+                    "ON1700\"}]}}}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -126,25 +146,26 @@ this.FeatureBackground();
         public virtual void GettingRoutesWithOneRouteWithACommandProcessingAndProcessed()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Getting routes with one route with a command processing and processed", ((string[])(null)));
-#line 20
+#line 27
 this.ScenarioSetup(scenarioInfo);
 #line 2
 this.FeatureBackground();
-#line 21
- testRunner.Given("I have sent the following query \'mutation logCommandProcessing { logCommandProces" +
-                    "sing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"00000000000001\")" +
-                    " }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 22
- testRunner.And("I have sent the following query \'mutation logMessageProcessed { logMessageProcess" +
-                    "ed(machine: \"CSAMPSON1700\", thread: 1) }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 23
- testRunner.When("I send the following query \'query RouteQuery { App { routes{ createdOn, machine, " +
-                    "root{name, type, closeBranchCount}, messages{name} } } }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 28
+ testRunner.Given("I have sent the following query \'{\"query\":\"mutation logCommandProcessing { logCom" +
+                    "mandProcessing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"000000" +
+                    "00000001\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 29
+ testRunner.And("I have sent the following query \'{\"query\":\"mutation logMessageProcessed { logMess" +
+                    "ageProcessed(machine: \"CSAMPSON1700\", thread: 1) }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 30
+ testRunner.When("I send the following query \'{\"query\":\"query RouteQuery { viewer { routes{ created" +
+                    "On, machine, root{name, type, closeBranchCount}, messages{name} } } }\",\"variable" +
+                    "s\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 24
- testRunner.Then("I should be returned", "{\"data\":{\"app\":{\"routes\":[{\"createdOn\":\"0001-01-01 00:00:00\",\"machine\":\"CSAMPSON1" +
-                    "700\",\"root\":{\"name\":\"X\",\"type\":0,\"closeBranchCount\":1},\"messages\":[{\"name\":\"X\"}]" +
-                    "}]}}}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 31
+ testRunner.Then("I should be returned", "{\"data\":{\"viewer\":{\"routes\":[{\"createdOn\":\"0001-01-01 00:00:00\",\"machine\":\"CSAMPS" +
+                    "ON1700\",\"root\":{\"name\":\"X\",\"type\":0,\"closeBranchCount\":1},\"messages\":[{\"name\":\"X" +
+                    "\"}]}]}}}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -155,24 +176,26 @@ this.FeatureBackground();
         public virtual void GettingRoutesWithOneRouteWithAnEventProcessingAndProcessed()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Getting routes with one route with an event processing and processed", ((string[])(null)));
-#line 29
+#line 36
 this.ScenarioSetup(scenarioInfo);
 #line 2
 this.FeatureBackground();
-#line 30
- testRunner.Given("I have sent the following query \'mutation logEventProcessing { logEventProcessing" +
-                    "(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"00000000000001\") }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 31
- testRunner.And("I have sent the following query \'mutation logMessageProcessed { logMessageProcess" +
-                    "ed(machine: \"CSAMPSON1700\", thread: 1) }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 32
- testRunner.When("I send the following query \'query RouteQuery { App { routes{ createdOn, machine, " +
-                    "root{name, type, closeBranchCount}, messages{name} } } }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 37
+ testRunner.Given("I have sent the following query \'{\"query\":\"mutation logEventProcessing { logEvent" +
+                    "Processing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"0000000000" +
+                    "0001\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 38
+ testRunner.And("I have sent the following query \'{\"query\":\"mutation logMessageProcessed { logMess" +
+                    "ageProcessed(machine: \"CSAMPSON1700\", thread: 1) }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 39
+ testRunner.When("I send the following query \'{\"query\":\"query RouteQuery { viewer { routes{ created" +
+                    "On, machine, root{name, type, closeBranchCount}, messages{name} } } }\",\"variable" +
+                    "s\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 33
- testRunner.Then("I should be returned", "{\"data\":{\"app\":{\"routes\":[{\"createdOn\":\"0001-01-01 00:00:00\",\"machine\":\"CSAMPSON1" +
-                    "700\",\"root\":{\"name\":\"X\",\"type\":1,\"closeBranchCount\":1},\"messages\":[{\"name\":\"X\"}]" +
-                    "}]}}}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 40
+ testRunner.Then("I should be returned", "{\"data\":{\"viewer\":{\"routes\":[{\"createdOn\":\"0001-01-01 00:00:00\",\"machine\":\"CSAMPS" +
+                    "ON1700\",\"root\":{\"name\":\"X\",\"type\":1,\"closeBranchCount\":1},\"messages\":[{\"name\":\"X" +
+                    "\"}]}]}}}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
@@ -183,26 +206,55 @@ this.FeatureBackground();
         public virtual void GettingRoutesWithAFailure()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Getting routes with a failure", ((string[])(null)));
-#line 38
+#line 45
 this.ScenarioSetup(scenarioInfo);
 #line 2
 this.FeatureBackground();
-#line 39
- testRunner.Given("I have sent the following query \'mutation logCommandProcessing { logCommandProces" +
-                    "sing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"00000000000001\")" +
-                    " }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 40
- testRunner.And("I have sent the following query \'mutation logMessageProcessingFailure { logMessag" +
-                    "eProcessingFailure(name: \"A failure\", machine: \"CSAMPSON1700\", thread: 1, create" +
-                    "dOn: \"00000000000001\") }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 41
- testRunner.When("I send the following query \'query RouteQuery { App { routes{ createdOn, machine, " +
-                    "root{name, type, closeBranchCount}, messages{name, type} } } }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 46
+ testRunner.Given("I have sent the following query \'{\"query\":\"mutation logCommandProcessing { logCom" +
+                    "mandProcessing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"000000" +
+                    "00000001\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 47
+ testRunner.And("I have sent the following query \'{\"query\":\"mutation logMessageProcessingFailure {" +
+                    " logMessageProcessingFailure(name: \"A failure\", machine: \"CSAMPSON1700\", thread:" +
+                    " 1, createdOn: \"00000000000001\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 48
+ testRunner.When("I send the following query \'{\"query\":\"query RouteQuery { viewer { routes{ created" +
+                    "On, machine, root{name, type, closeBranchCount}, messages{name, type} } } }\",\"va" +
+                    "riables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 42
- testRunner.Then("I should be returned", "{\"data\":{\"app\":{\"routes\":[{\"createdOn\":\"0001-01-01 00:00:00\",\"machine\":\"CSAMPSON1" +
-                    "700\",\"root\":{\"name\":\"X\",\"type\":0,\"closeBranchCount\":0},\"messages\":[{\"name\":\"X\",\"" +
-                    "type\":0},{\"name\":\"A failure\",\"type\":2}]}]}}}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 49
+ testRunner.Then("I should be returned", "{\"data\":{\"viewer\":{\"routes\":[{\"createdOn\":\"0001-01-01 00:00:00\",\"machine\":\"CSAMPS" +
+                    "ON1700\",\"root\":{\"name\":\"X\",\"type\":0,\"closeBranchCount\":0},\"messages\":[{\"name\":\"X" +
+                    "\",\"type\":0},{\"name\":\"A failure\",\"type\":2}]}]}}}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Getting routes using fragments")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "Queries")]
+        public virtual void GettingRoutesUsingFragments()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Getting routes using fragments", ((string[])(null)));
+#line 54
+this.ScenarioSetup(scenarioInfo);
+#line 2
+this.FeatureBackground();
+#line 55
+ testRunner.Given("I have sent the following query \'{\"query\":\"mutation logCommandProcessing { logCom" +
+                    "mandProcessing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"000000" +
+                    "00000001\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 56
+ testRunner.And("I have sent the following query \'{\"query\":\"mutation logMessageProcessed { logMess" +
+                    "ageProcessed(machine: \"CSAMPSON1700\", thread: 1) }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 57
+ testRunner.When("I send the following query \'{\"query\":\"query RouteQuery { viewer { ...first } } fr" +
+                    "agment first on App { routes { ...second } } fragment second on MessageRoute { c" +
+                    "reatedOn }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 58
+ testRunner.Then("I should be returned", "{\"data\":{\"viewer\":{\"routes\":[{\"createdOn\":\"0001-01-01 00:00:00\"}]}}}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }
