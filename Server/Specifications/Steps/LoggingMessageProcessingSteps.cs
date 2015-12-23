@@ -9,7 +9,7 @@
     [Binding]
     public class LoggingMessageProcessingSteps
     {
-        MessageLogger client;
+        RouteInspectorService service;
         Route[] routes;
         Route route;
         Route routeRetreivedById;
@@ -18,43 +18,43 @@
         [Given(@"I have setup the server with a limit of the last (.*) routes saved")]
         public void GivenIHaveSetupTheServer(int limit)
         {
-            client = Bootstrapper.LimitRoutesTo(limit);
+            service = Bootstrapper.LimitRoutesTo(limit);
         }
 
         [Given(@"I have logged command processing for the message '(.*)' from machine '(.*)' on thread (.*) dated '(.*)'")]
         public void GivenIHaveLoggedCommandProcessingForTheMessageFromMachineOnThreadDated(string name, string machine, int thread, DateTime createdOn)
         {
-            client.LogCommandProcessingAsync(name, machine, thread, createdOn).Wait();
+            service.LogCommandProcessingAsync(name, machine, thread, createdOn).Wait();
         }
 
         [Given(@"I have logged event processing for the message '(.*)' from machine '(.*)' on thread (.*) dated '(.*)'")]
         public void GivenIHaveLoggedEventProcessingForTheMessageFromMachineOnThreadDated(string name, string machine, int thread, DateTime dated)
         {
-            client.LogEventProcessingAsync(name, machine, thread, dated).Wait();
+            service.LogEventProcessingAsync(name, machine, thread, dated).Wait();
         }
 
         [Given(@"I have logged a failure with the name '(.*)' from machine '(.*)' on thread (.*) dated '(.*)'")]
         public void GivenIHaveLoggedAFailureWithTheNameFromMachineOnThreadDated(string name, string machine, int thread, DateTime dated)
         {
-            client.LogMessageProcessingFailureAsync(name, machine, thread, dated).Wait();
+            service.LogMessageProcessingFailureAsync(name, machine, thread, dated).Wait();
         }
 
         [Given(@"I have logged message processed from machine '(.*)' on thread (.*)")]
         public void GivenIHaveLoggedMessageProcessedFromMachineOnThread(string machine, int thread)
         {
-            client.LogMessageProcessedAsync(machine, thread).Wait();
+            service.LogMessageProcessedAsync(machine, thread).Wait();
         }
 
         [When(@"I get all routes")]
         public void WhenIGetAllRoutes()
         {
-            routes = client.GetRoutesAsync().Result;
+            routes = service.GetRoutesAsync().Result;
         }
 
         [When(@"I get the route by its id")]
         public void WhenIGetTheRouteByItsId()
         {
-            routeRetreivedById = client.GetRouteAsync(route.Id).Result;
+            routeRetreivedById = service.GetRouteAsync(route.Id).Result;
         }
 
         [Then(@"there should not be any messages for the route")]

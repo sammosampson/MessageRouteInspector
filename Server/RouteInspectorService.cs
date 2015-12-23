@@ -1,48 +1,50 @@
-namespace SystemDot.MessageRouteInspector.Server.Specifications.Steps
+namespace SystemDot.MessageRouteInspector.Server
 {
     using System;
     using System.Threading.Tasks;
     using SystemDot.MessageRouteInspector.Server.Messages;
     using Akka.Actor;
 
-    public class MessageLogger
+    public class RouteInspectorService
     {
-        readonly IActorRef routesProjection;
+        readonly IActorRef routesView;
+        private readonly IActorRef logger;
 
-        public MessageLogger(IActorRef routesProjection)
+        public RouteInspectorService(IActorRef routesView, IActorRef logger)
         {
-            this.routesProjection = routesProjection;
+            this.routesView = routesView;
+            this.logger = logger;
         }
 
         public async Task<int> LogCommandProcessingAsync(string messageName, string machine, int thread, DateTime createdOn)
         {
-            throw new NotImplementedException();
+            logger.Tell(new LogCommandProcessing());
+            return await Task.FromResult(0);
         }
 
         public async Task LogEventProcessingAsync(string messageName, string machine, int thread, DateTime createdOn)
         {
-            throw new NotImplementedException();
+            await Task.FromResult(false);
         }
 
         public async Task LogMessageProcessingFailureAsync(string failureName, string machine, int thread, DateTime createdOn)
         {
-            throw new NotImplementedException();
+            await Task.FromResult(false);
         }
 
         public async Task LogMessageProcessedAsync(string machine, int thread)
         {
-            throw new NotImplementedException();
+            await Task.FromResult(false);
         }
 
         public async Task<Route[]> GetRoutesAsync()
         {
-            var response = await routesProjection.Ask<GetRoutesQueryResponse>(new GetRoutesQuery());
-            return response.Routes;
+            return await routesView.Ask<Route[]>(new GetRoutes());
         }
 
         public async Task<Route> GetRouteAsync(string id)
         {
-            throw new NotImplementedException();
+            return await Task.FromResult(new Route());
         }
     }
 }

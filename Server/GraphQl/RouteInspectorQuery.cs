@@ -8,7 +8,7 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl
     {
         public RouteInspectorQuery()
         {
-            Field<App>("viewer", resolve: (obj) => obj.Source.As<MessageLogger>());
+            Field<App>("viewer", resolve: (obj) => obj.Source.As<RouteInspectorService>());
         }
     }
 }

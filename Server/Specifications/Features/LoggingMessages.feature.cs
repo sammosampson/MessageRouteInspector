@@ -107,16 +107,12 @@ this.FeatureBackground();
 #line 18
     testRunner.And("that route should be from machine \'TestMachine\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 19
-    testRunner.And("only one message in the route", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 20
- testRunner.And("the root message in the route should be the same as that message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 21
  testRunner.And("that message should have a valid id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 22
+#line 20
  testRunner.And("that message should have the name \'root\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 23
+#line 21
  testRunner.And("that message should have the type \'Command\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 24
+#line 22
  testRunner.And("that message should have a close branch count of 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -128,40 +124,40 @@ this.FeatureBackground();
         public virtual void OneRouteFromSameMachineAndSameThreadOneEvent()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("One route from same machine and same thread one event", ((string[])(null)));
-#line 26
+#line 24
  this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 27
+#line 25
     testRunner.Given("I have logged event processing for the message \'root\' from machine \'TestMachine\' " +
                     "on thread 1 dated \'09/21/1975 00:00:01\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 28
+#line 26
     testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 29
+#line 27
     testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 30
+#line 28
     testRunner.Then("there should only be one route", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 31
+#line 29
  testRunner.And("only one message in the route", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 32
+#line 30
  testRunner.And("that route should have a valid id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 33
+#line 31
  testRunner.And("the root message in the route should be the same as that message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 34
+#line 32
  testRunner.And("that route should be dated \'1975-09-21 00:00:01\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 35
+#line 33
  testRunner.And("that route should be from machine \'TestMachine\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 36
+#line 34
  testRunner.And("only one message in the route", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 37
+#line 35
  testRunner.And("the root message in the route should be the same as that message", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 38
+#line 36
  testRunner.And("that message should have a valid id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 39
+#line 37
  testRunner.And("that message should have the name \'root\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 40
+#line 38
  testRunner.And("that message should have the type \'Event\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 41
+#line 39
  testRunner.And("that message should have a close branch count of 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -173,35 +169,35 @@ this.FeatureBackground();
         public virtual void OneRouteFromSameMachineAndSameThreadMessageInMessage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("One route from same machine and same thread message in message", ((string[])(null)));
-#line 43
+#line 41
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 44
+#line 42
  testRunner.Given("I have logged command processing for the message \'first\' from machine \'TestMachin" +
                     "e\' on thread 1 dated \'09/21/1975 00:00:01\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 45
+#line 43
     testRunner.And("I have logged command processing for the message \'second\' from machine \'TestMachi" +
                     "ne\' on thread 1 dated \'09/21/1975 00:00:02\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 44
+    testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 45
+    testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 46
-    testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 47
-    testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 48
     testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 49
+#line 47
  testRunner.Then("there should only be one route", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 50
+#line 48
  testRunner.And("there should a message at index 0 of the route\'s messages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 51
+#line 49
  testRunner.And("that message should have the name \'first\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 52
+#line 50
  testRunner.And("that message should have a close branch count of 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 53
+#line 51
  testRunner.And("there should a message at index 1 of the route\'s messages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 54
+#line 52
  testRunner.And("that message should have the name \'second\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 55
+#line 53
  testRunner.And("that message should have a close branch count of 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -213,37 +209,37 @@ this.FeatureBackground();
         public virtual void TwoRoutesFromSameMachineAndSameThread()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Two routes from same machine and same thread", ((string[])(null)));
-#line 57
+#line 55
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 58
+#line 56
  testRunner.Given("I have logged command processing for the message \'firstRouteFirstMessage\' from ma" +
                     "chine \'TestMachine\' on thread 1 dated \'09/21/1975 00:00:01\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 57
+    testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 58
+    testRunner.And("I have logged command processing for the message \'secondRouteFirstMessage\' from m" +
+                    "achine \'TestMachine\' on thread 1 dated \'09/21/1975 00:00:02\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 59
     testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 60
-    testRunner.And("I have logged command processing for the message \'secondRouteFirstMessage\' from m" +
-                    "achine \'TestMachine\' on thread 1 dated \'09/21/1975 00:00:02\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 61
-    testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 62
     testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 63
+#line 61
  testRunner.Then("there should be a route at index 0 of all the routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 64
+#line 62
  testRunner.And("only one message in the route", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 65
+#line 63
  testRunner.And("that message should have the name \'secondRouteFirstMessage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 66
+#line 64
  testRunner.And("that message should have a close branch count of 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 67
+#line 65
  testRunner.And("there should be a route at index 1 of all the routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 68
+#line 66
  testRunner.And("only one message in the route", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 69
+#line 67
  testRunner.And("that message should have the name \'firstRouteFirstMessage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 70
+#line 68
  testRunner.And("that message should have a close branch count of 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -255,37 +251,37 @@ this.FeatureBackground();
         public virtual void TwoRoutesFromSameMachineButDifferentThreads()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Two routes from same machine but different threads", ((string[])(null)));
-#line 72
+#line 70
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 73
+#line 71
  testRunner.Given("I have logged command processing for the message \'firstRouteFirstMessage\' from ma" +
                     "chine \'TestMachine\' on thread 1 dated \'09/21/1975 00:00:01\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 74
+#line 72
     testRunner.And("I have logged command processing for the message \'secondRouteFirstMessage\' from m" +
                     "achine \'TestMachine\' on thread 2 dated \'09/21/1975 00:00:02\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 75
+#line 73
     testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 76
+#line 74
     testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 77
+#line 75
     testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 78
+#line 76
  testRunner.Then("there should be a route at index 0 of all the routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 79
+#line 77
  testRunner.And("only one message in the route", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 80
+#line 78
  testRunner.And("that message should have the name \'secondRouteFirstMessage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 81
+#line 79
  testRunner.And("that message should have a close branch count of 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 82
+#line 80
  testRunner.And("there should be a route at index 1 of all the routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 83
+#line 81
  testRunner.And("only one message in the route", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 84
+#line 82
  testRunner.And("that message should have the name \'firstRouteFirstMessage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 85
+#line 83
  testRunner.And("that message should have a close branch count of 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -297,37 +293,37 @@ this.FeatureBackground();
         public virtual void TwoRoutesFromDifferentMachinesButSameThread()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Two routes from different machines but same thread", ((string[])(null)));
-#line 87
+#line 85
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 88
+#line 86
  testRunner.Given("I have logged command processing for the message \'firstRouteFirstMessage\' from ma" +
                     "chine \'TestMachine\' on thread 1 dated \'09/21/1975 00:00:01\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 89
+#line 87
     testRunner.And("I have logged command processing for the message \'secondRouteFirstMessage\' from m" +
                     "achine \'TestMachine\' on thread 2 dated \'09/21/1975 00:00:02\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 90
+#line 88
     testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 91
+#line 89
     testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 92
+#line 90
     testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 93
+#line 91
  testRunner.Then("there should be a route at index 0 of all the routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 94
+#line 92
  testRunner.And("only one message in the route", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 95
+#line 93
  testRunner.And("that message should have the name \'secondRouteFirstMessage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 96
+#line 94
  testRunner.And("that message should have a close branch count of 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 97
+#line 95
  testRunner.And("there should be a route at index 1 of all the routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 98
+#line 96
  testRunner.And("only one message in the route", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 99
+#line 97
  testRunner.And("that message should have the name \'firstRouteFirstMessage\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 100
+#line 98
  testRunner.And("that message should have a close branch count of 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -339,28 +335,28 @@ this.FeatureBackground();
         public virtual void ThreeRoutesLoggedLimitedToTwo()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Three routes logged limited to two", ((string[])(null)));
-#line 102
+#line 100
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 103
+#line 101
  testRunner.Given("I have logged command processing for the message \'firstRouteFirstMessage\' from ma" +
                     "chine \'TestMachine\' on thread 1 dated \'09/21/1975 00:00:01\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 102
+    testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 103
+    testRunner.And("I have logged command processing for the message \'secondRouteFirstMessage\' from m" +
+                    "achine \'TestMachine\' on thread 1 dated \'09/21/1975 00:00:02\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 104
     testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 105
-    testRunner.And("I have logged command processing for the message \'secondRouteFirstMessage\' from m" +
-                    "achine \'TestMachine\' on thread 1 dated \'09/21/1975 00:00:02\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("I have logged command processing for the message \'thirdRouteFirstMessage\' from ma" +
+                    "chine \'TestMachine\' on thread 1 dated \'09/21/1975 00:00:03\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 106
     testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 107
-    testRunner.And("I have logged command processing for the message \'thirdRouteFirstMessage\' from ma" +
-                    "chine \'TestMachine\' on thread 1 dated \'09/21/1975 00:00:03\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 108
-    testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 109
     testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 110
+#line 108
  testRunner.Then("there should only be 2 routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -372,18 +368,18 @@ this.FeatureBackground();
         public virtual void NoLogProcessedYetSoNoRoute()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("No log processed yet so no route", ((string[])(null)));
-#line 112
+#line 110
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 113
+#line 111
     testRunner.Given("I have logged command processing for the message \'root\' from machine \'TestMachine" +
                     "\' on thread 1 dated \'09/21/1975 00:00:01\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 114
+#line 112
     testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 115
+#line 113
     testRunner.Then("there should only be one route", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 116
+#line 114
  testRunner.And("there should not be any messages for the route", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -395,15 +391,15 @@ this.FeatureBackground();
         public virtual void LogProcessedButNoLogProcessingSoNoRoute()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("log processed but no log processing so no route", ((string[])(null)));
-#line 118
+#line 116
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 119
+#line 117
     testRunner.Given("I have logged message processed from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 120
+#line 118
     testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 121
+#line 119
     testRunner.Then("there should not be any routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

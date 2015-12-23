@@ -9,9 +9,9 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl
     {
         private readonly DocumentExecuter executer;
         private readonly DocumentWriter writer;
-        private readonly MessageLogger logger;
+        private readonly RouteInspectorService logger;
 
-        public GraphQlExecuter(MessageLogger logger)
+        public GraphQlExecuter(RouteInspectorService logger)
         {
             this.logger = logger;
             executer = new DocumentExecuter();

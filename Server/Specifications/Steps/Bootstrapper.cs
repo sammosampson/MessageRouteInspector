@@ -11,7 +11,7 @@ namespace SystemDot.MessageRouteInspector.Server.Specifications.Steps
 
     public static class Bootstrapper
     {
-        public static MessageLogger LimitRoutesTo(int limit)
+        public static RouteInspectorService LimitRoutesTo(int limit)
         {
             var iocContainer = new IocContainer();
 
@@ -23,7 +23,7 @@ namespace SystemDot.MessageRouteInspector.Server.Specifications.Steps
                 .UseEventSourcing().PersistToMemory()
                 .Initialise();
 
-            return iocContainer.Resolve<MessageLogger>();
+            return iocContainer.Resolve<RouteInspectorService>();
         }
     }
 }
