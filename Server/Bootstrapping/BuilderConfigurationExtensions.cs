@@ -1,20 +1,22 @@
 namespace SystemDot.MessageRouteInspector.Server.Bootstrapping
 {
     using SystemDot.Bootstrapping;
-    using SystemDot.Domain.Commands;
-    using SystemDot.Domain.Queries;
-    using SystemDot.EventSourcing.Projections;
-    using SystemDot.MessageRouteInspector.Server.Domain;
+    using Akka.Actor;
 
     public static class BuilderConfigurationExtensions
     {
         public static LimitRoutesToConfiguration ConfigureRouteInspectorServer(this BootstrapBuilderConfiguration config)
         {
-            config.RegisterBuildAction(c => c.RegisterCommandHandlersFromAssemblyOf<LogCommandProcessingCommandHandler>())
-                .RegisterBuildAction(c => c.RegisterQueryHandlersFromAssemblyOf<LogCommandProcessingCommandHandler>())
-                .RegisterBuildAction(c => c.RegisterProjectionsFromAssemblyOf<LogCommandProcessingCommandHandler>());
-
+            config.RegisterBuildAction(c => c.Resolve<MessageRouteInpsectorActorSystem>().Initialise(), BuildOrder.Late);
             return new LimitRoutesToConfiguration(config);
+        }
+    }
+
+    public class MessageRouteInpsectorActorSystem
+    {
+        public void Initialise()
+        {
+            var system = ActorSystem.Create("MessageRouteInspector");
         }
     }
 }
