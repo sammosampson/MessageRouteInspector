@@ -42,6 +42,10 @@
     <Reference Include="Akka">
       <HintPath>packages\Akka.1.0.5\lib\net45\Akka.dll</HintPath>
     </Reference>
+    <Reference Include="Akka.TestKit, Version=1.0.5.14, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Akka.TestKit.1.0.5\lib\net45\Akka.TestKit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Owin.Host.HttpListener">
       <HintPath>packages\Microsoft.Owin.Host.HttpListener.3.0.1\lib\net45\Microsoft.Owin.Host.HttpListener.dll</HintPath>
     </Reference>
@@ -74,12 +78,6 @@
     <Reference Include="SystemDot.Core">
       <HintPath>packages\SystemDotCore.3.3.0\lib\net\SystemDot.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SystemDot.Domain">
-      <HintPath>packages\SystemDotDomain.3.6.8\lib\net\SystemDot.Domain.dll</HintPath>
-    </Reference>
-    <Reference Include="SystemDot.Domain.Windows">
-      <HintPath>packages\SystemDotDomain.3.6.8\lib\net\SystemDot.Domain.Windows.dll</HintPath>
-    </Reference>
     <Reference Include="SystemDot.Environment, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\SystemDotEnvironment.1.2.0\lib\net\SystemDot.Environment.dll</HintPath>
@@ -87,14 +85,6 @@
     <Reference Include="SystemDot.Environment.Windows, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>packages\SystemDotEnvironment.1.2.0\lib\net\SystemDot.Environment.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="SystemDot.EventSourcing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\SystemDotEventSourcing.7.8.1\lib\portable-win+net45+MonoAndroid+MonoTouch+win8\SystemDot.EventSourcing.dll</HintPath>
-    </Reference>
-    <Reference Include="SystemDot.EventSourcing.InMemory, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>packages\SystemDotEventSourcing.7.8.1\lib\portable-win+net45+MonoAndroid+MonoTouch+win8\SystemDot.EventSourcing.InMemory.dll</HintPath>
     </Reference>
     <Reference Include="SystemDot.Ioc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>

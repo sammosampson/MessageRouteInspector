@@ -1,7 +1,6 @@
 namespace SystemDot.MessageRouteInspector.Server.GraphQl
 {
     using System.Linq;
-    using SystemDot.MessageRouteInspector.Server.Specifications.Steps;
     using GraphQL;
     using GraphQL.Types;
 

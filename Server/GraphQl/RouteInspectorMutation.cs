@@ -3,7 +3,6 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl
     using System;
     using System.Linq;
     using SystemDot.Core;
-    using SystemDot.MessageRouteInspector.Server.Specifications.Steps;
     using GraphQL.Types;
 
     public class RouteInspectorMutation : ObjectGraphType

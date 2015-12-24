@@ -1,11 +1,7 @@
 namespace SystemDot.MessageRouteInspector.Server.GraphQl
 {
     using SystemDot.Bootstrapping;
-    using SystemDot.Domain;
-    using SystemDot.Domain.Bootstrapping;
     using SystemDot.Environment;
-    using SystemDot.EventSourcing.Bootstrapping;
-    using SystemDot.EventSourcing.InMemory.Bootstrapping;
     using SystemDot.Ioc;
     using SystemDot.MessageRouteInspector.Server.Bootstrapping;
 
@@ -18,9 +14,7 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl
             SystemDot.Bootstrapping.Bootstrap.Application()
                 .ResolveReferencesWith(iocContainer)
                 .UseEnvironment()
-                .UseDomain().WithSimpleMessaging()
                 .ConfigureRouteInspectorServer().WithRouteLimitOf(limitOfStoredRoutes)
-                .UseEventSourcing().PersistToMemory()
                 .Initialise();
 
             return iocContainer.Resolve<GraphQlExecuter>();

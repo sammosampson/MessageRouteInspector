@@ -1,3 +1,5 @@
+using Akka.TestKit;
+
 namespace SystemDot.MessageRouteInspector.Server.Bootstrapping
 {
     using SystemDot.Bootstrapping;
@@ -17,8 +19,8 @@ namespace SystemDot.MessageRouteInspector.Server.Bootstrapping
             return RegisterBuildAction(c => 
             {
                 ActorSystem system = ActorSystem.Create("MessageRouteInspector");
-                IActorRef routesView = system.ActorOf<RoutesView>();
-                IActorRef logger = system.ActorOf<MessageLogger>();
+                IActorRef routesView = system.ActorOf(Props.Create(() => new RoutesView()).WithDispatcher(CallingThreadDispatcher.Id));
+                IActorRef logger = system.ActorOf(Props.Create(() => new MessageLogger()).WithDispatcher(CallingThreadDispatcher.Id));
                 c.RegisterInstance(() => new RouteInspectorService(routesView, logger));
             });
         }

@@ -8,9 +8,13 @@ namespace SystemDot.MessageRouteInspector.Server.Messages
         public string CreatedOn { get; private set; }
         public string MachineName { get; private set; }
 
-        public Route()
+        public Route(string id, Message root, Message[] messages, string createdOn, string machineName)
         {
-            Messages = new Message[0];
+            Id = id;
+            Root = root;
+            Messages = messages;
+            CreatedOn = createdOn;
+            MachineName = machineName;
         }
     }
 }

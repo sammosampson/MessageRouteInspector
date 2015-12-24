@@ -2,7 +2,7 @@ namespace SystemDot.MessageRouteInspector.Server
 {
     using System;
     using System.Threading.Tasks;
-    using SystemDot.MessageRouteInspector.Server.Messages;
+    using Messages;
     using Akka.Actor;
 
     public class RouteInspectorService
@@ -18,8 +18,8 @@ namespace SystemDot.MessageRouteInspector.Server
 
         public async Task<int> LogCommandProcessingAsync(string messageName, string machine, int thread, DateTime createdOn)
         {
-            logger.Tell(new LogCommandProcessing());
-            return await Task.FromResult(0);
+            logger.Tell(new LogCommandProcessing(messageName, createdOn, machine, thread));
+            return 1;
         }
 
         public async Task LogEventProcessingAsync(string messageName, string machine, int thread, DateTime createdOn)
@@ -44,7 +44,7 @@ namespace SystemDot.MessageRouteInspector.Server
 
         public async Task<Route> GetRouteAsync(string id)
         {
-            return await Task.FromResult(new Route());
+            throw new NotImplementedException();
         }
     }
 }

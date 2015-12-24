@@ -66,14 +66,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\SystemDotCore.3.3.0\lib\net\SystemDot.Core.dll</HintPath>
     </Reference>
-    <Reference Include="SystemDot.Domain, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\SystemDotDomain.3.6.8\lib\net\SystemDot.Domain.dll</HintPath>
-    </Reference>
-    <Reference Include="SystemDot.Domain.Windows, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\SystemDotDomain.3.6.8\lib\net\SystemDot.Domain.Windows.dll</HintPath>
-    </Reference>
     <Reference Include="SystemDot.Environment, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\SystemDotEnvironment.1.2.0\lib\net\SystemDot.Environment.dll</HintPath>
@@ -81,14 +73,6 @@
     <Reference Include="SystemDot.Environment.Windows, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\SystemDotEnvironment.1.2.0\lib\net\SystemDot.Environment.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="SystemDot.EventSourcing, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\SystemDotEventSourcing.7.8.1\lib\portable-win+net45+MonoAndroid+MonoTouch+win8\SystemDot.EventSourcing.dll</HintPath>
-    </Reference>
-    <Reference Include="SystemDot.EventSourcing.InMemory, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\SystemDotEventSourcing.7.8.1\lib\portable-win+net45+MonoAndroid+MonoTouch+win8\SystemDot.EventSourcing.InMemory.dll</HintPath>
     </Reference>
     <Reference Include="SystemDot.Ioc, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -134,10 +118,6 @@
     <ProjectReference Include="..\MessageRouteInspector.Server.csproj">
       <Project>{4e8f44c2-a170-4134-ae3e-11779a1f30ad}</Project>
       <Name>MessageRouteInspector.Server</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Specifications\MessageRouteInspector.Server.Specifications.csproj">
-      <Project>{BF1FFD47-5C8B-4BA2-868B-B9CE092D9BA4}</Project>
-      <Name>MessageRouteInspector.Server.Specifications</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

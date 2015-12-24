@@ -1,7 +1,6 @@
 namespace SystemDot.MessageRouteInspector.Server.GraphQl
 {
     using SystemDot.Core;
-    using SystemDot.MessageRouteInspector.Server.Specifications.Steps;
     using GraphQL.Types;
 
     public class RouteInspectorQuery : ObjectGraphType

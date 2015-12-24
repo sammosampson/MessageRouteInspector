@@ -13,7 +13,7 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
             routes = new List<Route>();
             Context.System.EventStream.Subscribe(Self, typeof(MessageRouteStarted));
             Receive<GetRoutes>(request => RespondWithRoutes());
-            Receive<MessageRouteStarted>(request => AddRoute());
+            Receive<MessageRouteStarted>(@event => AddRoute(@event));
         }
 
         private void RespondWithRoutes()
@@ -21,9 +21,14 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
             Sender.Tell(routes.ToArray());
         }
 
-        private void AddRoute()
+        private void AddRoute(MessageRouteStarted @event)
         {
-            routes.Add(new Route());
+            routes.Add(new Route(
+                @event.Id.ToString(),
+                new Message(), 
+                new Message[0],
+                @event.CreatedOn.ToJavaString(), 
+                @event.MachineName ));
         }
     }
 }

@@ -1,7 +1,6 @@
 namespace SystemDot.MessageRouteInspector.Server.GraphQl
 {
     using System.Threading.Tasks;
-    using SystemDot.MessageRouteInspector.Server.Specifications.Steps;
     using GraphQL;
     using GraphQL.Http;
     
