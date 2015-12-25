@@ -105,9 +105,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bootstrapping\ActorSystemFactory.cs" />
     <Compile Include="Bootstrapping\BuilderConfigurationExtensions.cs" />
-    <Compile Include="Bootstrapping\IActorSystemFactory.cs" />
     <Compile Include="Bootstrapping\RouteInspectorServerConfiguration.cs" />
     <Compile Include="Domain\MessageLogger.cs" />
     <Compile Include="RouteInspectorService.cs" />
