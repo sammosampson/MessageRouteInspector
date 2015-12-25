@@ -1,10 +1,11 @@
-namespace SystemDot.MessageRouteInspector.Server.GraphQl
-{
-    using SystemDot.Bootstrapping;
-    using SystemDot.Environment;
-    using SystemDot.Ioc;
-    using SystemDot.MessageRouteInspector.Server.Bootstrapping;
+using SystemDot.Akka.Testing;
+using SystemDot.Bootstrapping;
+using SystemDot.Environment;
+using SystemDot.Ioc;
+using SystemDot.MessageRouteInspector.Server.Bootstrapping;
 
+namespace SystemDot.MessageRouteInspector.Server.GraphQl.Specifications.Steps
+{
     public static class Bootstrapper
     {
         public static GraphQlExecuter Bootstrap(int limitOfStoredRoutes)
@@ -14,7 +15,9 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl
             SystemDot.Bootstrapping.Bootstrap.Application()
                 .ResolveReferencesWith(iocContainer)
                 .UseEnvironment()
-                .ConfigureRouteInspectorServer().WithRouteLimitOf(limitOfStoredRoutes)
+                .ConfigureRouteInspectorServer()
+                    .UsingActorSystemFactory<TestingActorSystemFactory>()
+                    .WithRouteLimitOf(limitOfStoredRoutes)
                 .Initialise();
 
             return iocContainer.Resolve<GraphQlExecuter>();
