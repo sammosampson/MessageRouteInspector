@@ -1,9 +1,9 @@
 using System;
+using Akka.Actor;
 
 namespace SystemDot.MessageRouteInspector.Server.Domain
 {
     using Messages;
-    using Akka.Actor;
 
     public class MessageLogger : ReceiveActor
     {

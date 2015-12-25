@@ -136,6 +136,12 @@
   <ItemGroup>
     <Folder Include="Domain\Limits\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="Akka\SystemDot.Akka.csproj">
+      <Project>{ad47517c-8b3b-4413-a31b-2daa64cfc39b}</Project>
+      <Name>SystemDot.Akka</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

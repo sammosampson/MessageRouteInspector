@@ -1,9 +1,8 @@
-namespace SystemDot.MessageRouteInspector.Server.Specifications.Steps
-{
-    using SystemDot.MessageRouteInspector.Server.Bootstrapping;
-    using Akka.Actor;
-    using Akka.TestKit;
+using Akka.Actor;
+using Akka.TestKit;
 
+namespace SystemDot.Akka.Testing
+{
     public class TestingActorSystemFactory : IActorSystemFactory
     {
         public ActorSystem Create(string name)

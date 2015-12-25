@@ -151,6 +151,14 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Akka\SystemDot.Akka.csproj">
+      <Project>{ad47517c-8b3b-4413-a31b-2daa64cfc39b}</Project>
+      <Name>SystemDot.Akka</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Akka\Testing\SystemDot.Akka.Testing.csproj">
+      <Project>{abd34a73-0891-4e00-85c4-f3b3849fa34e}</Project>
+      <Name>SystemDot.Akka.Testing</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MessageRouteInspector.Server.csproj">
       <Project>{4E8F44C2-A170-4134-AE3E-11779A1F30AD}</Project>
       <Name>MessageRouteInspector.Server</Name>

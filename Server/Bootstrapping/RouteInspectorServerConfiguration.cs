@@ -1,9 +1,11 @@
+using SystemDot.Akka;
+using Akka.Actor;
+
 namespace SystemDot.MessageRouteInspector.Server.Bootstrapping
 {
     using SystemDot.Bootstrapping;
-    using SystemDot.MessageRouteInspector.Server.Domain;
-    using SystemDot.MessageRouteInspector.Server.Queries;
-    using Akka.Actor;
+    using Domain;
+    using Queries;
 
     public class RouteInspectorServerConfiguration : BootstrapBuilderConfiguration
     {

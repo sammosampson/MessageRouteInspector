@@ -1,7 +1,7 @@
-namespace SystemDot.MessageRouteInspector.Server.Bootstrapping
-{
-    using Akka.Actor;
+using Akka.Actor;
 
+namespace SystemDot.Akka
+{
     public class ActorSystemFactory : IActorSystemFactory
     {
         public ActorSystem Create(string name)

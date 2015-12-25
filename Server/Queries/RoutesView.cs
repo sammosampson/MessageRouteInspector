@@ -1,10 +1,10 @@
+using Akka.Actor;
+
 namespace SystemDot.MessageRouteInspector.Server.Queries
 {
     using System.Collections.Generic;
     using System.Linq;
-    using System.Threading.Tasks;
-    using SystemDot.MessageRouteInspector.Server.Messages;
-    using Akka.Actor;
+    using Messages;
 
     public class RoutesView : ReceiveActor
     {

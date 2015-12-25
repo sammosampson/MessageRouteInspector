@@ -1,9 +1,9 @@
-﻿namespace SystemDot.MessageRouteInspector.Server.Specifications.Steps
+﻿
+namespace SystemDot.MessageRouteInspector.Server.Specifications.Steps
 {
     using System;
     using System.Linq;
-    using SystemDot.MessageRouteInspector.Server.Messages;
-    using Akka.TestKit;
+    using Messages;
     using FluentAssertions;
     using TechTalk.SpecFlow;
 
