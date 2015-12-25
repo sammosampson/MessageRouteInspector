@@ -14,16 +14,20 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
 
         private static void PublishMessageRouteStarted(LogCommandProcessing command)
         {
-            Context.ActorOf(Props.Create(() => new CommandRoute()));
+            Guid routeId = Guid.NewGuid();
+
             Context.System.EventStream.Publish(new MessageRouteStarted(
-                Guid.NewGuid(), 
+                routeId, 
                 command.CreatedOn, 
                 command.Machine, 
                 command.Thread));
-        }
-    }
 
-    internal class CommandRoute : ReceiveActor
-    {
+            Context.System.EventStream.Publish(new MessageBranchCompleted(
+                routeId, 
+                Guid.NewGuid(), 
+                command.MessageName, 
+                MessageType.Command, 
+                1));
+        }
     }
 }

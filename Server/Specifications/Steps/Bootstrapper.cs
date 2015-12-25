@@ -14,7 +14,9 @@ namespace SystemDot.MessageRouteInspector.Server.Specifications.Steps
             Bootstrap.Application()
                 .ResolveReferencesWith(iocContainer)
                 .UseEnvironment()
-                .ConfigureRouteInspectorServer().WithRouteLimitOf(limit)
+                .ConfigureRouteInspectorServer()
+                    .UsingActorSystemFactory<TestingActorSystemFactory>()
+                    .WithRouteLimitOf(limit)
                 .Initialise();
 
             return iocContainer.Resolve<RouteInspectorService>();

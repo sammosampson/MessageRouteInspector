@@ -3,6 +3,7 @@
     using System;
     using System.Linq;
     using SystemDot.MessageRouteInspector.Server.Messages;
+    using Akka.TestKit;
     using FluentAssertions;
     using TechTalk.SpecFlow;
 

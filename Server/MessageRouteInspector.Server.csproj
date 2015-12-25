@@ -42,10 +42,6 @@
     <Reference Include="Akka">
       <HintPath>packages\Akka.1.0.5\lib\net45\Akka.dll</HintPath>
     </Reference>
-    <Reference Include="Akka.TestKit, Version=1.0.5.14, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\Akka.TestKit.1.0.5\lib\net45\Akka.TestKit.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="Microsoft.Owin.Host.HttpListener">
       <HintPath>packages\Microsoft.Owin.Host.HttpListener.3.0.1\lib\net45\Microsoft.Owin.Host.HttpListener.dll</HintPath>
     </Reference>
@@ -109,8 +105,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bootstrapping\ActorSystemFactory.cs" />
     <Compile Include="Bootstrapping\BuilderConfigurationExtensions.cs" />
-    <Compile Include="Bootstrapping\LimitRoutesToConfiguration.cs" />
+    <Compile Include="Bootstrapping\IActorSystemFactory.cs" />
+    <Compile Include="Bootstrapping\RouteInspectorServerConfiguration.cs" />
     <Compile Include="Domain\MessageLogger.cs" />
     <Compile Include="RouteInspectorService.cs" />
     <Compile Include="Messages\CheckRouteLimit.cs" />

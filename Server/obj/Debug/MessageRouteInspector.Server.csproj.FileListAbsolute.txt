@@ -8,12 +8,8 @@ E:\Work\MessageRouteInspector\Server\Build\Newtonsoft.Json.dll
 E:\Work\MessageRouteInspector\Server\Build\SystemDot.Bootstrapping.dll
 E:\Work\MessageRouteInspector\Server\Build\SystemDot.Bootstrapping.Windows.dll
 E:\Work\MessageRouteInspector\Server\Build\SystemDot.Core.dll
-E:\Work\MessageRouteInspector\Server\Build\SystemDot.Domain.dll
-E:\Work\MessageRouteInspector\Server\Build\SystemDot.Domain.Windows.dll
 E:\Work\MessageRouteInspector\Server\Build\SystemDot.Environment.dll
 E:\Work\MessageRouteInspector\Server\Build\SystemDot.Environment.Windows.dll
-E:\Work\MessageRouteInspector\Server\Build\SystemDot.EventSourcing.dll
-E:\Work\MessageRouteInspector\Server\Build\SystemDot.EventSourcing.InMemory.dll
 E:\Work\MessageRouteInspector\Server\Build\SystemDot.Ioc.dll
 E:\Work\MessageRouteInspector\Server\Build\SystemDot.Messaging.dll
 E:\Work\MessageRouteInspector\Server\Build\SystemDot.Reflection.dll
@@ -24,12 +20,8 @@ E:\Work\MessageRouteInspector\Server\Build\Newtonsoft.Json.xml
 E:\Work\MessageRouteInspector\Server\Build\SystemDot.Bootstrapping.pdb
 E:\Work\MessageRouteInspector\Server\Build\SystemDot.Bootstrapping.Windows.pdb
 E:\Work\MessageRouteInspector\Server\Build\SystemDot.Core.pdb
-E:\Work\MessageRouteInspector\Server\Build\SystemDot.Domain.pdb
-E:\Work\MessageRouteInspector\Server\Build\SystemDot.Domain.Windows.pdb
 E:\Work\MessageRouteInspector\Server\Build\SystemDot.Environment.pdb
 E:\Work\MessageRouteInspector\Server\Build\SystemDot.Environment.Windows.pdb
-E:\Work\MessageRouteInspector\Server\Build\SystemDot.EventSourcing.pdb
-E:\Work\MessageRouteInspector\Server\Build\SystemDot.EventSourcing.InMemory.pdb
 E:\Work\MessageRouteInspector\Server\Build\SystemDot.Ioc.pdb
 E:\Work\MessageRouteInspector\Server\Build\SystemDot.Messaging.pdb
 E:\Work\MessageRouteInspector\Server\Build\SystemDot.Reflection.pdb
@@ -38,7 +30,6 @@ E:\Work\MessageRouteInspector\Server\Build\SystemDot.ThreadMarshalling.pdb
 E:\Work\MessageRouteInspector\Server\Build\SystemDot.ThreadMarshalling.Windows.pdb
 E:\Work\MessageRouteInspector\Server\Build\System.Collections.Immutable.dll
 E:\Work\MessageRouteInspector\Server\Build\System.Collections.Immutable.xml
-E:\Work\MessageRouteInspector\Server\obj\Debug\MessageRouteInspector.Server.csprojResolveAssemblyReference.cache
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.MessageRouteInspector.Server.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.MessageRouteInspector.Server.pdb
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Newtonsoft.Json.dll
@@ -138,3 +129,8 @@ C:\Users\Papa\Desktop\GitHub\MessageRouteInspector\Server\Build\SystemDot.Thread
 C:\Users\Papa\Desktop\GitHub\MessageRouteInspector\Server\obj\Debug\MessageRouteInspector.Server.csprojResolveAssemblyReference.cache
 C:\Users\Papa\Desktop\GitHub\MessageRouteInspector\Server\obj\Debug\SystemDot.MessageRouteInspector.Server.dll
 C:\Users\Papa\Desktop\GitHub\MessageRouteInspector\Server\obj\Debug\SystemDot.MessageRouteInspector.Server.pdb
+E:\Work\MessageRouteInspector\Server\Build\Akka.dll
+E:\Work\MessageRouteInspector\Server\Build\Akka.xml
+E:\Work\MessageRouteInspector\Server\Build\Akka.TestKit.dll
+E:\Work\MessageRouteInspector\Server\Build\Akka.TestKit.xml
+E:\Work\MessageRouteInspector\Server\obj\Debug\MessageRouteInspector.Server.csprojResolveAssemblyReference.cache
