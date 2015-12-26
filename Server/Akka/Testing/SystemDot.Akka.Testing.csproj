@@ -55,6 +55,8 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TestingActorSystemFactory.cs" />
+    <Compile Include="ViewChangeWatcher.cs" />
+    <Compile Include="ViewChangeWatcherContext.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

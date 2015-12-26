@@ -8,10 +8,10 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl
     {
         public Message()
         {
-            Field<StringGraphType>("id", resolve: (obj) => obj.Source.As<Messages.Message>().Id);
-            Field<StringGraphType>("name", resolve: (obj) => obj.Source.As<Messages.Message>().Name);
-            Field<IntGraphType>("type", resolve: (obj) => obj.Source.As<Messages.Message>().Type);
-            Field<IntGraphType>("closeBranchCount", resolve: (obj) => obj.Source.As<Messages.Message>().CloseBranchCount);
+            Field<StringGraphType>("id", resolve: (obj) => obj.Source.As<Queries.Messages.Message>().Id);
+            Field<StringGraphType>("name", resolve: (obj) => obj.Source.As<Queries.Messages.Message>().Name);
+            Field<IntGraphType>("type", resolve: (obj) => obj.Source.As<Queries.Messages.Message>().Type);
+            Field<IntGraphType>("closeBranchCount", resolve: (obj) => obj.Source.As<Queries.Messages.Message>().CloseBranchCount);
         }
     }
 }

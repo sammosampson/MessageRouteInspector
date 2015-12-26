@@ -1,4 +1,8 @@
 ﻿
+using SystemDot.Akka.Testing;
+using SystemDot.MessageRouteInspector.Server.Queries;
+using SystemDot.MessageRouteInspector.Server.Queries.Messages;
+
 namespace SystemDot.MessageRouteInspector.Server.Specifications.Steps
 {
     using System;
@@ -10,16 +14,22 @@ namespace SystemDot.MessageRouteInspector.Server.Specifications.Steps
     [Binding]
     public class LoggingMessageProcessingSteps
     {
-        RouteInspectorService service;
-        Route[] routes;
-        Route route;
-        Route routeRetreivedById;
-        Message message;
+        private readonly ViewChangeWatcherContext viewChangeWatcherContext;
+        private RouteInspectorService service;
+        private Route[] routes;
+        private Route route;
+        private Route routeRetreivedById;
+        private Message message;
+
+        public LoggingMessageProcessingSteps(ViewChangeWatcherContext viewChangeWatcherContext)
+        {
+            this.viewChangeWatcherContext = viewChangeWatcherContext;
+        }
 
         [Given(@"I have setup the server with a limit of the last (.*) routes saved")]
         public void GivenIHaveSetupTheServer(int limit)
         {
-            service = Bootstrapper.LimitRoutesTo(limit);
+            service = Bootstrapper.Bootstrap(limit, viewChangeWatcherContext);
         }
 
         [Given(@"I have logged command processing for the message '(.*)' from machine '(.*)' on thread (.*) dated '(.*)'")]
@@ -44,6 +54,12 @@ namespace SystemDot.MessageRouteInspector.Server.Specifications.Steps
         public void GivenIHaveLoggedMessageProcessedFromMachineOnThread(string machine, int thread)
         {
             service.LogMessageProcessedAsync(machine, thread).Wait();
+        }
+
+        [Given(@"I wait for the message to be populated on the route")]
+        public void GivenIWaitForTheMessageToBePopulatedOnTheRoute()
+        {
+            viewChangeWatcherContext.WaitForChange<RoutesView, MessageBranchCompleted>();
         }
 
         [When(@"I get all routes")]

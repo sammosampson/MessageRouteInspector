@@ -9,11 +9,12 @@ namespace SystemDot.MessageRouteInspector.Server.Specifications.Steps
 
     public static class Bootstrapper
     {
-        public static RouteInspectorService LimitRoutesTo(int limit)
+        public static RouteInspectorService Bootstrap(int limit, ViewChangeWatcherContext context)
         {
             var iocContainer = new IocContainer();
+            iocContainer.RegisterInstance(() => context);
 
-            Bootstrap.Application()
+            SystemDot.Bootstrapping.Bootstrap.Application()
                 .ResolveReferencesWith(iocContainer)
                 .UseEnvironment()
                 .ConfigureRouteInspectorServer()

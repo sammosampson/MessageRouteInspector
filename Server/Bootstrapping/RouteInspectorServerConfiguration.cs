@@ -17,9 +17,9 @@ namespace SystemDot.MessageRouteInspector.Server.Bootstrapping
         }
 
         public RouteInspectorServerConfiguration UsingActorSystemFactory<TActorSystemFactory>()
-            where TActorSystemFactory : IActorSystemFactory, new()
+            where TActorSystemFactory : IActorSystemFactory
         {
-            factory = new TActorSystemFactory();
+            factory = GetIocContainer().Resolve<TActorSystemFactory>();
             return this;
         }
 

@@ -9,6 +9,7 @@ Background:
 Scenario: One route from same machine and same thread one command
     Given I have logged command processing for the message 'root' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:01'
     And I have logged message processed from machine 'TestMachine' on thread 1
+    And I wait for the message to be populated on the route
     When I get all routes
     Then there should only be one route
 	And that route should have a valid id
@@ -24,6 +25,7 @@ Scenario: One route from same machine and same thread one command
 	Scenario: One route from same machine and same thread one event
     Given I have logged event processing for the message 'root' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:01'
     And I have logged message processed from machine 'TestMachine' on thread 1
+    And I wait for the message to be populated on the route
     When I get all routes
     Then there should only be one route
 	And only one message in the route 

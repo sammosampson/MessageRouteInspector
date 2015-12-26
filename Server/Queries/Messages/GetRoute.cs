@@ -1,4 +1,4 @@
-namespace SystemDot.MessageRouteInspector.Server.Messages
+namespace SystemDot.MessageRouteInspector.Server.Queries.Messages
 {
     public class GetRoute
     {

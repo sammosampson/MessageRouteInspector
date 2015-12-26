@@ -1,3 +1,7 @@
+using System;
+using System.Threading.Tasks;
+using SystemDot.Akka;
+using SystemDot.MessageRouteInspector.Server.Messages;
 using Akka.Actor;
 
 namespace SystemDot.MessageRouteInspector.Server.Queries
@@ -6,7 +10,7 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
     using System.Linq;
     using Messages;
 
-    public class RoutesView : ReceiveActor
+    public class RoutesView : ViewActor
     {
         private readonly List<Route> routes;
 
@@ -14,12 +18,10 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
         {
             routes = new List<Route>();
 
-            Context.System.EventStream.Subscribe(Self, typeof(MessageRouteStarted));
-            Context.System.EventStream.Subscribe(Self, typeof(MessageBranchCompleted));
-
             Receive<GetRoutes>(request => RespondWithRoutes());
-            Receive<MessageRouteStarted>(@event => AddRoute(@event));
-            Receive<MessageBranchCompleted>(@event => AddMessageToRoute(@event));
+
+            ProjectEvent<MessageRouteStarted>(AddRoute);
+            ProjectEvent<MessageBranchCompleted>(AddMessageToRoute);
         }
         
         private void RespondWithRoutes()

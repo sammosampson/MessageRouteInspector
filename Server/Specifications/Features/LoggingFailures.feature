@@ -9,7 +9,7 @@ Background:
 Scenario: One route from same machine and same thread message in message then failure
 	Given I have logged command processing for the message 'first' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:01'
 	And I have logged a failure with the name 'massiveException' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:02'
-    When I get all routes
+	When I get all routes
 	Then there should only be one route
 	And there should a message at index 0 of the route's messages
 	And that message should have the name 'first' 

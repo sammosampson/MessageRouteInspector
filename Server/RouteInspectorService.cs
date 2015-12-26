@@ -1,3 +1,4 @@
+using SystemDot.MessageRouteInspector.Server.Queries.Messages;
 using Akka.Actor;
 namespace SystemDot.MessageRouteInspector.Server
 {
@@ -34,6 +35,7 @@ namespace SystemDot.MessageRouteInspector.Server
 
         public async Task LogMessageProcessedAsync(string machine, int thread)
         {
+            logger.Tell(new LogMessageProcessed(machine, thread));
             await Task.FromResult(false);
         }
 

@@ -110,7 +110,7 @@
     <Compile Include="Domain\MessageLogger.cs" />
     <Compile Include="RouteInspectorService.cs" />
     <Compile Include="Messages\CheckRouteLimit.cs" />
-    <Compile Include="Messages\GetRoute.cs" />
+    <Compile Include="Queries\Messages\GetRoute.cs" />
     <Compile Include="Messages\LogCommandProcessing.cs" />
     <Compile Include="Messages\LogEventProcessing.cs" />
     <Compile Include="Messages\LogMessageProcessingFailure.cs" />
@@ -119,12 +119,12 @@
     <Compile Include="Messages\MessageRouteLimitReached.cs" />
     <Compile Include="Messages\MessageRouteStarted.cs" />
     <Compile Include="Messages\LogMessageProcessed.cs" />
-    <Compile Include="Messages\GetRoutes.cs" />
+    <Compile Include="Queries\Messages\GetRoutes.cs" />
     <Compile Include="MessageType.cs" />
     <Compile Include="Queries\DateTimeExtensions.cs" />
     <Compile Include="Messages\LogMessageProcessing.cs" />
-    <Compile Include="Messages\Message.cs" />
-    <Compile Include="Messages\Route.cs" />
+    <Compile Include="Queries\Messages\Message.cs" />
+    <Compile Include="Queries\Messages\Route.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries\RoutesView.cs" />
   </ItemGroup>
