@@ -7,42 +7,45 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
 
     public class MessageLogger : ReceiveActor
     {
-        private readonly Dictionary<RouteKey, IActorRef> routes;
+        private readonly Dictionary<MessageRouteKey, IActorRef> routes;
 
         public MessageLogger()
         {
-            routes = new Dictionary<RouteKey, IActorRef>();
+            routes = new Dictionary<MessageRouteKey, IActorRef>();
 
             Receive<LogCommandProcessing>(command =>
             {
-                var key = RouteKey.Parse(command.Machine, command.Thread);
-                CreateRouteIfNotFound(key);
-                FindRoute(key).Tell(command);
+                RouteMessageProcessing(command);
             });
 
             Receive<LogEventProcessing>(command =>
             {
-                var key = RouteKey.Parse(command.Machine, command.Thread);
-                CreateRouteIfNotFound(key);
-                FindRoute(key).Tell(command);
+                RouteMessageProcessing(command);
             });
 
             Receive<LogMessageProcessed>(command =>
             {
-                var key = RouteKey.Parse(command.Machine, command.Thread);
+                var key = MessageRouteKey.Parse(command.Machine, command.Thread);
                 FindRoute(key).Tell(command);
             });
         }
 
-        private void CreateRouteIfNotFound(RouteKey key)
+        private void RouteMessageProcessing(LogMessageProcessing command)
+        {
+            var key = MessageRouteKey.Parse(command.Machine, command.Thread);
+            CreateRouteIfNotFound(key);
+            FindRoute(key).Tell(command);
+        }
+
+        private void CreateRouteIfNotFound(MessageRouteKey key)
         {
             if (!routes.ContainsKey(key))
             {
-                routes.Add(key, Context.ActorOf<Route>());
-            }S
+                routes.Add(key, Context.ActorOf<MessageRoute>());
+            }
         }
 
-        private IActorRef FindRoute(RouteKey key)
+        private IActorRef FindRoute(MessageRouteKey key)
         {
             return routes[key];
         }

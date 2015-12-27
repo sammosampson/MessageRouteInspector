@@ -43,6 +43,8 @@ Scenario: One route from same machine and same thread message in message
     And I have logged command processing for the message 'second' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:02'
     And I have logged message processed from machine 'TestMachine' on thread 1
     And I have logged message processed from machine 'TestMachine' on thread 1
+	And I wait for the message named 'first' to be populated on the route
+    And I wait for the message named 'second' to be populated on the route
     When I get all routes
 	Then there should only be one route
 	And there should a message at index 0 of the route's messages
@@ -57,6 +59,8 @@ Scenario: Two routes from same machine and same thread
     And I have logged message processed from machine 'TestMachine' on thread 1
     And I have logged command processing for the message 'secondRouteFirstMessage' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:02'
     And I have logged message processed from machine 'TestMachine' on thread 1
+    And I wait for the message named 'firstRouteFirstMessage' to be populated on the route
+    And I wait for the message named 'secondRouteFirstMessage' to be populated on the route
     When I get all routes
 	Then there should be a route at index 0 of all the routes
 	And only one message in the route
@@ -72,6 +76,8 @@ Scenario: Two routes from same machine but different threads
     And I have logged command processing for the message 'secondRouteFirstMessage' from machine 'TestMachine' on thread 2 dated '09/21/1975 00:00:02'
     And I have logged message processed from machine 'TestMachine' on thread 1
     And I have logged message processed from machine 'TestMachine' on thread 2
+    And I wait for the message named 'firstRouteFirstMessage' to be populated on the route
+    And I wait for the message named 'secondRouteFirstMessage' to be populated on the route
     When I get all routes
 	Then there should be a route at index 0 of all the routes
 	And only one message in the route
@@ -83,10 +89,12 @@ Scenario: Two routes from same machine but different threads
 	And that message should have a close branch count of 1
 
 Scenario: Two routes from different machines but same thread
-	Given I have logged command processing for the message 'firstRouteFirstMessage' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:01'
-    And I have logged command processing for the message 'secondRouteFirstMessage' from machine 'TestMachine' on thread 2 dated '09/21/1975 00:00:02'
-    And I have logged message processed from machine 'TestMachine' on thread 1
-    And I have logged message processed from machine 'TestMachine' on thread 2
+	Given I have logged command processing for the message 'firstRouteFirstMessage' from machine 'TestMachine1' on thread 1 dated '09/21/1975 00:00:01'
+    And I have logged command processing for the message 'secondRouteFirstMessage' from machine 'TestMachine2' on thread 1 dated '09/21/1975 00:00:02'
+    And I have logged message processed from machine 'TestMachine1' on thread 1
+    And I have logged message processed from machine 'TestMachine2' on thread 1
+    And I wait for the message named 'firstRouteFirstMessage' to be populated on the route
+    And I wait for the message named 'secondRouteFirstMessage' to be populated on the route
     When I get all routes
 	Then there should be a route at index 0 of all the routes
 	And only one message in the route

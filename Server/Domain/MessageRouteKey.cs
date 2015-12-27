@@ -2,22 +2,22 @@ using SystemDot.Core;
 
 namespace SystemDot.MessageRouteInspector.Server.Domain
 {
-    public class RouteKey : Equatable<RouteKey>
+    public class MessageRouteKey : Equatable<MessageRouteKey>
     {
         private readonly string machine;
         private readonly int thread;
 
-        public static RouteKey Parse(string machine, int thread)
+        public static MessageRouteKey Parse(string machine, int thread)
         {
-            return new RouteKey(machine, thread);
+            return new MessageRouteKey(machine, thread);
         }
-        private RouteKey(string machine, int thread)
+        private MessageRouteKey(string machine, int thread)
         {
             this.machine = machine;
             this.thread = thread;
         }
 
-        public override bool Equals(RouteKey other)
+        public override bool Equals(MessageRouteKey other)
         {
             return other.machine == machine && other.thread == thread;
         }

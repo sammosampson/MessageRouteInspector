@@ -2,7 +2,7 @@ using System;
 
 namespace SystemDot.MessageRouteInspector.Server.Domain
 {
-    public abstract class MessageBranch
+    public class MessageBranch
     {
         public MessageType Type { get; private set; }
 
@@ -10,7 +10,7 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
 
         public Guid Id { get; private set; }
 
-        protected MessageBranch(MessageType type, string name)
+        public MessageBranch(MessageType type, string name)
         {
             Id = Guid.NewGuid();
             Type = type;

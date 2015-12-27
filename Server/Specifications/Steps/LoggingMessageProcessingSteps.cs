@@ -62,6 +62,12 @@ namespace SystemDot.MessageRouteInspector.Server.Specifications.Steps
             viewChangeWatcherContext.WaitForChange<RoutesView, MessageBranchCompleted>();
         }
 
+        [Given(@"I wait for the message named '(.*)' to be populated on the route")]
+        public void GivenIWaitForTheMessageNamedToBePopulatedOnTheRoute(string expectedMessageName)
+        {
+            viewChangeWatcherContext.WaitForChange<RoutesView, MessageBranchCompleted>(e => e.MessageName == expectedMessageName);
+        }
+
         [When(@"I get all routes")]
         public void WhenIGetAllRoutes()
         {

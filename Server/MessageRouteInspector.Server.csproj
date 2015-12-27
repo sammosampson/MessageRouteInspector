@@ -107,14 +107,11 @@
   <ItemGroup>
     <Compile Include="Bootstrapping\BuilderConfigurationExtensions.cs" />
     <Compile Include="Bootstrapping\RouteInspectorServerConfiguration.cs" />
-    <Compile Include="Domain\CommandMessageBranch.cs" />
-    <Compile Include="Domain\EventMessageBranch.cs" />
-    <Compile Include="Domain\LogCommandProcessingExtensions.cs" />
-    <Compile Include="Domain\LogEventProcessingExtensions.cs" />
+    <Compile Include="Domain\LogMessageProcessingExtensions.cs" />
     <Compile Include="Domain\MessageBranch.cs" />
     <Compile Include="Domain\MessageLogger.cs" />
-    <Compile Include="Domain\Route.cs" />
-    <Compile Include="Domain\RouteKey.cs" />
+    <Compile Include="Domain\MessageRoute.cs" />
+    <Compile Include="Domain\MessageRouteKey.cs" />
     <Compile Include="RouteInspectorService.cs" />
     <Compile Include="Messages\CheckRouteLimit.cs" />
     <Compile Include="Queries\Messages\GetRoute.cs" />
