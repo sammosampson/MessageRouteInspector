@@ -25,6 +25,7 @@ namespace SystemDot.MessageRouteInspector.Server
 
         public async Task LogEventProcessingAsync(string messageName, string machine, int thread, DateTime createdOn)
         {
+            logger.Tell(new LogEventProcessing(messageName, createdOn, machine, thread));
             await Task.FromResult(false);
         }
 

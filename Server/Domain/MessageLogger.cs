@@ -1,4 +1,4 @@
-using System;
+using System.Collections.Generic;
 using Akka.Actor;
 
 namespace SystemDot.MessageRouteInspector.Server.Domain
@@ -7,91 +7,44 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
 
     public class MessageLogger : ReceiveActor
     {
-        private IActorRef route;
+        private readonly Dictionary<RouteKey, IActorRef> routes;
 
         public MessageLogger()
         {
+            routes = new Dictionary<RouteKey, IActorRef>();
+
             Receive<LogCommandProcessing>(command =>
             {
-                CreateRouteIfNotFound();
-                FindRoute().Tell(command);
+                var key = RouteKey.Parse(command.Machine, command.Thread);
+                CreateRouteIfNotFound(key);
+                FindRoute(key).Tell(command);
+            });
+
+            Receive<LogEventProcessing>(command =>
+            {
+                var key = RouteKey.Parse(command.Machine, command.Thread);
+                CreateRouteIfNotFound(key);
+                FindRoute(key).Tell(command);
             });
 
             Receive<LogMessageProcessed>(command =>
             {
-                FindRoute().Tell(command);
+                var key = RouteKey.Parse(command.Machine, command.Thread);
+                FindRoute(key).Tell(command);
             });
         }
 
-        private void CreateRouteIfNotFound()
+        private void CreateRouteIfNotFound(RouteKey key)
         {
-            if (route == null)
+            if (!routes.ContainsKey(key))
             {
-                route = Context.ActorOf<Route>();
-            }
+                routes.Add(key, Context.ActorOf<Route>());
+            }S
         }
 
-        private IActorRef FindRoute()
+        private IActorRef FindRoute(RouteKey key)
         {
-            return route;
-        }
-    }
-
-    public class Route : ReceiveActor
-    {
-        private Guid routeId;
-        private LogCommandProcessing currentMessage;
-
-        protected override void PreStart()
-        {
-            routeId = Guid.NewGuid();
-            Become(Unstarted);
-        }
-
-        private void Unstarted()
-        {
-            Receive<LogCommandProcessing>(command =>
-            {
-                Publish(new MessageRouteStarted(
-                    routeId,
-                    command.CreatedOn,
-                    command.Machine,
-                    command.Thread));
-
-                currentMessage = command;
-                Become(BranchOpen);
-            });
-
-        }
-
-        private void BranchOpen()
-        {
-            Receive<LogMessageProcessed>(command =>
-            {
-                Publish(new MessageBranchCompleted(
-                    routeId,
-                    Guid.NewGuid(), 
-                    currentMessage.MessageName,
-                    MessageType.Command, 
-                    1));
-
-                currentMessage = null;
-                Become(BranchClosed);
-            });
-        }
-
-        private void BranchClosed()
-        {
-            Receive<LogCommandProcessing>(command =>
-            {
-                currentMessage = command;
-                Become(BranchOpen);
-            });
-        }
-
-        private void Publish(object @event)
-        {
-            Context.System.EventStream.Publish(@event);
+            return routes[key];
         }
     }
 }
