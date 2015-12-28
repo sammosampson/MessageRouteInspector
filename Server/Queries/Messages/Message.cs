@@ -10,7 +10,10 @@ namespace SystemDot.MessageRouteInspector.Server.Queries.Messages
 
         public int Type { get; private set; }
 
-        public static Message Empty { get { return new Message(); } }
+        public static Message Empty
+        {
+            get { return new Message("0", "No route", 0, MessageType.Command); }
+        }
 
         public Message(string id, string name, int closeBranchCount, int type)
         {

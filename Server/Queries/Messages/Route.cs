@@ -1,7 +1,17 @@
+using System;
+
 namespace SystemDot.MessageRouteInspector.Server.Queries.Messages
 {
     public class Route
     {
+        public static Route Empty
+        {
+            get
+            {
+                return new Route("0", Message.Empty, new[] {Message.Empty}, DateTime.Now.ToJavaString(), string.Empty);
+            }
+        }
+
         public string Id { get; private set; }
         public Message Root { get; set; }
         public Message[] Messages { get; set; }

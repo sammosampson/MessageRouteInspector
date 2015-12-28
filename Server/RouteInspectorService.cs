@@ -31,6 +31,7 @@ namespace SystemDot.MessageRouteInspector.Server
 
         public async Task LogMessageProcessingFailureAsync(string failureName, string machine, int thread, DateTime createdOn)
         {
+            logger.Tell(new LogMessageProcessingFailure(failureName, createdOn, machine, thread));
             await Task.FromResult(false);
         }
 
@@ -45,9 +46,9 @@ namespace SystemDot.MessageRouteInspector.Server
             return await routesView.Ask<Route[]>(new GetRoutes());
         }
 
-        public Task<Route> GetRouteAsync(string id)
+        public async Task<Route> GetRouteAsync(string id)
         {
-            throw new NotImplementedException();
+            return await routesView.Ask<Route>(new GetRoute(id));
         }
     }
 }

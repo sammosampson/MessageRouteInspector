@@ -93,7 +93,7 @@ this.FeatureBackground();
 #line 11
     testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 12
-    testRunner.And("I wait for the message to be populated on the route", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("I wait for the message to be populated on the route in the view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 13
     testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 14
@@ -136,7 +136,7 @@ this.FeatureBackground();
 #line 27
     testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 28
-    testRunner.And("I wait for the message to be populated on the route", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("I wait for the message to be populated on the route in the view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 29
     testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 30
@@ -184,9 +184,9 @@ this.FeatureBackground();
 #line 45
     testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 46
- testRunner.And("I wait for the message named \'first\' to be populated on the route", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I wait for the message named \'first\' to be populated on the route in the view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 47
-    testRunner.And("I wait for the message named \'second\' to be populated on the route", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.And("I wait for the message named \'second\' to be populated on the route in the view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 48
     testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 49
@@ -229,10 +229,10 @@ this.FeatureBackground();
     testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 62
     testRunner.And("I wait for the message named \'firstRouteFirstMessage\' to be populated on the rout" +
-                    "e", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                    "e in the view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 63
     testRunner.And("I wait for the message named \'secondRouteFirstMessage\' to be populated on the rou" +
-                    "te", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                    "te in the view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 64
     testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 65
@@ -277,10 +277,10 @@ this.FeatureBackground();
     testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 79
     testRunner.And("I wait for the message named \'firstRouteFirstMessage\' to be populated on the rout" +
-                    "e", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                    "e in the view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 80
     testRunner.And("I wait for the message named \'secondRouteFirstMessage\' to be populated on the rou" +
-                    "te", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                    "te in the view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 81
     testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 82
@@ -325,10 +325,10 @@ this.FeatureBackground();
     testRunner.And("I have logged message processed from machine \'TestMachine2\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 96
     testRunner.And("I wait for the message named \'firstRouteFirstMessage\' to be populated on the rout" +
-                    "e", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                    "e in the view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 97
     testRunner.And("I wait for the message named \'secondRouteFirstMessage\' to be populated on the rou" +
-                    "te", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                    "te in the view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 98
     testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 99
@@ -377,8 +377,14 @@ this.FeatureBackground();
 #line 114
     testRunner.And("I have logged message processed from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 115
-    testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.And("I wait for the message named \'firstRouteFirstMessage\' to be populated on the rout" +
+                    "e in the view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 116
+    testRunner.And("I wait for the message named \'secondRouteFirstMessage\' to be populated on the rou" +
+                    "te in the view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 117
+    testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 118
  testRunner.Then("there should only be 2 routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -390,18 +396,20 @@ this.FeatureBackground();
         public virtual void NoLogProcessedYetSoNoRoute()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("No log processed yet so no route", ((string[])(null)));
-#line 118
+#line 120
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 119
+#line 121
     testRunner.Given("I have logged command processing for the message \'root\' from machine \'TestMachine" +
                     "\' on thread 1 dated \'09/21/1975 00:00:01\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 120
-    testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 121
-    testRunner.Then("there should only be one route", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 122
+    testRunner.And("I wait for the route to be populated in the view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 123
+ testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 124
+    testRunner.Then("there should only be one route", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 125
  testRunner.And("there should not be any messages for the route", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -413,15 +421,15 @@ this.FeatureBackground();
         public virtual void LogProcessedButNoLogProcessingSoNoRoute()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("log processed but no log processing so no route", ((string[])(null)));
-#line 124
+#line 127
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 125
+#line 128
     testRunner.Given("I have logged message processed from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line 126
+#line 129
     testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 127
+#line 130
     testRunner.Then("there should not be any routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

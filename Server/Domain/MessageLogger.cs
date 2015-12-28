@@ -1,53 +1,36 @@
 using System.Collections.Generic;
+using SystemDot.MessageRouteInspector.Server.Messages;
 using Akka.Actor;
 
 namespace SystemDot.MessageRouteInspector.Server.Domain
 {
-    using Messages;
-
     public class MessageLogger : ReceiveActor
     {
-        private readonly Dictionary<MessageRouteKey, IActorRef> routes;
+        private readonly Dictionary<MachineThreadId, IActorRef> routes;
 
         public MessageLogger()
         {
-            routes = new Dictionary<MessageRouteKey, IActorRef>();
+            routes = new Dictionary<MachineThreadId, IActorRef>();
 
-            Receive<LogCommandProcessing>(command =>
-            {
-                RouteMessageProcessing(command);
-            });
-
-            Receive<LogEventProcessing>(command =>
-            {
-                RouteMessageProcessing(command);
-            });
-
-            Receive<LogMessageProcessed>(command =>
-            {
-                var key = MessageRouteKey.Parse(command.Machine, command.Thread);
-                FindRoute(key).Tell(command);
-            });
+            Receive<LogCommandProcessing>(command => RouteMessage(command, command.Machine, command.Thread));
+            Receive<LogEventProcessing>(command => RouteMessage(command, command.Machine, command.Thread));
+            Receive<LogMessageProcessingFailure>(command => RouteMessage(command, command.Machine, command.Thread));
+            Receive<LogMessageProcessed>(command => RouteMessage(command, command.Machine, command.Thread));
         }
 
-        private void RouteMessageProcessing(LogMessageProcessing command)
+        private void RouteMessage<TMessage>(TMessage message, string machine, int thread)
         {
-            var key = MessageRouteKey.Parse(command.Machine, command.Thread);
-            CreateRouteIfNotFound(key);
-            FindRoute(key).Tell(command);
+            var processId = MachineThreadId.Parse(machine, thread);
+            CreateRouteIfNotFound(processId);
+            routes[processId].Tell(message);
         }
 
-        private void CreateRouteIfNotFound(MessageRouteKey key)
+        private void CreateRouteIfNotFound(MachineThreadId machineThreadId)
         {
-            if (!routes.ContainsKey(key))
+            if (!routes.ContainsKey(machineThreadId))
             {
-                routes.Add(key, Context.ActorOf<MessageRoute>());
+                routes.Add(machineThreadId, Context.ActorOf(Props.Create(() => new MachineThreadProcess())));
             }
-        }
-
-        private IActorRef FindRoute(MessageRouteKey key)
-        {
-            return routes[key];
         }
     }
 }

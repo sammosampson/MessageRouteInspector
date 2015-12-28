@@ -56,13 +56,19 @@ namespace SystemDot.MessageRouteInspector.Server.Specifications.Steps
             service.LogMessageProcessedAsync(machine, thread).Wait();
         }
 
-        [Given(@"I wait for the message to be populated on the route")]
+        [Given(@"I wait for the route to be populated in the view")]
+        public void GivenIWaitForTheRouteToBePopulatedInTheView()
+        {
+            viewChangeWatcherContext.WaitForChange<RoutesView, MessageRouteStarted>();
+        }
+
+        [Given(@"I wait for the message to be populated on the route in the view")]
         public void GivenIWaitForTheMessageToBePopulatedOnTheRoute()
         {
             viewChangeWatcherContext.WaitForChange<RoutesView, MessageBranchCompleted>();
         }
 
-        [Given(@"I wait for the message named '(.*)' to be populated on the route")]
+        [Given(@"I wait for the message named '(.*)' to be populated on the route in the view")]
         public void GivenIWaitForTheMessageNamedToBePopulatedOnTheRoute(string expectedMessageName)
         {
             viewChangeWatcherContext.WaitForChange<RoutesView, MessageBranchCompleted>(e => e.MessageName == expectedMessageName);

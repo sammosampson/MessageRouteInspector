@@ -11,6 +11,8 @@ Scenario: Second of two routes retreived by id
     And I have logged message processed from machine 'TestMachine' on thread 1
     And I have logged command processing for the message 'secondRouteFirstMessage' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:02'
     And I have logged message processed from machine 'TestMachine' on thread 1
+    And I wait for the message named 'firstRouteFirstMessage' to be populated on the route in the view
+    And I wait for the message named 'secondRouteFirstMessage' to be populated on the route in the view
     When I get all routes
 	Then there should be a route at index 1 of all the routes
 	When I get the route by its id

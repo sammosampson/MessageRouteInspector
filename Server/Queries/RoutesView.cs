@@ -6,51 +6,63 @@ using Akka.Actor;
 
 namespace SystemDot.MessageRouteInspector.Server.Queries
 {
-    using System.Collections.Generic;
     using System.Linq;
     using Messages;
 
     public class RoutesView : ViewActor
     {
-        private readonly List<Route> routes;
+        private readonly RouteCollection routes;
 
         public RoutesView()
         {
-            routes = new List<Route>();
+            routes = new RouteCollection();
 
             Receive<GetRoutes>(request => RespondWithRoutes());
+            Receive<GetRoute>(request => RespondWithRoute(request.RouteId));
 
-            ProjectEvent<MessageRouteStarted>(AddRoute);
-            ProjectEvent<MessageBranchCompleted>(AddMessageToRoute);
+            ProjectEvent<MessageRouteStarted>(Handle);
+            ProjectEvent<MessageBranchCompleted>(Handle);
+            ProjectEvent<MessageRouteLimitReached>(Handle);
         }
         
+        private void RespondWithRoute(string routeId)
+        {
+            Sender.Tell(GetRoute(routeId));
+        }
+
+        private Route GetRoute(string routeId)
+        {
+            Route route;
+
+            try
+            {
+                route = routes[routeId];
+            }
+            catch (Exception)
+            {
+                route = Route.Empty;
+            }
+            return route;
+        }
+
         private void RespondWithRoutes()
         {
-            Sender.Tell(routes.ToArray());
+            Sender.Tell(routes.OrderByDescending(r => r.CreatedOn).ToArray());
         }
 
-        private void AddRoute(MessageRouteStarted @event)
+        private void Handle(MessageRouteStarted message)
         {
-            routes.Add(new Route(
-                @event.Id.ToString(),
-                Message.Empty, 
-                new Message[0],
-                @event.CreatedOn.ToJavaString(), 
-                @event.MachineName ));
+            routes.AddRoute(message.Id.ToString(), message.CreatedOn, message.MachineName);
         }
 
-        private void AddMessageToRoute(MessageBranchCompleted @event)
+        private void Handle(MessageBranchCompleted message)
         {
-            routes.Single().Root = new Message(
-                @event.MessageId.ToString(),
-                @event.MessageName,
-                @event.CloseBranchCount,
-                @event.MessageType);
+            routes.AddMessage(message.RouteId.ToString(), message);
+        }
 
-            routes.Single().Messages = new[] 
-            {
-               routes.Single().Root
-            };
+        private void Handle(MessageRouteLimitReached message)
+        {
+            routes.RemoveRoute(message.ToRemove.ToString());
         }
     }
 }

@@ -9,7 +9,7 @@ Background:
 Scenario: One route from same machine and same thread one command
     Given I have logged command processing for the message 'root' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:01'
     And I have logged message processed from machine 'TestMachine' on thread 1
-    And I wait for the message to be populated on the route
+    And I wait for the message to be populated on the route in the view
     When I get all routes
     Then there should only be one route
 	And that route should have a valid id
@@ -25,7 +25,7 @@ Scenario: One route from same machine and same thread one command
 	Scenario: One route from same machine and same thread one event
     Given I have logged event processing for the message 'root' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:01'
     And I have logged message processed from machine 'TestMachine' on thread 1
-    And I wait for the message to be populated on the route
+    And I wait for the message to be populated on the route in the view
     When I get all routes
     Then there should only be one route
 	And only one message in the route 
@@ -43,8 +43,8 @@ Scenario: One route from same machine and same thread message in message
     And I have logged command processing for the message 'second' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:02'
     And I have logged message processed from machine 'TestMachine' on thread 1
     And I have logged message processed from machine 'TestMachine' on thread 1
-	And I wait for the message named 'first' to be populated on the route
-    And I wait for the message named 'second' to be populated on the route
+	And I wait for the message named 'first' to be populated on the route in the view
+    And I wait for the message named 'second' to be populated on the route in the view
     When I get all routes
 	Then there should only be one route
 	And there should a message at index 0 of the route's messages
@@ -59,8 +59,8 @@ Scenario: Two routes from same machine and same thread
     And I have logged message processed from machine 'TestMachine' on thread 1
     And I have logged command processing for the message 'secondRouteFirstMessage' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:02'
     And I have logged message processed from machine 'TestMachine' on thread 1
-    And I wait for the message named 'firstRouteFirstMessage' to be populated on the route
-    And I wait for the message named 'secondRouteFirstMessage' to be populated on the route
+    And I wait for the message named 'firstRouteFirstMessage' to be populated on the route in the view
+    And I wait for the message named 'secondRouteFirstMessage' to be populated on the route in the view
     When I get all routes
 	Then there should be a route at index 0 of all the routes
 	And only one message in the route
@@ -76,8 +76,8 @@ Scenario: Two routes from same machine but different threads
     And I have logged command processing for the message 'secondRouteFirstMessage' from machine 'TestMachine' on thread 2 dated '09/21/1975 00:00:02'
     And I have logged message processed from machine 'TestMachine' on thread 1
     And I have logged message processed from machine 'TestMachine' on thread 2
-    And I wait for the message named 'firstRouteFirstMessage' to be populated on the route
-    And I wait for the message named 'secondRouteFirstMessage' to be populated on the route
+    And I wait for the message named 'firstRouteFirstMessage' to be populated on the route in the view
+    And I wait for the message named 'secondRouteFirstMessage' to be populated on the route in the view
     When I get all routes
 	Then there should be a route at index 0 of all the routes
 	And only one message in the route
@@ -93,8 +93,8 @@ Scenario: Two routes from different machines but same thread
     And I have logged command processing for the message 'secondRouteFirstMessage' from machine 'TestMachine2' on thread 1 dated '09/21/1975 00:00:02'
     And I have logged message processed from machine 'TestMachine1' on thread 1
     And I have logged message processed from machine 'TestMachine2' on thread 1
-    And I wait for the message named 'firstRouteFirstMessage' to be populated on the route
-    And I wait for the message named 'secondRouteFirstMessage' to be populated on the route
+    And I wait for the message named 'firstRouteFirstMessage' to be populated on the route in the view
+    And I wait for the message named 'secondRouteFirstMessage' to be populated on the route in the view
     When I get all routes
 	Then there should be a route at index 0 of all the routes
 	And only one message in the route
@@ -112,12 +112,15 @@ Scenario: Three routes logged limited to two
     And I have logged message processed from machine 'TestMachine' on thread 1
     And I have logged command processing for the message 'thirdRouteFirstMessage' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:03'
     And I have logged message processed from machine 'TestMachine' on thread 1
+    And I wait for the message named 'firstRouteFirstMessage' to be populated on the route in the view
+    And I wait for the message named 'secondRouteFirstMessage' to be populated on the route in the view
     When I get all routes
 	Then there should only be 2 routes
 
 Scenario: No log processed yet so no route
     Given I have logged command processing for the message 'root' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:01'
-    When I get all routes
+    And I wait for the route to be populated in the view
+	When I get all routes
     Then there should only be one route
 	And there should not be any messages for the route
 

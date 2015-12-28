@@ -4,9 +4,20 @@ namespace SystemDot.MessageRouteInspector.Server.Messages
 
     public class LogMessageProcessingFailure
     {
-        public string FailureName { get; set; }
-        public DateTime CreatedOn { get; set; }
-        public string Machine { get; set; }
-        public int Thread { get; set; }
+        public string FailureName { get; }
+
+        public DateTime CreatedOn { get; }
+
+        public string Machine { get; }
+
+        public int Thread { get; }
+
+        public LogMessageProcessingFailure(string failureName, DateTime createdOn, string machine, int thread)
+        {
+            FailureName = failureName;
+            CreatedOn = createdOn;
+            Machine = machine;
+            Thread = thread;
+        }
     }
 }

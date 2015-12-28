@@ -1,4 +1,5 @@
 using SystemDot.Akka;
+using SystemDot.MessageRouteInspector.Server.Domain.Limits;
 using Akka.Actor;
 
 namespace SystemDot.MessageRouteInspector.Server.Bootstrapping
@@ -28,8 +29,13 @@ namespace SystemDot.MessageRouteInspector.Server.Bootstrapping
             return RegisterBuildAction(c => 
             {
                 ActorSystem system = factory.Create("MessageRouteInspector");
-                IActorRef routesView = system.ActorOf(Props.Create(() => new RoutesView()), "routesView");
-                IActorRef logger = system.ActorOf(Props.Create(() => new MessageLogger()), "messageLogger");
+
+                IActorRef routesView = system.ActorOf(Props.Create(() => new RoutesView()));
+
+                IActorRef routeLimitArbiter = system.ActorOf(Props.Create(() => new RouteLimitArbiter(new RouteLimit(limit))));
+                system.ActorOf(Props.Create(() => new MessageRouteStartedProcessManager(routeLimitArbiter)));
+
+                IActorRef logger = system.ActorOf(Props.Create(() => new MessageLogger()));
                 c.RegisterInstance(() => new RouteInspectorService(routesView, logger));
             });
         }

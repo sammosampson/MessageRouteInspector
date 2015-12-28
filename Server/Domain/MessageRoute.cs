@@ -1,95 +1,81 @@
 using System;
+using System.Collections.Generic;
+using SystemDot.Akka;
 using SystemDot.MessageRouteInspector.Server.Messages;
-using Akka.Actor;
+using Akka.Event;
 
 namespace SystemDot.MessageRouteInspector.Server.Domain
 {
-    public class MessageRoute : ReceiveActor
+    public class MessageRoute : AggregateEntity
     {
-        private Guid routeId;
-        private MessageBranch currentMessage;
-        private int branchesToClose;
-        private int openBranches;
+        readonly MessageRouteId routeId;
+        readonly Stack<MessageRouteBranch> hierarchy = new Stack<MessageRouteBranch>();
+        int openBranchCount;
 
-        protected override void PreStart()
+        public MessageRoute(AggregateRootActor root) : base(root)
         {
-            routeId = Guid.NewGuid();
-            Become(Unstarted);
+            routeId = new MessageRouteId();
         }
 
-        private void Unstarted()
+        public void Start(string messageName, MessageType messageType, DateTime createdOn, string machine, int thread)
         {
-            Receive<LogCommandProcessing>(command =>
+            OpenBranch(messageName, messageType);
+            Publish(new MessageRouteStarted(routeId, createdOn, machine, thread));
+        }
+
+        public void OpenBranch(string messageName, MessageType messageType)
+        {
+            CompletePreviousBranch();
+
+            openBranchCount++;
+
+            if (hierarchy.Count > 0)
             {
-                StartRoute(command);
-                OpenBranch(command, MessageType.Command);
-            });
-
-            Receive<LogEventProcessing>(command =>
-            {
-                StartRoute(command);
-                OpenBranch(command, MessageType.Event);
-            });
-        }
-        
-        private void BranchOpen()
-        {
-            Receive<LogMessageProcessed>(command => CloseBranch());
-        }
-
-        private void BranchClosed()
-        {
-            Receive<LogCommandProcessing>(command => OpenBranch(command, MessageType.Command));
-            Receive<LogEventProcessing>(command => OpenBranch(command, MessageType.Event));
-        }
-
-        private void StartRoute(LogMessageProcessing command)
-        {
-            Publish(new MessageRouteStarted(
-                routeId,
-                command.CreatedOn,
-                command.Machine,
-                command.Thread));
-        }
-
-        private void OpenBranch(LogMessageProcessing command, MessageType type)
-        {
-            branchesToClose++;
-            openBranches++;
-            currentMessage = command.ToMessageBranch(type);
-            Become(BranchOpen);
-        }
-
-        private void CloseBranch()
-        {
-            openBranches--;
-
-            int closedBranchCount = 0;
-
-            if (openBranches == 0)
-            {
-                closedBranchCount = branchesToClose;
-                branchesToClose = 0;
+                hierarchy.Pop();
             }
 
-            PublishMessageBranchCompleted(closedBranchCount);
-            currentMessage = null;
-            Become(BranchClosed);
+            hierarchy.Push(new MessageRouteBranch(Root, routeId, messageName, messageType));
         }
 
-        private void PublishMessageBranchCompleted(int closedBranchCount)
+        public void Fail(string failureName)
         {
-            Publish(new MessageBranchCompleted(
-                routeId,
-                currentMessage.Id,
-                currentMessage.Name,
-                currentMessage.Type,
-                closedBranchCount));
+            OpenBranch(failureName, MessageType.Failure);
+            CompleteAllBranches();
         }
 
-        private void Publish(object @event)
+        void CompletePreviousBranch()
         {
-            Context.System.EventStream.Publish(@event);
+            if (hierarchy.Count > 0)
+            {
+                CompleteBranch();
+            }
+        }
+
+        public void CloseBranch()
+        {
+            openBranchCount--;
+            hierarchy.Peek().End();
+
+            if (IsComplete())
+            {
+                CompleteBranch();
+            }
+        }
+
+        public bool IsComplete()
+        {
+            return openBranchCount == 0;
+        }
+
+        void CompleteBranch()
+        {
+            hierarchy.Peek().Complete();
+        }
+
+        void CompleteAllBranches()
+        {
+            hierarchy.Peek().Complete(openBranchCount);
+            openBranchCount = 0;
         }
     }
 }

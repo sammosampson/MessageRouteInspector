@@ -45,7 +45,7 @@ namespace SystemDot.Akka.Testing
         private void WaitForChange(Predicate<ViewChanged> toExpect)
         {
             ExpectChange(toExpect);
-            expectedViewChangeOccurred.Task.Wait(TimeSpan.FromSeconds(5));
+            expectedViewChangeOccurred.Task.Wait(TimeSpan.FromSeconds(3));
         }
 
         public void WaitForChange<TExpectedView, TExpectedEvent>()
