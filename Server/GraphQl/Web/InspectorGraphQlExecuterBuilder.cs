@@ -5,13 +5,13 @@ using SystemDot.MessageRouteInspector.Server.Bootstrapping;
 
 namespace SystemDot.MessageRouteInspector.Server.GraphQl.Web
 {
-    public static class Bootstrapper
+    public static class InspectorGraphQlExecuterBuilder
     {
-        public static GraphQlExecuter Bootstrap(int limitOfStoredRoutes)
+        public static GraphQlExecuter Build(int limitOfStoredRoutes)
         {
             var iocContainer = new IocContainer();
 
-            SystemDot.Bootstrapping.Bootstrap.Application()
+            Bootstrap.Application()
                 .ResolveReferencesWith(iocContainer)
                 .UseEnvironment()
                 .ConfigureRouteInspectorServer().WithRouteLimitOf(limitOfStoredRoutes)

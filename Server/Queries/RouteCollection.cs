@@ -8,7 +8,7 @@ using SystemDot.MessageRouteInspector.Server.Queries.Messages;
 
 namespace SystemDot.MessageRouteInspector.Server.Queries
 {
-    public class RouteCollection : IEnumerable<Route>
+    internal class RouteCollection : IEnumerable<Route>
     {
         ImmutableDictionary<string, Route> routes;
 

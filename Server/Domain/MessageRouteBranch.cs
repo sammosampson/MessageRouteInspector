@@ -1,10 +1,9 @@
 using SystemDot.Akka;
 using SystemDot.MessageRouteInspector.Server.Messages;
-using Akka.Event;
 
 namespace SystemDot.MessageRouteInspector.Server.Domain
 {
-    public class MessageRouteBranch : AggregateEntity
+    internal class MessageRouteBranch : AggregateEntity
     {
         readonly MessageId messageId;
         readonly MessageRouteId routeId;

@@ -3,7 +3,7 @@ namespace SystemDot.MessageRouteInspector.Server.Queries
     using System;
     using System.Globalization;
 
-    public static class DateTimeExtensions
+    internal static class DateTimeExtensions
     {
         public static string ToJavaString(this DateTime dateTime)
         {

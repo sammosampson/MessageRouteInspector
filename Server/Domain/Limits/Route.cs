@@ -2,7 +2,7 @@ namespace SystemDot.MessageRouteInspector.Server.Domain.Limits
 {
     using System;
 
-    public class Route
+    internal class Route
     {
         public Guid RouteId { get; private set; }
         public DateTime CreatedOn { get; private set; }

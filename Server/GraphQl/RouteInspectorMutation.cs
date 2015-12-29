@@ -5,7 +5,7 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl
     using SystemDot.Core;
     using GraphQL.Types;
 
-    public class RouteInspectorMutation : ObjectGraphType
+    internal class RouteInspectorMutation : ObjectGraphType
     {
         public RouteInspectorMutation()
         {

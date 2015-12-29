@@ -2,7 +2,7 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl
 {
     using GraphQL.Types;
 
-    public class RouteInspectorSchema : Schema
+    internal class RouteInspectorSchema : Schema
     {
         public RouteInspectorSchema()
         {

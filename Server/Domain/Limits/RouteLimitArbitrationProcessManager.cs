@@ -5,7 +5,7 @@ namespace SystemDot.MessageRouteInspector.Server.Domain.Limits
 {
     using Messages;
 
-    public class RouteLimitArbitrationProcessManager : ProcessManagerActor
+    internal class RouteLimitArbitrationProcessManager : ProcessManagerActor
     {
         public RouteLimitArbitrationProcessManager(IActorRef commandProcessor) : base(commandProcessor)
         {

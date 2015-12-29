@@ -6,7 +6,7 @@ namespace SystemDot.MessageRouteInspector.Server.Domain.Limits
     using System.Linq;
     using Messages;
 
-    public class RouteLimitArbiter : AggregateRootActor
+    internal class RouteLimitArbiter : AggregateRootActor
     {
         readonly List<Route> routes;
         readonly RouteLimit limit;

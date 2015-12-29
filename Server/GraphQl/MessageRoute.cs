@@ -2,11 +2,10 @@ using SystemDot.MessageRouteInspector.Server.Queries.Messages;
 
 namespace SystemDot.MessageRouteInspector.Server.GraphQl
 {
-    using SystemDot.MessageRouteInspector.Server.Messages;
     using GraphQL;
     using GraphQL.Types;
 
-    public class MessageRoute : ObjectGraphType
+    internal class MessageRoute : ObjectGraphType
     {
         public MessageRoute()
         {

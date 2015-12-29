@@ -4,7 +4,7 @@ using Akka.Actor;
 
 namespace SystemDot.MessageRouteInspector.Server.Domain
 {
-    public class MessageLogger : ReceiveActor
+    internal class MessageLogger : ReceiveActor
     {
         private readonly Dictionary<MachineThreadId, IActorRef> routes;
 

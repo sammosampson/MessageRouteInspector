@@ -1,6 +1,6 @@
 namespace SystemDot.MessageRouteInspector.Server.Domain.Limits
 {
-    public class RouteLimit
+    internal class RouteLimit
     {
         public static implicit operator int(RouteLimit from)
         {

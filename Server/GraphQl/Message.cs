@@ -1,10 +1,9 @@
 namespace SystemDot.MessageRouteInspector.Server.GraphQl
 {
-    using SystemDot.MessageRouteInspector.Server.Messages;
     using GraphQL;
     using GraphQL.Types;
 
-    public class Message : ObjectGraphType
+    internal class Message : ObjectGraphType
     {
         public Message()
         {

@@ -1,10 +1,9 @@
-using System;
 using SystemDot.Akka;
 using SystemDot.MessageRouteInspector.Server.Messages;
 
 namespace SystemDot.MessageRouteInspector.Server.Domain
 {
-    public class MachineThreadProcess : AggregateRootActor
+    internal class MachineThreadProcess : AggregateRootActor
     {
         private MessageRoute currentRoute;
 

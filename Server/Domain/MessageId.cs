@@ -2,7 +2,7 @@ using System;
 
 namespace SystemDot.MessageRouteInspector.Server.Domain
 {
-    public class MessageId
+    internal class MessageId
     {
         readonly Guid value;
 

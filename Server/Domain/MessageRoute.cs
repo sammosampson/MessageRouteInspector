@@ -5,7 +5,7 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
     using SystemDot.Akka;
     using SystemDot.MessageRouteInspector.Server.Messages;
 
-    public class MessageRoute : AggregateEntity
+    internal class MessageRoute : AggregateEntity
     {
         readonly MessageRouteId routeId;
         readonly Stack<MessageRouteBranch> hierarchy = new Stack<MessageRouteBranch>();

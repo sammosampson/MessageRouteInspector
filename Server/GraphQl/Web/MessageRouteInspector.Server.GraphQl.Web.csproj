@@ -95,7 +95,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bootstrapper.cs" />
+    <Compile Include="InspectorGraphQlExecuterBuilder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="GraphQLServerMiddleware.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

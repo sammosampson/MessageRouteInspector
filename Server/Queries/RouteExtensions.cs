@@ -4,9 +4,9 @@ using SystemDot.MessageRouteInspector.Server.Queries.Messages;
 
 namespace SystemDot.MessageRouteInspector.Server.Queries
 {
-    public static class RouteExtensions
+    internal static class RouteExtensions
     {
-        public static Route AddMessage(this Route route, string messageId, string messageName, int closeBranchCount,
+        internal static Route AddMessage(this Route route, string messageId, string messageName, int closeBranchCount,
             MessageType messageType)
         {
             var messages = new List<Message>(route.Messages)

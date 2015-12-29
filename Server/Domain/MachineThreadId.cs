@@ -2,7 +2,7 @@ using SystemDot.Core;
 
 namespace SystemDot.MessageRouteInspector.Server.Domain
 {
-    public class MachineThreadId : Equatable<MachineThreadId>
+    internal class MachineThreadId : Equatable<MachineThreadId>
     {
         public string MachineName { get; private set; }
         public int Thread { get; private set; }

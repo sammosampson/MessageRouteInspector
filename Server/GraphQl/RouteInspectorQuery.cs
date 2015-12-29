@@ -3,7 +3,7 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl
     using SystemDot.Core;
     using GraphQL.Types;
 
-    public class RouteInspectorQuery : ObjectGraphType
+    internal class RouteInspectorQuery : ObjectGraphType
     {
         public RouteInspectorQuery()
         {

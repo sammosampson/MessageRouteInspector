@@ -10,7 +10,7 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl.Web
     {
         static void Main(string[] args)
         {
-            using (WebApp.Start("http://localhost:8081/", builder => builder.Use<GraphQLServerMiddleware>(Bootstrapper.Bootstrap(10))))
+            using (WebApp.Start("http://localhost:8081/", builder => builder.Use<GraphQLServerMiddleware>(InspectorGraphQlExecuterBuilder.Build(10))))
             {
                 Console.WriteLine("Ready, press any key to exit...");
                 Console.ReadKey();
