@@ -1,15 +1,17 @@
 namespace SystemDot.MessageRouteInspector.Server.Messages
 {
+    using System;
+
     public class MessageRouteEnded
     {
-        public string MachineName { get; private set; }
+        public Guid Id { get; private set; }
 
-        public int Thread { get; private set; }
+        public DateTime CreatedOn { get; private set; }
 
-        public MessageRouteEnded(string machineName, int thread)
+        public MessageRouteEnded(Guid id, DateTime createdOn)
         {
-            MachineName = machineName;
-            Thread = thread;
+            Id = id;
+            CreatedOn = createdOn;
         }
     }
 }

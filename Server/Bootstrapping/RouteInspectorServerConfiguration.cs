@@ -33,7 +33,7 @@ namespace SystemDot.MessageRouteInspector.Server.Bootstrapping
                 IActorRef routesView = system.ActorOf(Props.Create(() => new RoutesView()));
 
                 IActorRef routeLimitArbiter = system.ActorOf(Props.Create(() => new RouteLimitArbiter(new RouteLimit(limit))));
-                system.ActorOf(Props.Create(() => new MessageRouteStartedProcessManager(routeLimitArbiter)));
+                system.ActorOf(Props.Create(() => new RouteLimitArbitrationProcessManager(routeLimitArbiter)));
 
                 IActorRef logger = system.ActorOf(Props.Create(() => new MessageLogger()));
                 c.RegisterInstance(() => new RouteInspectorService(routesView, logger));

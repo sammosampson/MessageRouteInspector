@@ -131,6 +131,5 @@ C:\Users\Papa\Desktop\GitHub\MessageRouteInspector\Server\obj\Debug\SystemDot.Me
 C:\Users\Papa\Desktop\GitHub\MessageRouteInspector\Server\obj\Debug\SystemDot.MessageRouteInspector.Server.pdb
 E:\Work\MessageRouteInspector\Server\Build\Akka.dll
 E:\Work\MessageRouteInspector\Server\Build\Akka.xml
-E:\Work\MessageRouteInspector\Server\Build\Akka.TestKit.dll
-E:\Work\MessageRouteInspector\Server\Build\Akka.TestKit.xml
 E:\Work\MessageRouteInspector\Server\obj\Debug\MessageRouteInspector.Server.csprojResolveAssemblyReference.cache
+E:\Work\MessageRouteInspector\Server\Build\SystemDot.Akka.pdb

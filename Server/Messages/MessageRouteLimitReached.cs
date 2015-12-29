@@ -4,6 +4,11 @@ namespace SystemDot.MessageRouteInspector.Server.Messages
 
     public class MessageRouteLimitReached
     {
-        public Guid ToRemove { get; set; }
+        public Guid ToRemove { get; private set; }
+
+        public MessageRouteLimitReached(Guid toRemove)
+        {
+            ToRemove = toRemove;
+        }
     }
 }

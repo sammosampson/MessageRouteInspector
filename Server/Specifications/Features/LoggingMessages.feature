@@ -113,9 +113,22 @@ Scenario: Three routes logged limited to two
     And I have logged command processing for the message 'thirdRouteFirstMessage' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:03'
     And I have logged message processed from machine 'TestMachine' on thread 1
     And I wait for the message named 'firstRouteFirstMessage' to be populated on the route in the view
+    And I wait for a message to be removed from the view
     And I wait for the message named 'secondRouteFirstMessage' to be populated on the route in the view
     When I get all routes
 	Then there should only be 2 routes
+
+Scenario: Imcomplete route does not get removed becauses of limit
+	Given I have logged command processing for the message 'firstRouteFirstMessage' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:01'
+    And I have logged command processing for the message 'secondRouteFirstMessage' from machine 'TestMachine' on thread 2 dated '09/21/1975 00:00:02'
+    And I have logged message processed from machine 'TestMachine' on thread 2
+    And I have logged command processing for the message 'thirdRouteFirstMessage' from machine 'TestMachine' on thread 2 dated '09/21/1975 00:00:03'
+    And I have logged message processed from machine 'TestMachine' on thread 2
+    And I wait for the message named 'firstRouteFirstMessage' to be populated on the route in the view
+    And I wait for a message to be removed from the view
+    And I wait for the message named 'secondRouteFirstMessage' to be populated on the route in the view
+    When I get all routes
+	Then there should only be 3 routes
 
 Scenario: No log processed yet so no route
     Given I have logged command processing for the message 'root' from machine 'TestMachine' on thread 1 dated '09/21/1975 00:00:01'

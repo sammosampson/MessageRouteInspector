@@ -106,6 +106,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Akka\SystemDot.Akka.csproj">
+      <Project>{ad47517c-8b3b-4413-a31b-2daa64cfc39b}</Project>
+      <Name>SystemDot.Akka</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\MessageRouteInspector.Server.csproj">
       <Project>{4e8f44c2-a170-4134-ae3e-11779a1f30ad}</Project>
       <Name>MessageRouteInspector.Server</Name>

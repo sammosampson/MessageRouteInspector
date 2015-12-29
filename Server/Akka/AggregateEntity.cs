@@ -2,7 +2,7 @@ namespace SystemDot.Akka
 {
     public abstract class AggregateEntity
     {
-        protected AggregateRootActor Root { get; }
+        protected AggregateRootActor Root { get; private set; }
 
         protected AggregateEntity(AggregateRootActor root)
         {

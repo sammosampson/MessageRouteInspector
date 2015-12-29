@@ -22,9 +22,5 @@ namespace SystemDot.MessageRouteInspector.Server.Queries.Messages
             CloseBranchCount = closeBranchCount;
             Type = type;
         }
-
-        Message()
-        {
-        }
     }
 }

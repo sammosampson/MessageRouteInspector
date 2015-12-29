@@ -1,25 +1,25 @@
-using System;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using Akka.Util.Internal;
 
 namespace SystemDot.Akka.Testing
 {
+    using System;
+    using System.Threading.Tasks;
+    using System.Collections.Immutable;
+
     public class ViewChangeWatcherContext
     {
-        private readonly List<ViewChanged> events;
+        private ImmutableList<ViewChanged> events;
         private TaskCompletionSource<bool> expectedViewChangeOccurred;
         private Predicate<ViewChanged> isExpectedChange;
 
         public ViewChangeWatcherContext()
         {
-            events = new List<ViewChanged>();
+            events = ImmutableList.Create<ViewChanged>();
             ExpectChange(changed => false);
         }
 
         public void AddViewChangedEvent(ViewChanged toAdd)
         {
-            events.Add(toAdd);
+            events = events.Add(toAdd);
             NotifyIfChangeIsExpected(toAdd);
         }
 

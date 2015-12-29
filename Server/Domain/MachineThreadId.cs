@@ -4,8 +4,8 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
 {
     public class MachineThreadId : Equatable<MachineThreadId>
     {
-        public string MachineName { get; }
-        public int Thread { get; }
+        public string MachineName { get; private set; }
+        public int Thread { get; private set; }
 
         public static MachineThreadId Parse(string machine, int thread)
         {
@@ -13,8 +13,8 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
         }
         private MachineThreadId(string machine, int thread)
         {
-            this.MachineName = machine;
-            this.Thread = thread;
+            MachineName = machine;
+            Thread = thread;
         }
 
         public override bool Equals(MachineThreadId other)
@@ -26,7 +26,7 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
         {
             unchecked
             {
-                return (Thread.GetHashCode()*397) ^ (MachineName ?.GetHashCode() ?? 0);
+                return (Thread.GetHashCode()*397) ^ (MachineName.GetHashCode());
             }
         }
     }

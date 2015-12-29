@@ -1,16 +1,16 @@
-using System;
-using System.Collections.Generic;
-using SystemDot.Akka;
-using SystemDot.MessageRouteInspector.Server.Messages;
-using Akka.Event;
-
 namespace SystemDot.MessageRouteInspector.Server.Domain
 {
+    using System;
+    using System.Collections.Generic;
+    using SystemDot.Akka;
+    using SystemDot.MessageRouteInspector.Server.Messages;
+
     public class MessageRoute : AggregateEntity
     {
         readonly MessageRouteId routeId;
         readonly Stack<MessageRouteBranch> hierarchy = new Stack<MessageRouteBranch>();
         int openBranchCount;
+        DateTime createdOn;
 
         public MessageRoute(AggregateRootActor root) : base(root)
         {
@@ -19,6 +19,7 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
 
         public void Start(string messageName, MessageType messageType, DateTime createdOn, string machine, int thread)
         {
+            this.createdOn = createdOn;
             OpenBranch(messageName, messageType);
             Publish(new MessageRouteStarted(routeId, createdOn, machine, thread));
         }
@@ -70,12 +71,22 @@ namespace SystemDot.MessageRouteInspector.Server.Domain
         void CompleteBranch()
         {
             hierarchy.Peek().Complete();
+            if (IsComplete())
+            {
+                CompleteRoute();
+            }
         }
 
         void CompleteAllBranches()
         {
             hierarchy.Peek().Complete(openBranchCount);
+            CompleteRoute();
+        }
+
+        void CompleteRoute()
+        {
             openBranchCount = 0;
+            Publish(new MessageRouteEnded(routeId, createdOn));
         }
     }
 }

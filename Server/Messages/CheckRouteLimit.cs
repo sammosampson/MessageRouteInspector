@@ -4,7 +4,14 @@ namespace SystemDot.MessageRouteInspector.Server.Messages
 
     public class CheckRouteLimit
     {
-        public Guid RouteId { get; set; }
-        public DateTime CreatedOn { get; set; }
+        public Guid RouteId { get; private set; }
+
+        public DateTime CreatedOn { get; private set; }
+
+        public CheckRouteLimit(Guid routeId, DateTime createdOn)
+        {
+            RouteId = routeId;
+            CreatedOn = createdOn;
+        }
     }
 }

@@ -24,7 +24,7 @@ namespace SystemDot.MessageRouteInspector.Server.Domain.Limits
             {
                 var toRemove = routes.OrderByDescending(r => r.CreatedOn).Last();
                 routes.Remove(toRemove);
-                Publish(new MessageRouteLimitReached { ToRemove = toRemove.RouteId});
+                Publish(new MessageRouteLimitReached(toRemove.RouteId));
             }
 
             routes.Add(new Route(message.RouteId, message.CreatedOn));

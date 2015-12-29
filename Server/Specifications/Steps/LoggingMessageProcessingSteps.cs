@@ -74,6 +74,12 @@ namespace SystemDot.MessageRouteInspector.Server.Specifications.Steps
             viewChangeWatcherContext.WaitForChange<RoutesView, MessageBranchCompleted>(e => e.MessageName == expectedMessageName);
         }
 
+        [Given(@"I wait for a message to be removed from the view")]
+        public void GivenIWaitForAMessageToBeRemovedFromTheView()
+        {
+            viewChangeWatcherContext.WaitForChange<RoutesView, MessageRouteLimitReached>();
+        }
+
         [When(@"I get all routes")]
         public void WhenIGetAllRoutes()
         {

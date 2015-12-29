@@ -25,14 +25,14 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl.Specifications.Steps
             executer = Bootstrapper.Bootstrap(1);
         }
 
-        [Given(@"I wait for the route to be populated in the view")]
-        public void GivenIWaitForTheRouteToBePopulatedInTheView()
+        [Given(@"I wait for the route mutation to complete")]
+        public void GivenIWaitForTheRouteMutationToComplete()
         {
             viewChangeWatcherContext.WaitForChange<RoutesView, MessageRouteStarted>();
         }
 
-        [Given(@"I wait for the message named '(.*)' to be populated on the route in the view")]
-        public void GivenIWaitForTheMessageNamedToBePopulatedOnTheRouteInTheView(string expectedMessageName)
+        [Given(@"I wait for the message mutation for '(.*)' to complete")]
+        public void GivenIWaitForTheMessageMutationForToComplete(string expectedMessageName)
         {
             viewChangeWatcherContext.WaitForChange<RoutesView, MessageBranchCompleted>(e => e.MessageName == expectedMessageName);
         }
