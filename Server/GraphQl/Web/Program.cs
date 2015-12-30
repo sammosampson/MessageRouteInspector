@@ -2,7 +2,6 @@
 namespace SystemDot.MessageRouteInspector.Server.GraphQl.Web
 {
     using System;
-    using System.Collections.Generic;
     using Microsoft.Owin.Hosting;
     using Owin;
 

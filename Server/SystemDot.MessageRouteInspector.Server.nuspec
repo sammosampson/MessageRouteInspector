@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>SystemDot.MessageRouteInspector.Server</id>
+        <version>1.0.0</version>
+        <title>SystemDot.MessageRouteInspector.Client</title>
+        <authors>Chris Sampson,James Goodenough</authors>
+        <owners>SystemDot</owners>
+        <requireLicenseAcceptance>false</requireLicenseAcceptance>
+        <description>Message route inspector server</description>
+        <summary>Message route inspector server</summary>
+        <copyright>SystemDot 2015</copyright>
+        <language>en-GB</language>
+        <tags>Messaging, Route, Inspection</tags>
+        <dependencies>
+          <dependency id="Newtonsoft.Json" version="7.0.1" />
+          <dependency id="Akka" version="1.0.5" />
+          <dependency id="SystemDotAkka" version="1.0.0" />
+          <dependency id="System.Collections.Immutable" version="1.1.37" />
+          <dependency id="SystemDotBootstrapping" version="1.0.5" />
+          <dependency id="SystemDotEnvironment" version="1.2.0" />
+          <dependency id="GraphQL" version="0.4.0.0" />
+          <dependency id="Owin" version="1.0" />
+          <dependency id="Microsoft.Owin" version="3.0.1" />
+          <dependency id="Microsoft.Owin.SelfHost" version="3.0.1" />
+          <dependency id="Microsoft.Owin.Hosting" version="3.0.1" />
+          <dependency id="Microsoft.Owin.Diagnostics" version="3.0.1" />
+          <dependency id="Microsoft.Owin.Host.HttpListener" version="3.0.1" />
+        </dependencies>
+    </metadata>
+    <files>
+        <file src="Build\SystemDot.MessageRouteInspector.Server.dll" target="lib\net\SystemDot.MessageRouteInspector.Server.dll" />
+	      <file src="Build\SystemDot.MessageRouteInspector.Server.pdb" target="lib\net\SystemDot.MessageRouteInspector.Server.pdb" />
+        <file src="Build\SystemDot.MessageRouteInspector.Server.GraphQl.dll" target="lib\net\SystemDot.MessageRouteInspector.Server.GraphQl.dll" />
+	      <file src="Build\SystemDot.MessageRouteInspector.Server.GraphQl.pdb" target="lib\net\SystemDot.MessageRouteInspector.Server.GraphQl.pdb" />
+        <file src="Build\SystemDot.MessageRouteInspector.Server.GraphQl.Web.dll" target="lib\net\SystemDot.MessageRouteInspector.Server.GraphQl.Web.dll" />
+	      <file src="Build\SystemDot.MessageRouteInspector.Server.GraphQl.Web.pdb" target="lib\net\SystemDot.MessageRouteInspector.Server.GraphQl.Web.pdb" />
+    </files>
+</package>

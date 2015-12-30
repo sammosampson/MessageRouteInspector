@@ -37,14 +37,9 @@ C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\System.Col
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Bootstrapping.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Bootstrapping.Windows.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Core.dll
-C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Domain.dll
-C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Domain.Windows.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Environment.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Environment.Windows.dll
-C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.EventSourcing.dll
-C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.EventSourcing.InMemory.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Ioc.dll
-C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Messaging.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Reflection.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Reflection.Windows.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.ThreadMarshalling.dll
@@ -54,14 +49,9 @@ C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\System.Col
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Bootstrapping.pdb
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Bootstrapping.Windows.pdb
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Core.pdb
-C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Domain.pdb
-C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Domain.Windows.pdb
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Environment.pdb
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Environment.Windows.pdb
-C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.EventSourcing.pdb
-C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.EventSourcing.InMemory.pdb
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Ioc.pdb
-C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Messaging.pdb
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Reflection.pdb
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Reflection.Windows.pdb
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.ThreadMarshalling.pdb
@@ -133,3 +123,7 @@ E:\Work\MessageRouteInspector\Server\Build\Akka.dll
 E:\Work\MessageRouteInspector\Server\Build\Akka.xml
 E:\Work\MessageRouteInspector\Server\obj\Debug\MessageRouteInspector.Server.csprojResolveAssemblyReference.cache
 E:\Work\MessageRouteInspector\Server\Build\SystemDot.Akka.pdb
+C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Akka.dll
+C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Akka.dll
+C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Akka.xml
+C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Akka.pdb
