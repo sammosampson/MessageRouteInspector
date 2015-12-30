@@ -4,6 +4,6 @@
 
     public interface IGraphQlServer
     {
-        Task SendAsync(GraphQlServerUri url, string graphQl);
+        Task SendAsync(GraphQlServerUri url, GraphQlMutation graphQl);
     }
 }

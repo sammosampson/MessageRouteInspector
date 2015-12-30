@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>SystemDot.MessageRouteInspector.Server</id>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
         <title>SystemDot.MessageRouteInspector.Client</title>
         <authors>Chris Sampson,James Goodenough</authors>
         <owners>SystemDot</owners>
@@ -17,6 +17,7 @@
           <dependency id="Akka" version="1.0.5" />
           <dependency id="SystemDotAkka" version="1.0.0" />
           <dependency id="System.Collections.Immutable" version="1.1.37" />
+          <dependency id="SystemDotCore" version="3.3.0" />
           <dependency id="SystemDotBootstrapping" version="1.0.5" />
           <dependency id="SystemDotEnvironment" version="1.2.0" />
           <dependency id="GraphQL" version="0.4.0.0" />

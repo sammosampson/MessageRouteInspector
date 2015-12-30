@@ -8,10 +8,10 @@
     {
         readonly HttpClient client = new HttpClient();
 
-        public async Task SendAsync(GraphQlServerUri url, string graphQl)
+        public async Task SendAsync(GraphQlServerUri url, GraphQlMutation graphQl)
         {
-            HttpContent body = new StringContent(graphQl);
-            body.Headers.ContentType = MediaTypeHeaderValue.Parse("application/graphql");
+            HttpContent body = new StringContent(graphQl.ToString());
+            body.Headers.ContentType = MediaTypeHeaderValue.Parse("application/json");
             HttpResponseMessage response = await client.PostAsync(url, body);
             response.EnsureSuccessStatusCode();
         }

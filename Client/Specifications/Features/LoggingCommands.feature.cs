@@ -90,9 +90,9 @@ this.FeatureBackground();
  testRunner.When("I log command processing for a command named \'TestCommand\' from machine \'TestMach" +
                     "ine\' on thread 1 on \'09/21/2015 00:00:00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 8
- testRunner.Then("graphQL should be posted of \'mutation logCommandProcessing { logCommandProcessing" +
-                    "(name: \"TestCommand\", machine: \"TestMachine\", thread: 1, createdOn: \"63578390400" +
-                    "0000000\") }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("graphQL should be posted of \'{\"query\":\"mutation logCommandProcessing { logCommand" +
+                    "Processing(name: \"TestCommand\", machine: \"TestMachine\", thread: 1, createdOn: \"6" +
+                    "35783904000000000\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 9
  testRunner.And("it should be posted to \'http://test.com\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -113,9 +113,9 @@ this.FeatureBackground();
  testRunner.When("I log event processing for a command named \'TestEvent\' from machine \'TestMachine\'" +
                     " on thread 1 on \'09/21/2015 00:00:00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 13
- testRunner.Then("graphQL should be posted of \'mutation logEventProcessing { logEventProcessing(nam" +
-                    "e: \"TestEvent\", machine: \"TestMachine\", thread: 1, createdOn: \"63578390400000000" +
-                    "0\") }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("graphQL should be posted of \'{\"query\":\"mutation logEventProcessing { logEventProc" +
+                    "essing(name: \"TestEvent\", machine: \"TestMachine\", thread: 1, createdOn: \"6357839" +
+                    "04000000000\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 14
  testRunner.And("it should be posted to \'http://test.com\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -136,9 +136,9 @@ this.FeatureBackground();
  testRunner.When("I log message processing failure for a command named \'TestFailure\' from machine \'" +
                     "TestMachine\' on thread 1 on \'09/21/2015 00:00:00\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 18
- testRunner.Then("graphQL should be posted of \'mutation logMessageProcessingFailure { logMessagePro" +
-                    "cessingFailure(name: \"TestFailure\", machine: \"TestMachine\", thread: 1, createdOn" +
-                    ": \"635783904000000000\") }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("graphQL should be posted of \'{\"query\":\"mutation logMessageProcessingFailure { log" +
+                    "MessageProcessingFailure(name: \"TestFailure\", machine: \"TestMachine\", thread: 1," +
+                    " createdOn: \"635783904000000000\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 19
  testRunner.And("it should be posted to \'http://test.com\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -158,8 +158,8 @@ this.FeatureBackground();
 #line 22
  testRunner.When("I log message processed for a from machine \'TestMachine\' on thread 1", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 23
- testRunner.Then("graphQL should be posted of \'mutation logMessageProcessed { logMessageProcessed(m" +
-                    "achine: \"TestMachine\", thread: 1) }\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("graphQL should be posted of \'{\"query\":\"mutation logMessageProcessed { logMessageP" +
+                    "rocessed(machine: \"TestMachine\", thread: 1) }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 24
  testRunner.And("it should be posted to \'http://test.com\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden

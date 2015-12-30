@@ -16,48 +16,48 @@
 
         public async Task LogCommandProcessingAsync(string name, string machineName, int threadId, DateTime loggedOn)
         {
-            var graphQl = string.Format(
-                "mutation logCommandProcessing {{ logCommandProcessing(name: \"{0}\", machine: \"{1}\", thread: {2}, createdOn: \"{3}\") }}",
-                name,
-                machineName,
-                threadId,
-                loggedOn.Ticks);
-
-            await server.SendAsync(uri, graphQl);
+            await server.SendAsync(
+                uri, 
+                GraphQlMutation
+                    .Named("logCommandProcessing")
+                    .WithArgument("name", name)
+                    .WithArgument("machine", machineName)
+                    .WithArgument("thread", threadId)
+                    .WithArgument("createdOn", loggedOn.Ticks.ToString()));
         }
         
         public async Task LogEventProcessingAsync(string name, string machineName, int threadId, DateTime loggedOn)
         {
-            var graphQl = string.Format(
-                "mutation logEventProcessing {{ logEventProcessing(name: \"{0}\", machine: \"{1}\", thread: {2}, createdOn: \"{3}\") }}",
-                name,
-                machineName,
-                threadId,
-                loggedOn.Ticks);
-
-            await server.SendAsync(uri, graphQl);
+            await server.SendAsync(
+                uri,
+                GraphQlMutation
+                    .Named("logEventProcessing")
+                    .WithArgument("name", name)
+                    .WithArgument("machine", machineName)
+                    .WithArgument("thread", threadId)
+                    .WithArgument("createdOn", loggedOn.Ticks.ToString()));
         }
 
         public async Task LogMessageProcessingFailureAsync(string name, string machineName, int threadId, DateTime loggedOn)
         {
-            var graphQl = string.Format(
-                "mutation logMessageProcessingFailure {{ logMessageProcessingFailure(name: \"{0}\", machine: \"{1}\", thread: {2}, createdOn: \"{3}\") }}",
-                name,
-                machineName,
-                threadId,
-                loggedOn.Ticks);
-
-            await server.SendAsync(uri, graphQl);
+            await server.SendAsync(
+                uri,
+                GraphQlMutation
+                    .Named("logMessageProcessingFailure")
+                    .WithArgument("name", name)
+                    .WithArgument("machine", machineName)
+                    .WithArgument("thread", threadId)
+                    .WithArgument("createdOn", loggedOn.Ticks.ToString()));
         }
 
         public async Task LogMessageProcessedAsync(string machineName, int threadId)
         {
-            var graphQl = string.Format(
-                "mutation logMessageProcessed {{ logMessageProcessed(machine: \"{0}\", thread: {1}) }}",
-                machineName,
-                threadId);
-
-            await server.SendAsync(uri, graphQl);
+            await server.SendAsync(
+               uri,
+               GraphQlMutation
+                   .Named("logMessageProcessed")
+                   .WithArgument("machine", machineName)
+                   .WithArgument("thread", threadId));
         }
     }
 }

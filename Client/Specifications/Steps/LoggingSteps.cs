@@ -49,7 +49,7 @@
         [Then(@"graphQL should be posted of '(.*)'")]
         public void ThenGraphQLShouldBePostedOf(string graphQl)
         {
-            graphQlServer.GraphQl.Should().Be(graphQl);
+            graphQlServer.GraphQl.ToString().Should().Be(graphQl);
         }
 
         [Then(@"it should be posted to '(.*)'")]

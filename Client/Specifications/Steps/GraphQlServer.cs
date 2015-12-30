@@ -5,10 +5,10 @@
 
     public class GraphQlServer : IGraphQlServer
     {
-        public string GraphQl { get; private set; }
+        public GraphQlMutation GraphQl { get; private set; }
         public GraphQlServerUri Url { get; private set; }
 
-        public async Task SendAsync(GraphQlServerUri url, string graphQl)
+        public async Task SendAsync(GraphQlServerUri url, GraphQlMutation graphQl)
         {
             GraphQl = graphQl;
             Url = url;
