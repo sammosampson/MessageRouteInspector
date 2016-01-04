@@ -127,8 +127,8 @@ this.ScenarioSetup(scenarioInfo);
 this.FeatureBackground();
 #line 20
  testRunner.Given("I have sent the following query \'{\"query\":\"mutation logCommandProcessing { logCom" +
-                    "mandProcessing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"000000" +
-                    "00000001\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+                    "mandProcessing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"635871" +
+                    "501919133874\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 21
  testRunner.And("I wait for the route mutation to complete", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 22
@@ -136,7 +136,7 @@ this.FeatureBackground();
                     "On, machine } } }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 23
- testRunner.Then("I should be returned", "{\"data\":{\"viewer\":{\"routes\":[{\"createdOn\":\"0001-01-01 00:00:00\",\"machine\":\"CSAMPS" +
+ testRunner.Then("I should be returned", "{\"data\":{\"viewer\":{\"routes\":[{\"createdOn\":\"2015-12-31 09:16:31\",\"machine\":\"CSAMPS" +
                     "ON1700\"}]}}}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
@@ -154,8 +154,8 @@ this.ScenarioSetup(scenarioInfo);
 this.FeatureBackground();
 #line 29
  testRunner.Given("I have sent the following query \'{\"query\":\"mutation logCommandProcessing { logCom" +
-                    "mandProcessing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"000000" +
-                    "00000001\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+                    "mandProcessing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"635871" +
+                    "501919133874\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 30
  testRunner.And("I have sent the following query \'{\"query\":\"mutation logMessageProcessed { logMess" +
                     "ageProcessed(machine: \"CSAMPSON1700\", thread: 1) }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -167,7 +167,7 @@ this.FeatureBackground();
                     "s\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 33
- testRunner.Then("I should be returned", "{\"data\":{\"viewer\":{\"routes\":[{\"createdOn\":\"0001-01-01 00:00:00\",\"machine\":\"CSAMPS" +
+ testRunner.Then("I should be returned", "{\"data\":{\"viewer\":{\"routes\":[{\"createdOn\":\"2015-12-31 09:16:31\",\"machine\":\"CSAMPS" +
                     "ON1700\",\"root\":{\"name\":\"X\",\"type\":0,\"closeBranchCount\":1},\"messages\":[{\"name\":\"X" +
                     "\"}]}]}}}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -186,8 +186,8 @@ this.ScenarioSetup(scenarioInfo);
 this.FeatureBackground();
 #line 39
  testRunner.Given("I have sent the following query \'{\"query\":\"mutation logEventProcessing { logEvent" +
-                    "Processing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"0000000000" +
-                    "0001\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+                    "Processing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"6358715019" +
+                    "19133874\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 40
  testRunner.And("I have sent the following query \'{\"query\":\"mutation logMessageProcessed { logMess" +
                     "ageProcessed(machine: \"CSAMPSON1700\", thread: 1) }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -199,7 +199,7 @@ this.FeatureBackground();
                     "s\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 43
- testRunner.Then("I should be returned", "{\"data\":{\"viewer\":{\"routes\":[{\"createdOn\":\"0001-01-01 00:00:00\",\"machine\":\"CSAMPS" +
+ testRunner.Then("I should be returned", "{\"data\":{\"viewer\":{\"routes\":[{\"createdOn\":\"2015-12-31 09:16:31\",\"machine\":\"CSAMPS" +
                     "ON1700\",\"root\":{\"name\":\"X\",\"type\":1,\"closeBranchCount\":1},\"messages\":[{\"name\":\"X" +
                     "\"}]}]}}}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -218,12 +218,12 @@ this.ScenarioSetup(scenarioInfo);
 this.FeatureBackground();
 #line 49
  testRunner.Given("I have sent the following query \'{\"query\":\"mutation logCommandProcessing { logCom" +
-                    "mandProcessing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"000000" +
-                    "00000001\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+                    "mandProcessing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"635871" +
+                    "501919133874\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 50
  testRunner.And("I have sent the following query \'{\"query\":\"mutation logMessageProcessingFailure {" +
                     " logMessageProcessingFailure(name: \"A failure\", machine: \"CSAMPSON1700\", thread:" +
-                    " 1, createdOn: \"00000000000001\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                    " 1, createdOn: \"635871501919133874\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 51
  testRunner.And("I wait for the message mutation for \'A failure\' to complete", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 52
@@ -232,7 +232,7 @@ this.FeatureBackground();
                     "riables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 53
- testRunner.Then("I should be returned", "{\"data\":{\"viewer\":{\"routes\":[{\"createdOn\":\"0001-01-01 00:00:00\",\"machine\":\"CSAMPS" +
+ testRunner.Then("I should be returned", "{\"data\":{\"viewer\":{\"routes\":[{\"createdOn\":\"2015-12-31 09:16:31\",\"machine\":\"CSAMPS" +
                     "ON1700\",\"root\":{\"name\":\"X\",\"type\":0,\"closeBranchCount\":0},\"messages\":[{\"name\":\"X" +
                     "\",\"type\":0},{\"name\":\"A failure\",\"type\":2}]}]}}}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -251,8 +251,8 @@ this.ScenarioSetup(scenarioInfo);
 this.FeatureBackground();
 #line 59
  testRunner.Given("I have sent the following query \'{\"query\":\"mutation logCommandProcessing { logCom" +
-                    "mandProcessing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"000000" +
-                    "00000001\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+                    "mandProcessing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"635871" +
+                    "501919133874\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 60
  testRunner.And("I have sent the following query \'{\"query\":\"mutation logMessageProcessed { logMess" +
                     "ageProcessed(machine: \"CSAMPSON1700\", thread: 1) }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -264,7 +264,7 @@ this.FeatureBackground();
                     "reatedOn }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 63
- testRunner.Then("I should be returned", "{\"data\":{\"viewer\":{\"routes\":[{\"createdOn\":\"0001-01-01 00:00:00\"}]}}}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I should be returned", "{\"data\":{\"viewer\":{\"routes\":[{\"createdOn\":\"2015-12-31 09:16:31\"}]}}}", ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();
         }

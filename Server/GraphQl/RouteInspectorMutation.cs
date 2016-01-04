@@ -23,7 +23,7 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl
                     ctx.Arguments.Values.First().ToString(),
                     ctx.Arguments.Values.ElementAt(1).ToString(),
                     Int32.Parse(ctx.Arguments.Values.ElementAt(2).ToString()),
-                    new DateTime(Int32.Parse(ctx.Arguments.Values.ElementAt(3).ToString()))));
+                    new DateTime(Int64.Parse(ctx.Arguments.Values.ElementAt(3).ToString()))));
             
             Field<IntGraphType>(
                 "logEventProcessing",
@@ -39,7 +39,7 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl
                     ctx.Arguments.Values.First().ToString(),
                     ctx.Arguments.Values.ElementAt(1).ToString(),
                     Int32.Parse(ctx.Arguments.Values.ElementAt(2).ToString()),
-                    new DateTime(Int32.Parse(ctx.Arguments.Values.ElementAt(3).ToString()))));
+                    new DateTime(Int64.Parse(ctx.Arguments.Values.ElementAt(3).ToString()))));
             
             Field<IntGraphType>(
                 "logMessageProcessingFailure",
@@ -55,7 +55,7 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl
                     ctx.Arguments.Values.First().ToString(),
                     ctx.Arguments.Values.ElementAt(1).ToString(),
                     Int32.Parse(ctx.Arguments.Values.ElementAt(2).ToString()),
-                    new DateTime(Int32.Parse(ctx.Arguments.Values.ElementAt(3).ToString()))));
+                    new DateTime(Int64.Parse(ctx.Arguments.Values.ElementAt(3).ToString()))));
             
             Field<IntGraphType>(
                 "logMessageProcessed", 
