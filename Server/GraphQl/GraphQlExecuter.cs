@@ -22,7 +22,7 @@ namespace SystemDot.MessageRouteInspector.Server.GraphQl
             query = query
                 .Replace("{\"query\":\"", string.Empty)
                 .Replace("\",\"variables\":{}}", string.Empty)
-                .Replace("/\"", "\"");
+                .Replace("\\\"", "\"");
 
             ExecutionResult result = await executer.ExecuteAsync(new RouteInspectorSchema(), logger, query, null);
             return writer.Write(result);
