@@ -127,8 +127,8 @@ this.ScenarioSetup(scenarioInfo);
 this.FeatureBackground();
 #line 20
  testRunner.Given("I have sent the following query \'{\"query\":\"mutation logCommandProcessing { logCom" +
-                    "mandProcessing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"635871" +
-                    "501919133874\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+                    "mandProcessing(name: /\"X/\", machine: /\"CSAMPSON1700/\", thread: 1, createdOn: /\"6" +
+                    "35871501919133874/\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 21
  testRunner.And("I wait for the route mutation to complete", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 22
@@ -154,11 +154,11 @@ this.ScenarioSetup(scenarioInfo);
 this.FeatureBackground();
 #line 29
  testRunner.Given("I have sent the following query \'{\"query\":\"mutation logCommandProcessing { logCom" +
-                    "mandProcessing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"635871" +
-                    "501919133874\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+                    "mandProcessing(name: /\"X/\", machine: \"CSAMPSON1700\", thread: 1, createdOn: /\"635" +
+                    "871501919133874/\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 30
  testRunner.And("I have sent the following query \'{\"query\":\"mutation logMessageProcessed { logMess" +
-                    "ageProcessed(machine: \"CSAMPSON1700\", thread: 1) }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                    "ageProcessed(machine: /\"CSAMPSON1700/\", thread: 1) }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 31
  testRunner.And("I wait for the message mutation for \'X\' to complete", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 32
@@ -186,11 +186,11 @@ this.ScenarioSetup(scenarioInfo);
 this.FeatureBackground();
 #line 39
  testRunner.Given("I have sent the following query \'{\"query\":\"mutation logEventProcessing { logEvent" +
-                    "Processing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"6358715019" +
-                    "19133874\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+                    "Processing(name: /\"X/\", machine: /\"CSAMPSON1700/\", thread: 1, createdOn: /\"63587" +
+                    "1501919133874/\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 40
  testRunner.And("I have sent the following query \'{\"query\":\"mutation logMessageProcessed { logMess" +
-                    "ageProcessed(machine: \"CSAMPSON1700\", thread: 1) }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                    "ageProcessed(machine: /\"CSAMPSON1700/\", thread: 1) }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 41
  testRunner.And("I wait for the message mutation for \'X\' to complete", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 42
@@ -218,12 +218,12 @@ this.ScenarioSetup(scenarioInfo);
 this.FeatureBackground();
 #line 49
  testRunner.Given("I have sent the following query \'{\"query\":\"mutation logCommandProcessing { logCom" +
-                    "mandProcessing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"635871" +
-                    "501919133874\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+                    "mandProcessing(name: /\"X/\", machine: /\"CSAMPSON1700/\", thread: 1, createdOn: /\"6" +
+                    "35871501919133874/\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 50
  testRunner.And("I have sent the following query \'{\"query\":\"mutation logMessageProcessingFailure {" +
-                    " logMessageProcessingFailure(name: \"A failure\", machine: \"CSAMPSON1700\", thread:" +
-                    " 1, createdOn: \"635871501919133874\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                    " logMessageProcessingFailure(name: /\"A failure/\", machine: /\"CSAMPSON1700/\", thr" +
+                    "ead: 1, createdOn: /\"635871501919133874/\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 51
  testRunner.And("I wait for the message mutation for \'A failure\' to complete", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 52
@@ -251,11 +251,11 @@ this.ScenarioSetup(scenarioInfo);
 this.FeatureBackground();
 #line 59
  testRunner.Given("I have sent the following query \'{\"query\":\"mutation logCommandProcessing { logCom" +
-                    "mandProcessing(name: \"X\", machine: \"CSAMPSON1700\", thread: 1, createdOn: \"635871" +
-                    "501919133874\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+                    "mandProcessing(name: /\"X/\", machine: /\"CSAMPSON1700/\", thread: 1, createdOn: /\"6" +
+                    "35871501919133874/\") }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 60
  testRunner.And("I have sent the following query \'{\"query\":\"mutation logMessageProcessed { logMess" +
-                    "ageProcessed(machine: \"CSAMPSON1700\", thread: 1) }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+                    "ageProcessed(machine: /\"CSAMPSON1700/\", thread: 1) }\",\"variables\":{}}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 61
  testRunner.And("I wait for the message mutation for \'X\' to complete", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 62
