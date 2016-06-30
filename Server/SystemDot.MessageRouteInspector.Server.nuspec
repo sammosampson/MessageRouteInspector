@@ -2,8 +2,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>SystemDot.MessageRouteInspector.Server</id>
-        <version>1.0.4</version>
-        <title>SystemDot.MessageRouteInspector.Client</title>
+        <version>1.1.0</version>
+        <title>SystemDot.MessageRouteInspector.Server</title>
         <authors>Chris Sampson,James Goodenough</authors>
         <owners>SystemDot</owners>
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
