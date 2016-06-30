@@ -23,9 +23,21 @@ namespace SystemDot.MessageRouteInspector.Server
             return await Task.FromResult(1);
         }
 
+        public async Task<int> LogCommandProcessingAsync(string messageName, string machine, int thread, DateTime createdOn, string correlationId)
+        {
+            logger.Tell(new LogCommandProcessing(messageName, createdOn, machine, thread, correlationId));
+            return await Task.FromResult(1);
+        }
+
         public async Task LogEventProcessingAsync(string messageName, string machine, int thread, DateTime createdOn)
         {
             logger.Tell(new LogEventProcessing(messageName, createdOn, machine, thread));
+            await Task.FromResult(false);
+        }
+
+        public async Task LogEventProcessingAsync(string messageName, string machine, int thread, DateTime createdOn, string correlationId)
+        {
+            logger.Tell(new LogEventProcessing(messageName, createdOn, machine, thread, correlationId));
             await Task.FromResult(false);
         }
 
@@ -35,9 +47,21 @@ namespace SystemDot.MessageRouteInspector.Server
             await Task.FromResult(false);
         }
 
+        public async Task LogMessageProcessingFailureAsync(string failureName, string machine, int thread, DateTime createdOn, string correlationId)
+        {
+            logger.Tell(new LogMessageProcessingFailure(failureName, createdOn, machine, thread, correlationId));
+            await Task.FromResult(false);
+        }
+
         public async Task LogMessageProcessedAsync(string machine, int thread)
         {
             logger.Tell(new LogMessageProcessed(machine, thread));
+            await Task.FromResult(false);
+        }
+
+        public async Task LogMessageProcessedAsync(string machine, int thread, string correlationId)
+        {
+            logger.Tell(new LogMessageProcessed(machine, thread, correlationId));
             await Task.FromResult(false);
         }
 

@@ -33,7 +33,6 @@ E:\Work\MessageRouteInspector\Server\Build\System.Collections.Immutable.xml
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.MessageRouteInspector.Server.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.MessageRouteInspector.Server.pdb
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Newtonsoft.Json.dll
-C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\System.Collections.Immutable.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Bootstrapping.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Bootstrapping.Windows.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Core.dll
@@ -45,7 +44,6 @@ C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.ThreadMarshalling.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.ThreadMarshalling.Windows.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Newtonsoft.Json.xml
-C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\System.Collections.Immutable.xml
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Bootstrapping.pdb
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Bootstrapping.Windows.pdb
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Core.pdb
@@ -127,3 +125,5 @@ C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Akka.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Akka.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Akka.xml
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.Akka.pdb
+C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\System.Collections.Immutable.dll
+C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\System.Collections.Immutable.xml

@@ -136,6 +136,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>LoggingMessages.feature</DependentUpon>
     </Compile>
+    <Compile Include="Features\LoggingMessagesByCorrelation.feature.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoggingMessagesByCorrelation.feature</DependentUpon>
+    </Compile>
     <Compile Include="Steps\Bootstrapper.cs" />
     <Compile Include="Steps\LoggingMessageProcessingSteps.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -153,6 +158,10 @@
     <None Include="Features\LoggingMessages.feature">
       <Generator>SpecFlowSingleFileGenerator</Generator>
       <LastGenOutput>LoggingMessages.feature.cs</LastGenOutput>
+    </None>
+    <None Include="Features\LoggingMessagesByCorrelation.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>LoggingMessagesByCorrelation.feature.cs</LastGenOutput>
     </None>
     <None Include="packages.config" />
   </ItemGroup>

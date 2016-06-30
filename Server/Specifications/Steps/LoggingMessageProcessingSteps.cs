@@ -38,10 +38,22 @@ namespace SystemDot.MessageRouteInspector.Server.Specifications.Steps
             service.LogCommandProcessingAsync(name, machine, thread, createdOn).Wait();
         }
 
+        [Given(@"I have logged command processing for the message '(.*)' from machine '(.*)' on thread (.*) dated '(.*)' with correlation id '(.*)'")]
+        public void GivenIHaveLoggedCommandProcessingForTheMessageFromMachineOnThreadDatedWithCorrealtionId(string name, string machine, int thread, DateTime createdOn, string correlationId)
+        {
+            service.LogCommandProcessingAsync(name, machine, thread, createdOn, correlationId).Wait();
+        }
+
         [Given(@"I have logged event processing for the message '(.*)' from machine '(.*)' on thread (.*) dated '(.*)'")]
         public void GivenIHaveLoggedEventProcessingForTheMessageFromMachineOnThreadDated(string name, string machine, int thread, DateTime dated)
         {
             service.LogEventProcessingAsync(name, machine, thread, dated).Wait();
+        }
+
+        [Given(@"I have logged event processing for the message '(.*)' from machine '(.*)' on thread (.*) dated '(.*)' with correlation id '(.*)'")]
+        public void GivenIHaveLoggedEventProcessingForTheMessageFromMachineOnThreadDatedWithCorrealtionId(string name, string machine, int thread, DateTime createdOn, string correlationId)
+        {
+            service.LogEventProcessingAsync(name, machine, thread, createdOn, correlationId).Wait();
         }
 
         [Given(@"I have logged a failure with the name '(.*)' from machine '(.*)' on thread (.*) dated '(.*)'")]
@@ -50,11 +62,23 @@ namespace SystemDot.MessageRouteInspector.Server.Specifications.Steps
             service.LogMessageProcessingFailureAsync(name, machine, thread, dated).Wait();
         }
 
+        [Given(@"I have logged a failure with the name '(.*)' from machine '(.*)' on thread (.*) dated '(.*)' with correlation id '(.*)'")]
+        public void GivenIHaveLoggedAFailureWithTheNameFromMachineOnThreadDatedWithCorrelationId(string name, string machine, int thread, DateTime dated, string correlationId)
+        {
+            service.LogMessageProcessingFailureAsync(name, machine, thread, dated, correlationId).Wait();
+        }
+
         [Given(@"I have logged message processed from machine '(.*)' on thread (.*)")]
         public void GivenIHaveLoggedMessageProcessedFromMachineOnThread(string machine, int thread)
         {
             service.LogMessageProcessedAsync(machine, thread).Wait();
         }
+
+        [Given(@"I have logged message processed with correlation id '(.*)' from machine '(.*)' on thread (.*)")]
+        public void GivenIHaveLoggedMessageProcessedWithCorrelationIdFromMachineOnThread(string correlationId, string machine, int thread)
+        {
+            service.LogMessageProcessedAsync(machine, thread, correlationId).Wait();
+        } 
 
         [Given(@"I wait for the route to be populated in the view")]
         public void GivenIWaitForTheRouteToBePopulatedInTheView()

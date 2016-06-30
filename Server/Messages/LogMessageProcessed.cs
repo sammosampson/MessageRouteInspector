@@ -1,15 +1,14 @@
 namespace SystemDot.MessageRouteInspector.Server.Messages
 {
-    public class LogMessageProcessed
+    public class LogMessageProcessed : LogMessage
     {
-        public string Machine { get; private set; }
-
-        public int Thread { get; private set; }
-
-        public LogMessageProcessed(string machine, int thread)
+        public LogMessageProcessed(string machine, int thread) : base(machine, thread)
         {
-            Machine = machine;
-            Thread = thread;
+        }
+
+        public LogMessageProcessed(string machine, int thread, string correlationId)
+            : base(machine, thread, correlationId)
+        {
         }
     }
 }

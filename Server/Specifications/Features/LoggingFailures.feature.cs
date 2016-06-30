@@ -119,66 +119,109 @@ this.FeatureBackground();
         }
         
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
-        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Two routes from same machine and same thread message in message then failure")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("One route from correlated message then failure")]
         [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "LoggingFailures")]
-        public virtual void TwoRoutesFromSameMachineAndSameThreadMessageInMessageThenFailure()
+        public virtual void OneRouteFromCorrelatedMessageThenFailure()
         {
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Two routes from same machine and same thread message in message then failure", ((string[])(null)));
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("One route from correlated message then failure", ((string[])(null)));
 #line 23
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
 #line 24
  testRunner.Given("I have logged command processing for the message \'first\' from machine \'TestMachin" +
-                    "e\' on thread 1 dated \'09/21/1975 00:00:01\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+                    "e1\' on thread 1 dated \'09/21/1975 00:00:01\' with correlation id \'{2A0997AC-BFB0-" +
+                    "42C8-8FF7-32F637D4DB9A}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line 25
+ testRunner.And("I have logged a failure with the name \'massiveException\' from machine \'TestMachin" +
+                    "e2\' on thread 1 dated \'09/21/1975 00:00:02\' with correlation id \'{2A0997AC-BFB0-" +
+                    "42C8-8FF7-32F637D4DB9A}\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 26
+ testRunner.And("I wait for the message named \'massiveException\' to be populated on the route in t" +
+                    "he view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 27
+    testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 28
+ testRunner.Then("there should only be one route", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line 29
+ testRunner.And("there should a message at index 0 of the route\'s messages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 30
+ testRunner.And("that message should have the name \'first\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 31
+ testRunner.And("that message should have a close branch count of 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 32
+ testRunner.And("there should a message at index 1 of the route\'s messages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 33
+ testRunner.And("that message should have the name \'massiveException\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 34
+ testRunner.And("that message should have the type \'Failure\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 35
+ testRunner.And("that message should have a close branch count of 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            this.ScenarioCleanup();
+        }
+        
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("Two routes from same machine and same thread message in message then failure")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "LoggingFailures")]
+        public virtual void TwoRoutesFromSameMachineAndSameThreadMessageInMessageThenFailure()
+        {
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Two routes from same machine and same thread message in message then failure", ((string[])(null)));
+#line 37
+this.ScenarioSetup(scenarioInfo);
+#line 6
+this.FeatureBackground();
+#line 38
+ testRunner.Given("I have logged command processing for the message \'first\' from machine \'TestMachin" +
+                    "e\' on thread 1 dated \'09/21/1975 00:00:01\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 39
  testRunner.And("I have logged a failure with the name \'massiveException1\' from machine \'TestMachi" +
                     "ne\' on thread 1 dated \'09/21/1975 00:00:02\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 26
+#line 40
     testRunner.And("I have logged command processing for the message \'first\' from machine \'TestMachin" +
                     "e\' on thread 1 dated \'09/21/1975 00:00:03\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 27
+#line 41
  testRunner.And("I have logged a failure with the name \'massiveException2\' from machine \'TestMachi" +
                     "ne\' on thread 1 dated \'09/21/1975 00:00:04\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 28
+#line 42
     testRunner.And("I wait for the message named \'massiveException1\' to be populated on the route in " +
                     "the view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 29
+#line 43
     testRunner.And("I wait for the message named \'massiveException2\' to be populated on the route in " +
                     "the view", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 30
-    testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 31
- testRunner.Then("there should be a route at index 0 of all the routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line 32
- testRunner.And("there should a message at index 0 of the route\'s messages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 33
- testRunner.And("that message should have the name \'first\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 34
- testRunner.And("that message should have a close branch count of 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 35
- testRunner.And("there should a message at index 1 of the route\'s messages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 36
- testRunner.And("that message should have the name \'massiveException2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 37
- testRunner.And("that message should have the type \'Failure\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 38
- testRunner.And("that message should have a close branch count of 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 39
- testRunner.And("there should be a route at index 1 of all the routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 40
- testRunner.And("there should a message at index 0 of the route\'s messages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 41
- testRunner.And("that message should have the name \'first\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 42
- testRunner.And("that message should have a close branch count of 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 43
- testRunner.And("there should a message at index 1 of the route\'s messages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line 44
- testRunner.And("that message should have the name \'massiveException1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+    testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line 45
- testRunner.And("that message should have the type \'Failure\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Then("there should be a route at index 0 of all the routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line 46
+ testRunner.And("there should a message at index 0 of the route\'s messages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 47
+ testRunner.And("that message should have the name \'first\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 48
+ testRunner.And("that message should have a close branch count of 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 49
+ testRunner.And("there should a message at index 1 of the route\'s messages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 50
+ testRunner.And("that message should have the name \'massiveException2\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 51
+ testRunner.And("that message should have the type \'Failure\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 52
+ testRunner.And("that message should have a close branch count of 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 53
+ testRunner.And("there should be a route at index 1 of all the routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 54
+ testRunner.And("there should a message at index 0 of the route\'s messages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 55
+ testRunner.And("that message should have the name \'first\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 56
+ testRunner.And("that message should have a close branch count of 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 57
+ testRunner.And("there should a message at index 1 of the route\'s messages", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 58
+ testRunner.And("that message should have the name \'massiveException1\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 59
+ testRunner.And("that message should have the type \'Failure\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 60
  testRunner.And("that message should have a close branch count of 2", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             this.ScenarioCleanup();
@@ -190,16 +233,16 @@ this.FeatureBackground();
         public virtual void NoRouteCreatedFromFailureButNoPreviouslyLoggedMessage()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("No route created from failure but no previously logged message", ((string[])(null)));
-#line 48
+#line 62
 this.ScenarioSetup(scenarioInfo);
 #line 6
 this.FeatureBackground();
-#line 49
+#line 63
  testRunner.And("I have logged a failure with the name \'massiveException\' from machine \'TestMachin" +
                     "e\' on thread 1 dated \'09/21/1975 00:00:01\'", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line 50
+#line 64
     testRunner.When("I get all routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line 51
+#line 65
  testRunner.Then("there should not be any routes", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             this.ScenarioCleanup();

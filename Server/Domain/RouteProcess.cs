@@ -3,7 +3,7 @@ using SystemDot.MessageRouteInspector.Server.Messages;
 
 namespace SystemDot.MessageRouteInspector.Server.Domain
 {
-    internal class MachineThreadProcess : AggregateRootActor
+    internal class RouteProcess : AggregateRootActor
     {
         private MessageRoute currentRoute;
 
