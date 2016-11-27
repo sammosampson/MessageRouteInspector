@@ -1,10 +1,10 @@
-namespace SystemDot.MessageRouteInspector.Server.GraphQl.Web
+namespace SystemDot.MessageRouteInspector.Server.Web
 {
     using System;
     using System.Net;
     using System.Threading.Tasks;
     using Microsoft.Owin;
-    
+
     public class GraphQLServerMiddleware : OwinMiddleware
     {
         private readonly GraphQlExecuter executer;

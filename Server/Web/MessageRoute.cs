@@ -1,7 +1,6 @@
-using SystemDot.MessageRouteInspector.Server.Queries.Messages;
-
-namespace SystemDot.MessageRouteInspector.Server.GraphQl
+namespace SystemDot.MessageRouteInspector.Server.Web
 {
+    using SystemDot.MessageRouteInspector.Server.Queries.Messages;
     using GraphQL;
     using GraphQL.Types;
 

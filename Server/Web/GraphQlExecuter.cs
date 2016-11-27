@@ -1,9 +1,9 @@
-namespace SystemDot.MessageRouteInspector.Server.GraphQl
+namespace SystemDot.MessageRouteInspector.Server.Web
 {
     using System.Threading.Tasks;
     using GraphQL;
     using GraphQL.Http;
-    
+
     public class GraphQlExecuter
     {
         private readonly DocumentExecuter executer;

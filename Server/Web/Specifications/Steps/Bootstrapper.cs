@@ -1,11 +1,12 @@
-using SystemDot.Akka.Testing;
-using SystemDot.Bootstrapping;
-using SystemDot.Environment;
-using SystemDot.Ioc;
-using SystemDot.MessageRouteInspector.Server.Bootstrapping;
-
-namespace SystemDot.MessageRouteInspector.Server.GraphQl.Specifications.Steps
+namespace SystemDot.MessageRouteInspector.Server.Web.Specifications.Steps
 {
+    using SystemDot.Akka.Testing;
+    using SystemDot.Bootstrapping;
+    using SystemDot.Environment;
+    using SystemDot.Ioc;
+    using SystemDot.MessageRouteInspector.Server.Bootstrapping;
+    using SystemDot.MessageRouteInspector.Server.Web;
+
     public static class Bootstrapper
     {
         public static GraphQlExecuter Bootstrap(int limitOfStoredRoutes)

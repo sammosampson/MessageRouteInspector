@@ -1,4 +1,4 @@
-namespace SystemDot.MessageRouteInspector.Server.GraphQl.Web
+namespace SystemDot.MessageRouteInspector.Server.Web
 {
     using System.IO;
     using System.Text;

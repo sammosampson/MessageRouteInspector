@@ -1,4 +1,4 @@
-namespace SystemDot.MessageRouteInspector.Server.GraphQl
+namespace SystemDot.MessageRouteInspector.Server.Web
 {
     using GraphQL;
     using GraphQL.Types;

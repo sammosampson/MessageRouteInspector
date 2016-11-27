@@ -1,11 +1,11 @@
-﻿using SystemDot.Akka.Testing;
-using SystemDot.MessageRouteInspector.Server.Messages;
-using SystemDot.MessageRouteInspector.Server.Queries;
-using TechTalk.SpecFlow;
-
-namespace SystemDot.MessageRouteInspector.Server.GraphQl.Specifications.Steps
+﻿namespace SystemDot.MessageRouteInspector.Server.Web.Specifications.Steps
 {
+    using SystemDot.Akka.Testing;
+    using SystemDot.MessageRouteInspector.Server.Messages;
+    using SystemDot.MessageRouteInspector.Server.Queries;
+    using SystemDot.MessageRouteInspector.Server.Web;
     using FluentAssertions;
+    using TechTalk.SpecFlow;
 
     [Binding]
     public class QuerySteps
