@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>SystemDot.MessageRouteInspector.Server</id>
-        <version>1.1.0</version>
+        <version>1.2.3</version>
         <title>SystemDot.MessageRouteInspector.Server</title>
         <authors>Chris Sampson,James Goodenough</authors>
         <owners>SystemDot</owners>
@@ -13,28 +13,33 @@
         <language>en-GB</language>
         <tags>Messaging, Route, Inspection</tags>
         <dependencies>
-          <dependency id="Newtonsoft.Json" version="7.0.1" />
           <dependency id="Akka" version="1.0.5" />
-          <dependency id="SystemDotAkka" version="1.0.0" />
-          <dependency id="System.Collections.Immutable" version="1.1.37" />
-          <dependency id="SystemDotCore" version="3.3.0" />
-          <dependency id="SystemDotBootstrapping" version="1.0.5" />
-          <dependency id="SystemDotEnvironment" version="1.2.0" />
           <dependency id="GraphQL" version="0.4.0.0" />
-          <dependency id="Owin" version="1.0" />
+          <dependency id="jQuery" version="1.6.4" />
+          <dependency id="Microsoft.AspNet.SignalR" version="2.2.1" />
+          <dependency id="Microsoft.AspNet.SignalR.Core" version="2.2.1" />
+          <dependency id="Microsoft.AspNet.SignalR.JS" version="2.2.1" />
+          <dependency id="Microsoft.AspNet.SignalR.SystemWeb" version="2.2.1" />
           <dependency id="Microsoft.Owin" version="3.0.1" />
-          <dependency id="Microsoft.Owin.SelfHost" version="3.0.1" />
-          <dependency id="Microsoft.Owin.Hosting" version="3.0.1" />
-          <dependency id="Microsoft.Owin.Diagnostics" version="3.0.1" />
           <dependency id="Microsoft.Owin.Host.HttpListener" version="3.0.1" />
+          <dependency id="Microsoft.Owin.Host.SystemWeb" version="2.1.0" />
+          <dependency id="Microsoft.Owin.Hosting" version="3.0.1" />
+          <dependency id="Microsoft.Owin.Security" version="2.1.0" />
+          <dependency id="Newtonsoft.Json" version="7.0.1" />
+          <dependency id="Owin" version="1.0" />
+          <dependency id="System.Collections.Immutable" version="1.1.37" />
+          <dependency id="SystemDotAkka" version="1.0.0" />
+          <dependency id="SystemDotBootstrapping" version="1.0.5" />
+          <dependency id="SystemDotCore" version="3.3.0" />
+          <dependency id="SystemDotEnvironment" version="1.2.0" />
+          <dependency id="SystemDotIoc" version="1.3.2"/>
+          <dependency id="SystemDotReflection" version="1.0.3"/>
+          <dependency id="SystemDotThreadMarshalling" version="1.0.3"/>
+          <dependency id="Xam.Plugin.DeviceInfo" version="2.0.0"/>
         </dependencies>
     </metadata>
     <files>
         <file src="Build\SystemDot.MessageRouteInspector.Server.dll" target="lib\net\SystemDot.MessageRouteInspector.Server.dll" />
 	      <file src="Build\SystemDot.MessageRouteInspector.Server.pdb" target="lib\net\SystemDot.MessageRouteInspector.Server.pdb" />
-        <file src="Build\SystemDot.MessageRouteInspector.Server.GraphQl.dll" target="lib\net\SystemDot.MessageRouteInspector.Server.GraphQl.dll" />
-	      <file src="Build\SystemDot.MessageRouteInspector.Server.GraphQl.pdb" target="lib\net\SystemDot.MessageRouteInspector.Server.GraphQl.pdb" />
-        <file src="Build\SystemDot.MessageRouteInspector.Server.GraphQl.Web.dll" target="lib\net\SystemDot.MessageRouteInspector.Server.GraphQl.Web.dll" />
-	      <file src="Build\SystemDot.MessageRouteInspector.Server.GraphQl.Web.pdb" target="lib\net\SystemDot.MessageRouteInspector.Server.GraphQl.Web.pdb" />
     </files>
 </package>
