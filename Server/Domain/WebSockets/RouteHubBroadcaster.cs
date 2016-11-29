@@ -1,16 +1,15 @@
 namespace SystemDot.MessageRouteInspector.Server.Domain.WebSockets
 {
     using SystemDot.Akka;
-    using SystemDot.MessageRouteInspector.Server.Bootstrapping;
     using SystemDot.MessageRouteInspector.Server.Messages;
 
     public class RouteHubBroadcaster : ViewActor
     {
-        private readonly IMessageRouteHubLocator hubLocator;
+        private readonly IMessageRouteHubClient hubClient;
 
-        public RouteHubBroadcaster(IMessageRouteHubLocator hubLocator)
+        public RouteHubBroadcaster(IMessageRouteHubClient hubClient)
         {
-            this.hubLocator = hubLocator;
+            this.hubClient = hubClient;
             ProjectEvent<MessageRouteStarted>(Handle);
             ProjectEvent<MessageRouteEnded>(Handle);
             ProjectEvent<MessageBranchCompleted>(Handle);
@@ -18,17 +17,17 @@ namespace SystemDot.MessageRouteInspector.Server.Domain.WebSockets
 
         private void Handle(MessageRouteStarted message)
         {
-            hubLocator.Locate().MessageRouteStarted(message.Id, message.CreatedOn, message.MachineName, message.Thread);
+            hubClient.MessageRouteStarted(message.Id.ToString(), message.CreatedOn.Ticks, message.MachineName, message.Thread);
         }
 
         private void Handle(MessageRouteEnded message)
         {
-            hubLocator.Locate().MessageRouteEnded(message.Id, message.CreatedOn);
+            hubClient.MessageRouteEnded(message.Id.ToString(), message.CreatedOn.Ticks);
         }
 
         private void Handle(MessageBranchCompleted message)
         {
-            hubLocator.Locate().MessageBranchCompleted(message.RouteId, message.MessageId, message.MessageName, message.MessageType, message.CloseBranchCount);
+            hubClient.MessageBranchCompleted(message.RouteId.ToString(), message.MessageId.ToString(), message.MessageName, message.MessageType, message.CloseBranchCount);
         }
     }
 }

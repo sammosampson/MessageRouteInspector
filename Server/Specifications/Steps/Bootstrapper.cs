@@ -21,7 +21,7 @@ namespace SystemDot.MessageRouteInspector.Server.Specifications.Steps
                 .UseEnvironment()
                 .ConfigureRouteInspectorServer()
                     .UsingActorSystemFactory<TestingActorSystemFactory>()
-                    .UsingRouteHubLocator<TestingRouteHubLocator>()
+                    .UsingRouteHubClient<TestingRouteHubClient>()
                     .WithRouteLimitOf(limit)
                 .Initialise();
 
@@ -29,25 +29,17 @@ namespace SystemDot.MessageRouteInspector.Server.Specifications.Steps
         }
     }
 
-    public class TestingRouteHubLocator : IMessageRouteHubLocator
+    public class TestingRouteHubClient : IMessageRouteHubClient
     {
-        public IMessageRouteHub Locate()
-        {
-            return new TestingMessageRouteHub();
-        }
-    }
-
-    public class TestingMessageRouteHub : IMessageRouteHub
-    {
-        public void MessageRouteStarted(Guid id, DateTime createdOn, string machineName, int thread)
+        public void MessageRouteStarted(string id, long createdOn, string machineName, int thread)
         {
         }
 
-        public void MessageRouteEnded(Guid id, DateTime createdOn)
+        public void MessageRouteEnded(string id, long createdOn)
         {
         }
 
-        public void MessageBranchCompleted(Guid routeId, Guid messageId, string messageName, MessageType messageType, int closeBranchCount)
+        public void MessageBranchCompleted(string routeId, string messageId, string messageName, int messageType, int closeBranchCount)
         {
         }
     }

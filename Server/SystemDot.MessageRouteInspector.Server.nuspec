@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
     <metadata>
         <id>SystemDot.MessageRouteInspector.Server</id>
-        <version>1.2.4</version>
+        <version>1.2.9</version>
         <title>SystemDot.MessageRouteInspector.Server</title>
         <authors>Chris Sampson,James Goodenough</authors>
         <owners>SystemDot</owners>
@@ -15,15 +15,13 @@
         <dependencies>
           <dependency id="Akka" version="1.0.5" />
           <dependency id="GraphQL" version="0.4.0.0" />
-          <dependency id="Microsoft.AspNet.SignalR" version="2.2.1" />
           <dependency id="Microsoft.AspNet.SignalR.Core" version="2.2.1" />
-          <dependency id="Microsoft.AspNet.SignalR.JS" version="2.2.1" />
-          <dependency id="Microsoft.AspNet.SignalR.SystemWeb" version="2.2.1" />
+          <dependency id="Microsoft.AspNet.SignalR.SelfHost" version="2.2.1" />
           <dependency id="Microsoft.Owin" version="3.0.1" />
           <dependency id="Microsoft.Owin.Host.HttpListener" version="3.0.1" />
-          <dependency id="Microsoft.Owin.Host.SystemWeb" version="2.1.0" />
+          <dependency id="Microsoft.Owin.Host.SystemWeb" version="3.0.1" />
           <dependency id="Microsoft.Owin.Hosting" version="3.0.1" />
-          <dependency id="Microsoft.Owin.Security" version="2.1.0" />
+          <dependency id="Microsoft.Owin.Security" version="3.0.1" />
           <dependency id="Newtonsoft.Json" version="7.0.1" />
           <dependency id="Owin" version="1.0" />
           <dependency id="System.Collections.Immutable" version="1.1.37" />

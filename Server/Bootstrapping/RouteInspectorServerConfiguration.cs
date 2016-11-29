@@ -11,13 +11,13 @@ namespace SystemDot.MessageRouteInspector.Server.Bootstrapping
     public class RouteInspectorServerConfiguration : BootstrapBuilderConfiguration
     {
         private IActorSystemFactory factory;
-        private IMessageRouteHubLocator hubLocator;
+        private IMessageRouteHubClient hubClient;
 
         public RouteInspectorServerConfiguration(BootstrapBuilderConfiguration @from)
             : base(@from)
         {
             factory = new ActorSystemFactory();
-            hubLocator = new MessageRouteHubLocator();
+            hubClient = new MessageRouteHubClient();
         }
 
         public RouteInspectorServerConfiguration UsingActorSystemFactory<TActorSystemFactory>()
@@ -27,10 +27,10 @@ namespace SystemDot.MessageRouteInspector.Server.Bootstrapping
             return this;
         }
 
-        public RouteInspectorServerConfiguration UsingRouteHubLocator<TRouteHubLocator>()
-           where TRouteHubLocator : IMessageRouteHubLocator
+        public RouteInspectorServerConfiguration UsingRouteHubClient<TRouteHub>()
+           where TRouteHub : IMessageRouteHubClient
         {
-            hubLocator = GetIocContainer().Resolve<TRouteHubLocator>();
+            hubClient = GetIocContainer().Resolve<TRouteHub>();
             return this;
         }
 
@@ -46,7 +46,7 @@ namespace SystemDot.MessageRouteInspector.Server.Bootstrapping
                 system.ActorOf(Props.Create(() => new RouteLimitArbitrationProcessManager(routeLimitArbiter)));
 
                 IActorRef logger = system.ActorOf(Props.Create(() => new MessageLogger()));
-                system.ActorOf(Props.Create(() => new RouteHubBroadcaster(hubLocator)));
+                system.ActorOf(Props.Create(() => new RouteHubBroadcaster(hubClient)));
 
                 c.RegisterInstance(() => new RouteInspectorService(routesView, logger));
             });

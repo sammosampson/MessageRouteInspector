@@ -50,8 +50,7 @@ C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\SystemDot.ThreadMarshalling.Windows.pdb
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\obj\Debug\SystemDot.MessageRouteInspector.Server.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\obj\Debug\SystemDot.MessageRouteInspector.Server.pdb
-C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Microsoft.AspNet.SignalR.SystemWeb.dll
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Microsoft.AspNet.SignalR.SystemWeb.xml
 C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\obj\Debug\MessageRouteInspector.Server.csprojResolveAssemblyReference.cache
+C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Microsoft.Owin.Diagnostics.dll
+C:\Users\csampson\Documents\GitHub\MessageRouteInspector\Server\Build\Microsoft.Owin.Diagnostics.xml
